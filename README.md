@@ -82,9 +82,9 @@ GitHub Pages:
 
 1. Open your repository page settings, i.e. `https://github.com/<USERNAME>/<REPOSITORY_NAME>/settings/pages` where USERNAME is your GitHub user, for instance `jorgevrgs`, and REPOSITORY_NAME is the name of the GitHub repository, for example `portfolio`.
 
-1. Find the `Source` section and select the Branch, default is `main` and click on `Save` button.
+2. Find the `Source` section and select the Branch, default is `main` and click on `Save` button.
 
-1. As a result your page will be published at `https://<USERNAME>.github.io/<REPOSITORY_NAME>`.
+3. As a result your page will be published at `https://<USERNAME>.github.io/<REPOSITORY_NAME>`.
 
 ## Authors
 
