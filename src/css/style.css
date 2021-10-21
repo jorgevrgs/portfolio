@@ -11,6 +11,9 @@
   --color-secondary: #fff;
   --color-white: #fff;
   --color-cyan: #98dede;
+  --color-blue: #1c528a;
+  --color-red: #e2505c;
+  --color-yellow: #febf52;
   --font-primary: "Playfair Display", serif;
   --font-secondary: poppins, sans-serif;
 }
@@ -205,12 +208,64 @@ html {
   margin-inline-start: 20px;
 }
 
+.skills {
+  display: grid;
+  grid-template: 289px / 1fr;
+  gap: 10px;
+  margin-block-start: 40px;
+}
+
+.skill {
+  padding: 50px;
+  font-size: 18px;
+}
+
+.skill .skill-title {
+  margin-block-end: 21px;
+  font-size: 20px;
+}
+
+.skill-items {
+  list-style-position: inside;
+}
+
+.skills .skill:first-child {
+  background-image: url(../images/ic_languages_mob.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.skills .skill:nth-child(2) {
+  background-image: url(../images/ic_framework.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.skills .skill:last-child {
+  background-image: url(../images/ic_skills.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
 /* End About Secion */
 
 /* Utils */
 
 .bg-primary {
   background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.bg-blue {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.bg-red {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.bg-yellow {
+  background-color: var(--color-yellow);
   color: var(--color-white);
 }
 
