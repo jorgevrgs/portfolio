@@ -6,7 +6,7 @@
   "scripts": {
     "build:css": "gulp styles",
     "watch:css": "gulp watch",
-    "lint:css": "npx stylelint '**/*.{css,scss}'",
+    "lint:css": "npx stylelint 'src/**/*.{css,scss}'",
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:html": "npx hint .",
     "test": "npm run lint:css && npm run lint:html && echo '\u001b[36m' && echo '✅ All test approved!' && echo '\u001b[0m'"
