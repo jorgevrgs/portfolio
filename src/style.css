@@ -92,5 +92,19 @@ html {
   padding-inline: 42px;
   background-color: var(--color-primary);
   color: var(--color-white);
+  border: 1px solid var(--color-primary);
   width: 100%;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn:focus {
+  border-width: 2px;
+  padding-block: 11px;
 }
