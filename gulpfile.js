@@ -15,7 +15,7 @@ task("styles", async function () {
     //     uglyComments: true,
     //   })
     // )
-    .pipe(dest("css"));
+    .pipe(dest("assets"));
 });
 
 task("watch", async function () {
