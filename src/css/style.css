@@ -25,6 +25,53 @@ html {
   font-weight: normal;
 }
 
+/* Utils */
+
+.bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.bg-blue {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+.bg-red {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.bg-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-white);
+}
+
+.d-none {
+  display: none;
+}
+
+/* End Utils */
+
+/* Icons */
+.icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-download {
+  background-image: url(../images/ic_download.svg);
+}
+
+.icon-arrow-right {
+  background-image: url(../images/ic_arrow_right.svg);
+}
+
+/* End Icons */
+
 /* Buttons */
 .btn {
   border: none;
@@ -66,6 +113,10 @@ html {
   background-color: var(--color-primary);
   color: var(--color-primary);
   border: 1px solid var(--color-secondary);
+}
+
+.btn:hover .icon {
+  filter: invert(1);
 }
 
 /* Specific Buttons */
@@ -234,11 +285,13 @@ html {
   background-repeat: no-repeat;
   background-position: right bottom;
 }
+
 .skills .skill:nth-child(2) {
   background-image: url(../images/ic_framework.svg);
   background-repeat: no-repeat;
   background-position: right bottom;
 }
+
 .skills .skill:last-child {
   background-image: url(../images/ic_skills.svg);
   background-repeat: no-repeat;
@@ -246,54 +299,3 @@ html {
 }
 
 /* End About Secion */
-
-/* Utils */
-
-.bg-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-
-.bg-blue {
-  background-color: var(--color-blue);
-  color: var(--color-white);
-}
-
-.bg-red {
-  background-color: var(--color-red);
-  color: var(--color-white);
-}
-
-.bg-yellow {
-  background-color: var(--color-yellow);
-  color: var(--color-white);
-}
-
-.d-none {
-  display: none;
-}
-
-/* End Utils */
-
-/* Icons */
-.icon {
-  width: 32px;
-  height: 32px;
-  display: block;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.icon-download {
-  background-image: url(../images/ic_download.svg);
-}
-
-.icon-arrow-right {
-  background-image: url(../images/ic_arrow_right.svg);
-}
-
-.btn:hover .icon {
-  filter: invert(1);
-}
-
-/* End Icons */
