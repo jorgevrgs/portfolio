@@ -77,13 +77,12 @@ html {
   border: none;
   cursor: pointer;
   background: none;
-  /* stylelint-disable-next-line */
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
-  justify-content: center;
+      justify-content: center;
   -ms-flex-align: center;
-  align-items: center;
+      align-items: center;
   font-size: 1rem;
 }
 
@@ -120,9 +119,8 @@ html {
 }
 
 .btn:hover .icon {
-  /* stylelint-disable-next-line */
   -webkit-filter: invert(1);
-  filter: invert(1);
+          filter: invert(1);
 }
 
 /* Specific Buttons */
@@ -132,23 +130,19 @@ html {
   height: 20px;
   background-image: url(../images/ic_menu.svg);
   background-repeat: no-repeat;
-  /* stylelint-disable-next-line */
   -webkit-margin-before: 19px;
-  margin-block-start: 19px;
-  /* stylelint-disable-next-line */
+          margin-block-start: 19px;
   -webkit-margin-end: 16px;
-  margin-inline-end: 16px;
+          margin-inline-end: 16px;
 }
 
 /* End Buttons */
 
 .wrapper {
-  /* stylelint-disable-next-line */
   display: -ms-flexbox;
   display: flex;
-  /* stylelint-disable-next-line */
   -ms-flex-direction: column;
-  flex-direction: column;
+      flex-direction: column;
   width: 100vw;
   min-height: 100vh;
   background-image: url(../images/image_geometry_1.svg);
@@ -157,24 +151,20 @@ html {
 }
 
 .header {
-  /* stylelint-disable-next-line */
   display: -ms-flexbox;
   display: flex;
-  /* stylelint-disable-next-line */
   -ms-flex-pack: end;
-  justify-content: flex-end;
+      justify-content: flex-end;
 }
 
 .title {
   font-family: var(--font-primary);
   font-size: 50px;
   line-height: 100%;
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 20px;
-  margin-block-end: 20px;
-  /* stylelint-disable-next-line */
+          margin-block-end: 20px;
   -webkit-margin-before: 40px;
-  margin-block-start: 40px;
+          margin-block-start: 40px;
 }
 
 .section {
@@ -182,30 +172,26 @@ html {
 }
 
 .hello {
-  /* stylelint-disable-next-line */
   -webkit-margin-before: 104px;
-  margin-block-start: 104px;
+          margin-block-start: 104px;
 }
 
 .hello .title {
-  /* stylelint-disable-next-line */
   -webkit-margin-before: 30px;
-  margin-block-start: 30px;
+          margin-block-start: 30px;
 }
 
 .hello .subtitle {
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.01em;
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 40px;
-  margin-block-end: 40px;
+          margin-block-end: 40px;
 }
 
 .hello .buttons {
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 32px;
-  margin-block-end: 32px;
+          margin-block-end: 32px;
 }
 
 .hello .divider {
@@ -226,18 +212,15 @@ html {
 }
 
 .projects .title {
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 32px;
-  margin-block-end: 32px;
+          margin-block-end: 32px;
 }
 
 .project {
-  /* stylelint-disable-next-line */
   display: -ms-flexbox;
   display: flex;
-  /* stylelint-disable-next-line */
   -ms-flex-direction: column;
-  flex-direction: column;
+      flex-direction: column;
   margin-inline: -16px;
 }
 
@@ -248,9 +231,8 @@ html {
 }
 
 .project-item {
-  /* stylelint-disable-next-line */
   -ms-flex-order: 1;
-  order: 1;
+      order: 1;
 }
 
 .project-image {
@@ -259,18 +241,15 @@ html {
 
 .project-content {
   padding: 20px;
-  /* stylelint-disable-next-line */
   -ms-flex-order: 2;
-  order: 2;
+      order: 2;
 }
 
 .project-tags {
-  /* stylelint-disable-next-line */
   display: -ms-flexbox;
   display: flex;
-  /* stylelint-disable-next-line */
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -292,30 +271,26 @@ html {
 /* About Secion */
 
 .about .title {
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 20px;
-  margin-block-end: 20px;
+          margin-block-end: 20px;
 }
 
 .about .buttons {
-  /* stylelint-disable-next-line */
   -webkit-margin-before: 32px;
-  margin-block-start: 32px;
+          margin-block-start: 32px;
 }
 
 .about .buttons .icon {
-  /* stylelint-disable-next-line */
   -webkit-margin-start: 20px;
-  margin-inline-start: 20px;
+          margin-inline-start: 20px;
 }
 
 .skills {
   display: grid;
   grid-template: 289px / 1fr;
   gap: 10px;
-  /* stylelint-disable-next-line */
   -webkit-margin-before: 40px;
-  margin-block-start: 40px;
+          margin-block-start: 40px;
 }
 
 .skill {
@@ -324,9 +299,8 @@ html {
 }
 
 .skill .skill-title {
-  /* stylelint-disable-next-line */
   -webkit-margin-after: 21px;
-  margin-block-end: 21px;
+          margin-block-end: 21px;
   font-size: 20px;
 }
 
