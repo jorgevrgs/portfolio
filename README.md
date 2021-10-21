@@ -2,11 +2,9 @@
 
 # Portfolio
 
-> One paragraph statement about the project.
+> The portfolio is a project built with development best practices such as HTML semantic tags, CSS prefixes, Linters, and more.
 
 ![screenshot](./assets/images/app_screenshot.png)
-
-Additional description about the project and its features.
 
 ## Built With
 
