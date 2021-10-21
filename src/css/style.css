@@ -8,7 +8,9 @@
 
 :root {
   --color-primary: #1a2236;
+  --color-secondary: #fff;
   --color-white: #fff;
+  --color-cyan: #98dede;
   --font-primary: "Playfair Display", serif;
   --font-secondary: poppins, sans-serif;
 }
@@ -19,6 +21,62 @@ html {
   font-style: normal;
   font-weight: normal;
 }
+
+/* Buttons */
+.btn {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.btn-primary {
+  height: 50px;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  width: 100%;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-primary:focus {
+  border-width: 2px;
+}
+
+.btn-secondary {
+  height: 50px;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  width: 100%;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:focus {
+  border-width: 2px;
+}
+
+/* Specific Buttons */
+
+.btn-menu {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/ic_menu.svg);
+  background-repeat: no-repeat;
+  margin-block-start: 19px;
+  margin-inline-end: 16px;
+}
+
+/* End Buttons */
 
 .wrapper {
   display: flex;
@@ -39,30 +97,38 @@ html {
   display: none;
 }
 
-.main {
-  margin-block-start: 104px;
-  padding-inline: 16px;
-}
-
-.main .title {
+.title {
   font-family: var(--font-primary);
   font-size: 50px;
   line-height: 100%;
   margin-block-end: 20px;
+  margin-block-start: 40px;
 }
 
-.main .subtitle {
+.section {
+  padding-inline: 16px;
+}
+
+.hello {
+  margin-block-start: 104px;
+}
+
+.hello .title {
+  margin-block-start: 30px;
+}
+
+.hello .subtitle {
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.01em;
   margin-block-end: 40px;
 }
 
-.main .buttons {
+.hello .buttons {
   margin-block-end: 32px;
 }
 
-.main .divider {
+.hello .divider {
   background-image: url(../images/image_geometry_2.svg);
   background-size: cover;
   height: 207px;
@@ -72,35 +138,75 @@ html {
   margin-inline: -16px;
 }
 
-.btn {
-  border: none;
-  cursor: pointer;
-  background: none;
+.projects {
+  display: grid;
+  grid-template: 1fr / 1fr;
 }
 
-.btn-menu {
-  width: 20px;
+.projects .title {
+  margin-block-end: 32px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  margin-inline: -16px;
+}
+
+.project-item {
+  order: 1;
+}
+
+.project-image {
+  margin-block: -2px;
+}
+
+.project-content {
+  padding: 20px;
+  order: 2;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-tag {
+  padding: 10px;
+  background-color: var(--color-cyan);
+  color: var(--color-primary);
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.btn-project {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  display: flex;
+}
+
+.btn-project::after {
+  display: block;
+  content: "";
+  width: 15px;
   height: 20px;
-  background-image: url(../images/ic_menu.svg);
+  margin-inline-start: 12px;
+  background-image: url(../images/Union.svg);
   background-repeat: no-repeat;
-  margin-block-start: 19px;
-  margin-inline-end: 16px;
+  background-size: contain;
+  background-position: center;
 }
 
-.btn-primary {
-  height: 50px;
+.bg-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
-  width: 100%;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: var(--color-white);
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-.btn-primary:focus {
-  border-width: 2px;
 }
