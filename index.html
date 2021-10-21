@@ -31,26 +31,34 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
-        <div class="menu-icon"></div>
+        <button type="button" class="btn btn-menu"></button>
+        <nav class="nav-links d-none">
+          <a class="nav-link" href="#hello">Hello</a>
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
       </header>
-      <main class="main">
+      <section class="main">
         <h1 class="title">Charlie Giorgania</h1>
-        <h2 class="subtitle">
+        <p class="subtitle">
           Hello! I am a software developer! I can help you build a product,
           feature or website. Taka a look of my works. If you like what you see
           and have a project you need coded, don’t hesitate and contact me.
-        </h2>
+        </p>
         <div class="buttons">
-          <button type="button" class="btn">Start collaboration</button>
+          <button type="button" class="btn btn-primary">
+            Start collaboration
+          </button>
         </div>
         <div class="divider"></div>
-      </main>
+      </section>
     </div>
   </body>
 </html>
