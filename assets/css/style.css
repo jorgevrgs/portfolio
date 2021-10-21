@@ -106,11 +106,9 @@ html {
 }
 
 .btn-primary {
-  padding-block: 12px;
-  padding-inline: 42px;
+  height: 50px;
   background-color: var(--color-primary);
   color: var(--color-white);
-  border: 1px solid var(--color-primary);
   width: 100%;
 }
 
@@ -123,5 +121,4 @@ html {
 
 .btn-primary:focus {
   border-width: 2px;
-  padding-block: 11px;
 }
