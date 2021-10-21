@@ -27,6 +27,14 @@ html {
   border: none;
   cursor: pointer;
   background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.btn:focus {
+  border-width: 2px;
 }
 
 .btn-primary {
@@ -43,26 +51,18 @@ html {
   border: 1px solid var(--color-primary);
 }
 
-.btn-primary:focus {
-  border-width: 2px;
-}
-
 .btn-secondary {
   height: 50px;
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   width: 100%;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-.btn-secondary:focus {
-  border-width: 2px;
+  border: 1px solid var(--color-secondary);
 }
 
 /* Specific Buttons */
@@ -91,10 +91,6 @@ html {
 .header {
   display: flex;
   justify-content: flex-end;
-}
-
-.d-none {
-  display: none;
 }
 
 .title {
@@ -138,6 +134,8 @@ html {
   margin-inline: -16px;
 }
 
+/* Projects Secion */
+
 .projects {
   display: grid;
   grid-template: 1fr / 1fr;
@@ -151,6 +149,12 @@ html {
   display: flex;
   flex-direction: column;
   margin-inline: -16px;
+}
+
+.project .btn {
+  border: 1px solid var(--color-secondary);
+  width: auto;
+  padding-inline: 10px;
 }
 
 .project-item {
@@ -185,28 +189,56 @@ html {
   overflow: hidden;
 }
 
-.btn-project {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid var(--color-white);
-  background-color: transparent;
-  color: var(--color-white);
-  display: flex;
+/* End Projects Secion */
+
+/* About Secion */
+
+.about .title {
+  margin-block-end: 20px;
 }
 
-.btn-project::after {
-  display: block;
-  content: "";
-  width: 15px;
-  height: 20px;
-  margin-inline-start: 12px;
-  background-image: url(../images/Union.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.about .buttons {
+  margin-block-start: 32px;
 }
+
+.about .buttons .icon {
+  margin-inline-start: 20px;
+}
+
+/* End About Secion */
+
+/* Utils */
 
 .bg-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+
+.d-none {
+  display: none;
+}
+
+/* End Utils */
+
+/* Icons */
+.icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-download {
+  background-image: url(../images/ic_download.svg);
+}
+
+.icon-arrow-right {
+  background-image: url(../images/ic_arrow_right.svg);
+}
+
+.btn:hover .icon {
+  filter: invert(1);
+}
+
+/* End Icons */
