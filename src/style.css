@@ -10,7 +10,7 @@
   --color-primary: #1a2236;
   --color-white: #fff;
   --font-primary: "Playfair Display", serif;
-  --font-secondary: Poppins, sans-serif;
+  --font-secondary: poppins, sans-serif;
 }
 
 /* @font-face {
@@ -71,6 +71,20 @@ html {
   line-height: 21px;
   letter-spacing: -0.01em;
   margin-block-end: 40px;
+}
+
+.main .buttons {
+  margin-block-end: 32px;
+}
+
+.main .divider {
+  background-image: url("/images/image_geometry_2.png");
+  background-size: cover;
+  height: 207px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  width: calc(100vw + 1px);
+  margin-inline: -16px;
 }
 
 .btn {
