@@ -14,6 +14,9 @@
   --color-blue: #1c528a;
   --color-red: #e2505c;
   --color-yellow: #febf52;
+  --color-grey: #f9f9fa;
+  --color-darker-grey: #dfdfe0;
+  --color-alt-grey: #7d7c84;
   --font-primary: "Playfair Display", serif;
   --font-secondary: poppins, sans-serif;
 }
@@ -299,3 +302,67 @@ html {
 }
 
 /* End About Secion */
+
+/* Contact Form Section */
+.contact {
+  background-color: var(--color-grey);
+  background-image: url(../images/image_geometry_1.svg);
+  background-repeat: no-repeat;
+  margin-block-start: 50px;
+  padding-inline: 18px;
+  padding-block-start: 106px;
+  padding-block-end: 74px;
+}
+
+.contact .subtitle {
+  font-size: 14px;
+  line-height: 21px;
+  margin-block-end: 32px;
+}
+
+.form input,
+.form textarea {
+  font-family: var(--font-secondary);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 4px;
+  padding: 4px 16px 8px 16px;
+  margin-block-end: 8px;
+  border: 1px solid var(--color-darker-grey);
+}
+
+.form-group > label {
+  font-size: 10px;
+  margin-block-end: 4px;
+  color: var(--color-alt-grey);
+}
+
+.form-group > input {
+  border: none;
+  font-size: 1rem;
+}
+
+.form > textarea {
+  padding: 15px 16px;
+  width: 100%;
+  min-height: 112px;
+  resize: none;
+  border: 1px solid var(--color-darker-grey);
+  border-radius: 4px;
+  margin: 0;
+}
+
+.form-group > input:focus,
+.form > textarea:focus {
+  outline: none;
+}
+
+.contact .btn {
+  margin-block-start: 20px;
+}
+
+/* End Contact Form Section */
