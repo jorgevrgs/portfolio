@@ -14,6 +14,9 @@
   --color-blue: #1c528a;
   --color-red: #e2505c;
   --color-yellow: #febf52;
+  --color-grey: #f9f9fa;
+  --color-darker-grey: #dfdfe0;
+  --color-alt-grey: #7d7c84;
   --font-primary: "Playfair Display", serif;
   --font-secondary: poppins, sans-serif;
 }
@@ -327,3 +330,76 @@ html {
 }
 
 /* End About Secion */
+
+/* Contact Form Section */
+.contact {
+  background-color: var(--color-grey);
+  background-image: url(../images/image_geometry_1.svg);
+  background-repeat: no-repeat;
+  -webkit-margin-before: 50px;
+          margin-block-start: 50px;
+  padding-inline: 18px;
+  -webkit-padding-before: 106px;
+          padding-block-start: 106px;
+  -webkit-padding-after: 74px;
+          padding-block-end: 74px;
+}
+
+.contact .subtitle {
+  font-size: 14px;
+  line-height: 21px;
+  -webkit-margin-after: 32px;
+          margin-block-end: 32px;
+}
+
+.form input,
+.form textarea {
+  font-family: var(--font-secondary);
+}
+
+.form-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 4px;
+  padding: 4px 16px 8px 16px;
+  -webkit-margin-after: 8px;
+          margin-block-end: 8px;
+  border: 1px solid var(--color-darker-grey);
+}
+
+.form-group > label {
+  font-size: 10px;
+  -webkit-margin-after: 4px;
+          margin-block-end: 4px;
+  color: var(--color-alt-grey);
+}
+
+.form-group > input {
+  border: none;
+  font-size: 1rem;
+}
+
+.form > textarea {
+  padding: 15px 16px;
+  width: 100%;
+  min-height: 112px;
+  resize: none;
+  border: 1px solid var(--color-darker-grey);
+  border-radius: 4px;
+  margin: 0;
+}
+
+.form-group > input:focus,
+.form > textarea:focus {
+  outline: none;
+}
+
+.contact .btn {
+  -webkit-margin-before: 20px;
+          margin-block-start: 20px;
+}
+
+/* End Contact Form Section */
