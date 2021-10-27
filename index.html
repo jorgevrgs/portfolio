@@ -270,38 +270,55 @@
           </section>
         </div>
       </section>
-      <section id="contact" class="section contact">
-        <h2 class="title">Get started</h2>
-        <p class="subtitle">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna.
-        </p>
-        <form
-          class="form"
-          action="https://formspree.io/f/xdoyvbvr"
-          method="POST"
-        >
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required maxlength="30" />
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Enter your message here..."
-            required
-            maxlength="500"
-          ></textarea>
-          <button class="btn btn-primary" type="submit">
-            Start collaboration
-          </button>
-        </form>
+      <section id="contact" class="d-md-flex justify-md-center section contact">
+        <div class="d-md-flex flex-md-column content">
+          <h2 class="title">Get started</h2>
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna.
+          </p>
+          <form
+            class="form d-md-flex flex-md-column"
+            action="https://formspree.io/f/xdoyvbvr"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="30"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label class="d-none d-md-flex" for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Enter your message here..."
+                required
+                maxlength="500"
+              ></textarea>
+            </div>
+            <button class="btn btn-primary align-self-md-center" type="submit">
+              Start collaboration
+            </button>
+          </form>
+        </div>
       </section>
-      <footer class="bg-primary px-16 py-32 footer">
-        <a href="#" class="d-flex align-center mb-32 text-cyan footer-link">
+      <footer
+        class="bg-primary px-16 py-32 d-md-flex justify-md-space-between footer"
+      >
+        <a
+          href="#"
+          class="d-flex align-center mb-32 ma-md-0 text-cyan footer-link"
+        >
           Get my Resume
           <span class="icon icon-link-teal mx-16"></span>
         </a>

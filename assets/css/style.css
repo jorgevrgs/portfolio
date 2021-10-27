@@ -605,23 +605,22 @@ a:active {
   color: var(--color-alt-grey);
 }
 
-.form-group > input {
+.form-group > input,
+.form-group > textarea {
   border: none;
   font-size: 1rem;
 }
-
-.form > textarea {
-  padding: 15px 16px;
+.form-group textarea {
   width: 100%;
   min-height: 112px;
   resize: none;
-  border: 1px solid var(--color-darker-grey);
   border-radius: 4px;
   margin: 0;
+  padding-block: 15px;
 }
 
 .form-group > input:focus,
-.form > textarea:focus {
+.form-group > textarea:focus {
   outline: none;
 }
 
@@ -866,16 +865,25 @@ a:active {
     background-image: url(../images/desktop/image_dots.svg);
     bottom: 0;
     left: -175px;
-    z-index: 1000;
+    z-index: -1;
   }
 
   .projects {
     grid-template-columns: repeat(7, 1fr);
     grid-template-areas:
-      "title  first  first first first first first"
-      "second second .     .     .     last last"
-      "third  third  third .     .     fifth fifth"
-      ".      .      .     forth  forth  forth   .";
+      "title title   title  first  first first first  first first"
+      "title title   title  first  first first first  first first"
+      "title title   title  first  first first first  first first"
+      ".     .       .      .      .     .     last   last  last"
+      "second second second .      .     .     last   last  last"
+      "second second second .      .     .     fifth  fifth fifth"
+      "third  third  third  third  third .     fifth  fifth fifth"
+      "third  third  third  third  third .     .      .     ."
+      "third  third  third  third  third .     .      .     ."
+      "third  third  third  third  third .     .      .     ."
+      ".      .      .      .      .     forth forth  forth ."
+      ".      .      .      .      .     forth forth  forth .";
+    overflow-x: hidden;
   }
 
   .projects .project {
@@ -903,7 +911,7 @@ a:active {
     width: 175px;
     position: absolute;
     background-image: url(../images/desktop/image_dots.svg);
-    z-index: 1000;
+    z-index: -1;
     right: 0;
     top: 0;
   }
@@ -964,7 +972,7 @@ a:active {
     width: 511px;
     position: absolute;
     background-image: url(../images/desktop/image-geometry_2.svg);
-    z-index: 1000;
+    z-index: -1;
     right: -511px;
     bottom: 0;
   }
@@ -980,7 +988,7 @@ a:active {
     width: 212px;
     position: absolute;
     background-image: url(../images/desktop/image-geometry_5.svg);
-    z-index: 1000;
+    z-index: -1;
     left: 0;
     bottom: -124px;
   }
@@ -992,7 +1000,7 @@ a:active {
     width: 640px;
     position: absolute;
     background-image: url(../images/desktop/image-geometry_3.svg);
-    z-index: 1000;
+    z-index: -1;
     right: -640px;
     bottom: 0;
   }
@@ -1008,7 +1016,7 @@ a:active {
     width: 88px;
     position: absolute;
     background-image: url(../images/desktop/image-geometry_4.svg);
-    z-index: 1000;
+    z-index: -1;
     left: -88px;
     top: 0;
   }
@@ -1041,5 +1049,51 @@ a:active {
     background-image: url(../images/desktop/image_dots_with_teal.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
+  }
+
+  .contact {
+    background-image: url(../images/desktop/image-geometry_6.svg);
+    position: relative;
+  }
+
+  .contact::after {
+    display: block;
+    content: "";
+    height: 350px;
+    width: 350px;
+    position: absolute;
+    background-image: url(../images/desktop/image-geometry_7.svg);
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+  }
+
+  .contact > .content {
+    width: 548px;
+  }
+
+  .contact .form-group {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .contact .form {
+    z-index: 2;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 18px;
+    border: 1px solid var(--color-darker-grey);
+    border-radius: 4px;
+  }
+
+  .contact .btn {
+    width: 254px;
+  }
+
+  .footer {
+    padding-inline: 160px;
   }
 }
