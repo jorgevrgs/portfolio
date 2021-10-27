@@ -540,7 +540,7 @@ a:active {
 }
 /* End Footer */
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 992px) {
   .w-md-100 {
     width: 100%;
   }
@@ -678,12 +678,12 @@ a:active {
     padding-inline: 0;
   }
 
-  .me {
+  .about-me {
     display: grid;
     grid-template-columns: 1fr 702px;
     grid-template-rows: 877px;
-    position: relative;
     margin-block-end: 210px;
+    overflow: hidden;
   }
 
   .hello {
@@ -698,18 +698,25 @@ a:active {
   }
 
   .hello + .divider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: none;
+    min-height: 607px;
+  }
+
+  .hello + .divider::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
     background-image: url(../images/desktop/image-geometry_1.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 1;
-    display: block;
-    max-width: 722px;
+    background-position: right bottom;
   }
 
-  .divider::after {
+  .hello + .divider::before {
     display: block;
     content: "";
     height: 175px;
