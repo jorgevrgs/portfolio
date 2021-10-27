@@ -6,6 +6,22 @@
   padding: 0;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 :root {
   --color-primary: #1a2236;
   --color-secondary: #fff;
@@ -54,6 +70,122 @@ html {
   display: none;
 }
 
+/* Flex */
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* Spacing */
+.pa-0 {
+  padding: 0;
+}
+
+.ma-0 {
+  margin: 0;
+}
+
+.mx-16 {
+  margin-inline: 16px;
+}
+
+.my-16 {
+  margin-block: 16px;
+}
+
+.mx-32 {
+  margin-inline: 32px;
+}
+
+.my-32 {
+  margin-block: 32px;
+}
+
+.mb-16 {
+  margin-block-end: 16px;
+}
+
+.mt-16 {
+  margin-block-start: 16px;
+}
+
+.mb-32 {
+  margin-block-end: 32px;
+}
+
+.mt-32 {
+  margin-block-start: 32px;
+}
+
+.px-16 {
+  padding-inline: 16px;
+}
+
+.py-16 {
+  padding-block: 16px;
+}
+
+.px-32 {
+  padding-inline: 32px;
+}
+
+.py-32 {
+  padding-block: 32px;
+}
+
+/* Text */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-cyan {
+  color: var(--color-cyan);
+}
+
 /* End Utils */
 
 /* Icons */
@@ -65,12 +197,40 @@ html {
   background-position: center;
 }
 
+.icon-arrow-right {
+  background-image: url(../images/ic_arrow_right.svg);
+}
+
 .icon-download {
   background-image: url(../images/ic_download.svg);
 }
 
-.icon-arrow-right {
-  background-image: url(../images/ic_arrow_right.svg);
+.icon-link-teal {
+  background-image: url(../images/ic_link_teal.svg);
+}
+
+.icon-angellist {
+  background-image: url(../images/ic_angellist.svg);
+}
+
+.icon-github {
+  background-image: url(../images/ic_github.svg);
+}
+
+.icon-linkedin {
+  background-image: url(../images/ic_linkedin.svg);
+}
+
+.icon-medium {
+  background-image: url(../images/ic_medium.svg);
+}
+
+.icon-stackoverflow {
+  background-image: url(../images/ic_stackoverflow.svg);
+}
+
+.icon-twitter {
+  background-image: url(../images/ic_twitter.svg);
 }
 
 /* End Icons */
@@ -366,3 +526,13 @@ html {
 }
 
 /* End Contact Form Section */
+
+/* Footer */
+.social-icons {
+  list-style: none;
+}
+
+.social-icons .footer-link {
+  font-size: 1rem;
+}
+/* End Footer */
