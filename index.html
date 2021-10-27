@@ -37,29 +37,45 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <button type="button" class="btn btn-menu"></button>
-        <nav class="nav-links d-none">
+      <header class="d-flex justify-end header">
+        <button
+          type="button"
+          class="btn btn-menu d-md-none justify-md-space-around"
+        ></button>
+        <nav
+          class="
+            d-none
+            w-md-100
+            d-md-flex
+            justify-md-center
+            align-md-center
+            nav-links
+          "
+        >
           <a class="nav-link" href="#hello">Hello</a>
           <a class="nav-link" href="#portfolio">Portfolio</a>
           <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#contact">Contact</a>
         </nav>
       </header>
-      <section id="hello" class="section hello">
-        <h1 class="title">Charlie Giorgania</h1>
-        <p class="subtitle">
-          Hello! I am a software developer! I can help you build a product,
-          feature or website. Taka a look of my works. If you like what you see
-          and have a project you need coded, don’t hesitate and contact me.
-        </p>
-        <div class="buttons">
-          <button type="button" class="btn btn-primary">
-            Start collaboration
-          </button>
-        </div>
+      <div id="hello" class="section me">
+        <section class="align-self-md-center hello">
+          <h1 class="title">Charlie Giorgania</h1>
+          <p class="subtitle">
+            Hello! I am a software developer! I can help you build a product,
+            feature or website. Taka a look of my works. If you like what you
+            see and have a project you need coded, don’t hesitate and contact
+            me.
+          </p>
+          <div class="buttons">
+            <button type="button" class="btn btn-primary">
+              Start collaboration
+            </button>
+          </div>
+        </section>
         <div class="divider"></div>
-      </section>
+      </div>
+
       <section id="portfolio" class="section projects">
         <h2 class="title">Projects</h2>
 

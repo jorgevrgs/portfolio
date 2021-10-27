@@ -6,22 +6,6 @@
   padding: 0;
 }
 
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
-
 :root {
   --color-primary: #1a2236;
   --color-secondary: #fff;
@@ -44,7 +28,31 @@ html {
   font-weight: normal;
 }
 
+a {
+  color: var(--color-primary);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 /* Utils */
+
+.w-100 {
+  width: 100%;
+}
 
 .bg-primary {
   background-color: var(--color-primary);
@@ -328,13 +336,6 @@ html {
   color: var(--color-primary);
 }
 
-.header {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: end;
-      justify-content: flex-end;
-}
-
 .title {
   font-family: var(--font-primary);
   font-size: 50px;
@@ -372,7 +373,7 @@ html {
           margin-block-end: 32px;
 }
 
-.hello .divider {
+.hello + .divider {
   background-image: url(../images/image_geometry_2.svg);
   background-size: cover;
   height: 207px;
@@ -588,3 +589,205 @@ html {
   font-size: 1rem;
 }
 /* End Footer */
+
+@media screen and (min-width: 1440px) {
+  .w-md-100 {
+    width: 100%;
+  }
+
+  .d-md-flex {
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .d-md-none {
+    display: none;
+  }
+
+  /* Flex */
+
+  .d-md-flex {
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .flex-md-row {
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+
+  .flex-md-column {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+
+  .justify-md-space-between {
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+  }
+
+  .justify-md-space-around {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+
+  .justify-md-start {
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+  }
+
+  .justify-md-end {
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+  }
+
+  .justify-md-center {
+    -ms-flex-pack: center;
+        justify-content: center;
+  }
+
+  .align-md-start {
+    -ms-flex-align: start;
+        align-items: flex-start;
+  }
+
+  .align-md-end {
+    -ms-flex-align: end;
+        align-items: flex-end;
+  }
+
+  .align-md-center {
+    -ms-flex-align: center;
+        align-items: center;
+  }
+
+  .align-self-md-center {
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+
+  /* Spacing */
+  .pa-md-0 {
+    padding: 0;
+  }
+
+  .ma-md-0 {
+    margin: 0;
+  }
+
+  .mx-md-16 {
+    margin-inline: 16px;
+  }
+
+  .my-md-16 {
+    margin-block: 16px;
+  }
+
+  .mx-md-32 {
+    margin-inline: 32px;
+  }
+
+  .my-md-32 {
+    margin-block: 32px;
+  }
+
+  .mb-md-16 {
+    -webkit-margin-after: 16px;
+            margin-block-end: 16px;
+  }
+
+  .mt-md-16 {
+    -webkit-margin-before: 16px;
+            margin-block-start: 16px;
+  }
+
+  .mb-md-32 {
+    -webkit-margin-after: 32px;
+            margin-block-end: 32px;
+  }
+
+  .mt-md-32 {
+    -webkit-margin-before: 32px;
+            margin-block-start: 32px;
+  }
+
+  .px-md-16 {
+    padding-inline: 16px;
+  }
+
+  .py-md-16 {
+    padding-block: 16px;
+  }
+
+  .px-md-32 {
+    padding-inline: 32px;
+  }
+
+  .py-md-32 {
+    padding-block: 32px;
+  }
+
+  .wrapper {
+    background: none;
+  }
+
+  .header {
+    width: 100%;
+    height: 100px;
+    box-shadow: 0px 0.5px 0px #dddfe6;
+  }
+
+  .header .nav-links {
+    gap: 50px;
+  }
+
+  .section {
+    padding-inline: 0;
+  }
+
+  .me {
+    display: grid;
+    grid-template-columns: 1fr 702px;
+    grid-template-rows: 877px;
+    position: relative;
+    -webkit-margin-after: 210px;
+            margin-block-end: 210px;
+  }
+
+  .hello {
+    margin-inline: 0;
+    margin-block: 0;
+    -webkit-padding-start: 160px;
+            padding-inline-start: 160px;
+    -webkit-padding-end: 94px;
+            padding-inline-end: 94px;
+  }
+
+  .hello .btn {
+    width: 254px;
+  }
+
+  .hello + .divider {
+    background-image: url(../images/desktop/image-geometry_1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    display: block;
+    max-width: 722px;
+  }
+
+  .divider::after {
+    display: block;
+    content: "";
+    height: 175px;
+    width: 175px;
+    position: absolute;
+    background-image: url(../images/desktop/image_dots.svg);
+    bottom: 0;
+    left: -175px;
+    z-index: 1000;
+  }
+}
