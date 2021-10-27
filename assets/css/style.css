@@ -1038,18 +1038,8 @@ a:active {
     grid-template-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    position: relative;
-  }
-
-  .skills::after {
-    display: block;
-    content: "";
-    height: 222px;
-    width: 222px;
-    position: absolute;
     background-image: url(../images/desktop/image_dots_with_teal.svg);
-    z-index: 1000;
-    right: 0;
-    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: bottom right;
   }
 }
