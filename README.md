@@ -88,8 +88,8 @@ GitHub Pages:
 
 👤 **Jorge Vargas**
 
-- GitHub: [@githubhandle](https://github.com/jorgevrgs)
-- Twitter: [@twitterhandle](https://twitter.com/jorgevrgs1)
+- GitHub: [@jorgevrgs](https://github.com/jorgevrgs)
+- Twitter: [@jorgevrgs1](https://twitter.com/jorgevrgs1)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/jevargaslarrota)
 
 ## 🤝 Contributing
