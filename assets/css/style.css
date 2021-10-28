@@ -937,9 +937,8 @@ a:active {
 
   .projects > .title {
     grid-area: title;
-    -webkit-writing-mode: sideways-lr;
-        -ms-writing-mode: sideways-lr;
-            writing-mode: sideways-lr;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
     position: relative;
   }
 

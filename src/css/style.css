@@ -856,7 +856,7 @@ a:active {
 
   .projects > .title {
     grid-area: title;
-    writing-mode: sideways-lr;
+    transform: rotate(-90deg);
     position: relative;
   }
 
