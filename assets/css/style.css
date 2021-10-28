@@ -329,6 +329,11 @@ a:active {
   font-size: 1rem;
 }
 
+.btn-lg {
+  width: 254px;
+  height: 70px;
+}
+
 .btn:focus {
   border-width: 2px;
 }
@@ -580,11 +585,6 @@ a:active {
           margin-block-end: 32px;
 }
 
-.form input,
-.form textarea {
-  font-family: var(--font-secondary);
-}
-
 .form-group {
   display: -ms-flexbox;
   display: flex;
@@ -609,6 +609,7 @@ a:active {
 .form-group > textarea {
   border: none;
   font-size: 1rem;
+  font-family: var(--font-primary);
 }
 .form-group textarea {
   width: 100%;
@@ -651,8 +652,17 @@ a:active {
     display: flex;
   }
 
+  .d-md-block {
+    display: block;
+  }
+
   .d-md-none {
     display: none;
+  }
+
+  .btn-md-lg {
+    width: 254px;
+    height: 70px;
   }
 
   /* Flex */
@@ -833,10 +843,6 @@ a:active {
             padding-inline-end: 94px;
   }
 
-  .hello .btn {
-    width: 254px;
-  }
-
   .hello + .divider {
     width: 100%;
     height: 100%;
@@ -869,51 +875,35 @@ a:active {
   }
 
   .projects {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
+    /* grid-template-rows: repeat(12, 1fr); */
     grid-template-areas:
-      "title title   title  first  first first first  first first"
-      "title title   title  first  first first first  first first"
-      "title title   title  first  first first first  first first"
-      ".     .       .      .      .     .     last   last  last"
-      "second second second .      .     .     last   last  last"
-      "second second second .      .     .     fifth  fifth fifth"
+      "title title   img0   first  first first first  first first"
+      "title title   img0   first  first first first  first first"
+      "title title   img0   first  first first first  first first"
+      ".     .       .      img2   img2  img2  last   last  last"
+      "second second second img2   img2  img2  last   last  last"
+      "second second second img2   img2  img2  fifth  fifth fifth"
       "third  third  third  third  third .     fifth  fifth fifth"
-      "third  third  third  third  third .     .      .     ."
-      "third  third  third  third  third .     .      .     ."
-      "third  third  third  third  third .     .      .     ."
-      ".      .      .      .      .     forth forth  forth ."
-      ".      .      .      .      .     forth forth  forth .";
-    overflow-x: hidden;
+      "third  third  third  third  third img3  img3   img3  img3"
+      "third  third  third  third  third img3  img3   img3  img3"
+      "third  third  third  third  third img3  img3   img3  img3"
+      "img5   img5   .      .      img4  forth forth  forth ."
+      "img5   img5   .      .      img4  forth forth  forth .";
+    gap: 0;
   }
 
   .projects .project {
-    width: 100%;
-    height: auto;
     position: relative;
+    margin-inline: 0;
   }
 
   .projects > .title {
+    grid-area: title;
     -webkit-writing-mode: sideways-lr;
         -ms-writing-mode: sideways-lr;
             writing-mode: sideways-lr;
-    width: 480px;
-    /* height: 558px; */
     position: relative;
-    -webkit-padding-after: 243px;
-            padding-block-end: 243px;
-    grid-area: title;
-  }
-
-  .projects > .title::after {
-    display: block;
-    content: "";
-    height: 175px;
-    width: 175px;
-    position: absolute;
-    background-image: url(../images/desktop/image_dots.svg);
-    z-index: -1;
-    right: 0;
-    top: 0;
   }
 
   .project > .project-content {
@@ -943,11 +933,8 @@ a:active {
   }
 
   .projects .project:hover > .project-title {
-    bottom: 175px;
     padding-inline: 30px;
     font-size: 40px;
-    -ms-flex: 1;
-        flex: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -965,73 +952,89 @@ a:active {
     grid-area: second; /* 2 */
   }
 
-  .projects .project:nth-child(3)::after {
-    display: block;
-    content: "";
-    height: 350px;
-    width: 511px;
-    position: absolute;
-    background-image: url(../images/desktop/image-geometry_2.svg);
-    z-index: -1;
-    right: -511px;
-    bottom: 0;
-  }
-
   .projects .project:nth-child(4) {
     grid-area: third; /* 3 */
-  }
-
-  .projects .project:nth-child(4)::before {
-    display: block;
-    content: "";
-    height: 124px;
-    width: 212px;
-    position: absolute;
-    background-image: url(../images/desktop/image-geometry_5.svg);
-    z-index: -1;
-    left: 0;
-    bottom: -124px;
-  }
-
-  .projects .project:nth-child(4)::after {
-    display: block;
-    content: "";
-    height: 275px;
-    width: 640px;
-    position: absolute;
-    background-image: url(../images/desktop/image-geometry_3.svg);
-    z-index: -1;
-    right: -640px;
-    bottom: 0;
   }
 
   .projects .project:nth-child(5) {
     grid-area: forth; /* 4 */
   }
 
-  .projects .project:nth-child(5)::after {
-    display: block;
-    content: "";
-    height: 88px;
-    width: 88px;
-    position: absolute;
-    background-image: url(../images/desktop/image-geometry_4.svg);
-    z-index: -1;
-    left: -88px;
-    top: 0;
-  }
-
   .projects .project:nth-child(6) {
     grid-area: fifth; /* 5 */
   }
 
-  .projects .project:last-child {
+  .projects .project:nth-child(7) {
     grid-area: last; /* 6 */
+  }
+
+  .projects .decorator {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .projects .bg-image {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .projects .decorator-2 {
+    grid-area: img2;
+  }
+
+  .projects .decorator-3 {
+    grid-area: img3;
+  }
+
+  .projects .decorator-4 {
+    grid-area: img4;
+  }
+
+  .projects .decorator-5 {
+    grid-area: img5;
+  }
+
+  .projects .decorator-0 {
+    grid-area: img0;
+  }
+
+  .projects .bg-image-2 {
+    background-image: url(../images/desktop/image-geometry_2.svg);
+    /* background-position: bottom left; */
+  }
+
+  .projects .bg-image-3 {
+    background-image: url(../images/desktop/image-geometry_3.svg);
+    /* background-position: top right; */
+  }
+
+  .projects .bg-image-4 {
+    background-image: url(../images/desktop/image-geometry_4.svg);
+    background-position: top right;
+  }
+
+  .projects .bg-image-5 {
+    background-image: url(../images/desktop/image-geometry_5.svg);
+    background-position: top left;
+  }
+
+  .projects .bg-image-0 {
+    background-image: url(../images/desktop/image_dots.svg);
+    background-position: top right 20px;
   }
 
   .about {
     padding-inline: 160px;
     gap: 96px;
+    -webkit-margin-before: 216px;
+            margin-block-start: 216px;
     -webkit-margin-after: 158px;
             margin-block-end: 158px;
   }
@@ -1089,8 +1092,19 @@ a:active {
     border-radius: 4px;
   }
 
+  .form-group textarea {
+    height: 140px;
+  }
+
+  .form-group label {
+    -webkit-margin-before: 20px;
+            margin-block-start: 20px;
+    font-size: 14px;
+  }
+
   .contact .btn {
-    width: 254px;
+    -webkit-margin-before: 40px;
+            margin-block-start: 40px;
   }
 
   .footer {
