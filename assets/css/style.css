@@ -853,6 +853,23 @@ a:active {
     gap: 50px;
   }
 
+  .header .nav-link {
+    position: relative;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  .header:hover .nav-link:hover::after,
+  .header:hover .nav-link:active::after {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 2px;
+    background-color: var(--color-primary);
+    bottom: 0;
+    left: 0;
+  }
+
   .title {
     font-size: 110px;
   }
