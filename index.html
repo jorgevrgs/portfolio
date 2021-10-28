@@ -293,11 +293,11 @@
             eiusmod tempor incididunt ut labore et dolore magna.
           </p>
           <form
-            class="form d-md-flex flex-md-column"
+            class="form"
             action="https://formspree.io/f/xdoyvbvr"
             method="POST"
           >
-            <div class="form-group">
+            <div class="form-group name-input">
               <label for="name">Your Name</label>
               <input
                 type="text"
@@ -307,11 +307,11 @@
                 maxlength="30"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group email-input">
               <label for="email">Your Email</label>
               <input type="email" id="email" name="email" required />
             </div>
-            <div class="form-group">
+            <div class="form-group message-input">
               <label class="d-none d-md-flex" for="message">Message</label>
               <textarea
                 id="message"
@@ -321,12 +321,13 @@
                 maxlength="500"
               ></textarea>
             </div>
-            <button
-              class="btn btn-primary btn-md-lg align-self-md-center"
-              type="submit"
+            <div
+              class="d-md-flex justify-md-center align-md-center button-input"
             >
-              Start collaboration
-            </button>
+              <button class="btn btn-primary btn-md-lg" type="submit">
+                Start collaboration
+              </button>
+            </div>
           </form>
         </div>
       </section>

@@ -781,8 +781,9 @@ a:active {
     line-height: 24px;
   }
 
-  .header:hover .nav-link:hover::after,
-  .header:hover .nav-link:active::after {
+  .header .nav-link:hover::after,
+  .nav-link:visited::after,
+  .nav-link:active::after {
     position: absolute;
     content: "";
     width: 26px;
@@ -1038,14 +1039,36 @@ a:active {
     width: 548px;
   }
 
+  .contact .form {
+    z-index: 2;
+    display: grid;
+    gap: 0 35px;
+    grid-template-areas:
+      "name    email"
+      "message message"
+      "button  button";
+  }
+
   .contact .form-group {
     background: none;
     border: none;
     padding: 0;
   }
 
-  .contact .form {
-    z-index: 2;
+  .name-input {
+    grid-area: name;
+  }
+
+  .email-input {
+    grid-area: email;
+  }
+
+  .message-input {
+    grid-area: message;
+  }
+
+  .button-input {
+    grid-area: button;
   }
 
   .form-group input,
