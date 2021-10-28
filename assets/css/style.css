@@ -1004,8 +1004,7 @@ a:active {
 
   .projects .bg-image-2 {
     background-image: url(../images/desktop/image-geometry_2.svg);
-
-    /* background-position: bottom left; */
+    background-position: bottom left;
   }
 
   .projects .bg-image-3 {
