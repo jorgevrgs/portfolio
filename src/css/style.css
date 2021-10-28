@@ -781,9 +781,9 @@ a:active {
     line-height: 24px;
   }
 
-  .header .nav-link:hover::after,
   .nav-link:visited::after,
-  .nav-link:active::after {
+  .nav-link:active::after,
+  .header .nav-link:hover::after {
     position: absolute;
     content: "";
     width: 26px;
