@@ -880,43 +880,35 @@ a:active {
   }
 
   .about-me {
-    display: grid;
-    grid-template-columns: 1fr 702px;
-    grid-template-rows: 877px;
     -webkit-margin-after: 210px;
             margin-block-end: 210px;
-    overflow: hidden;
+    -ms-flex-align: stretch;
+        align-items: stretch;
   }
 
-  .hello {
-    margin-inline: 0;
-    margin-block: 0;
+  .about-me .hello {
     -webkit-padding-start: 160px;
             padding-inline-start: 160px;
     -webkit-padding-end: 94px;
             padding-inline-end: 94px;
+    -ms-flex: 3;
+        flex: 3;
   }
 
-  .hello + .divider {
+  .about-me .divider {
+    height: calc(100vh - 100px);
     width: 100%;
-    height: 100%;
+    max-width: calc(50vw);
     position: relative;
-    background: none;
-    min-height: 607px;
-  }
-
-  .hello + .divider::after {
-    display: block;
-    content: "";
-    width: 100%;
-    height: 100%;
     background-image: url(../images/desktop/image-geometry_1.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: right bottom;
+    background-position: center center;
+    -ms-flex: 2;
+        flex: 2;
   }
 
-  .hello + .divider::before {
+  .about-me .divider::before {
     display: block;
     content: "";
     height: 175px;
@@ -925,7 +917,6 @@ a:active {
     background-image: url(../images/desktop/image_dots.svg);
     bottom: 0;
     left: -175px;
-    z-index: -1;
   }
 
   .projects {
