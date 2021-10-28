@@ -588,6 +588,43 @@ a:active {
 /* End Footer */
 
 @media screen and (min-width: 992px) {
+  .btn-primary {
+    height: 50px;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    width: 100%;
+  }
+
+  .btn-md-primary:hover,
+  .btn-md-primary:focus {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+
+  .btn-md-secondary {
+    height: 50px;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    width: 100%;
+  }
+
+  .btn-md-secondary .icon {
+    filter: invert(1);
+  }
+
+  .btn-md-secondary:hover,
+  .btn-md-secondary:focus {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+  }
+
+  .btn-md-secondary:hover .icon,
+  .btn-md-secondary:focus .icon {
+    filter: invert(0);
+  }
+
   .w-md-100 {
     width: 100%;
   }
