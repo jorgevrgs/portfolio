@@ -37,183 +37,221 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <button type="button" class="btn btn-menu"></button>
-        <nav class="nav-links d-none">
+      <header class="d-flex justify-end header">
+        <button
+          type="button"
+          class="btn btn-menu d-md-none justify-md-space-around"
+        ></button>
+        <nav
+          class="
+            d-none
+            w-md-100
+            d-md-flex
+            justify-md-center
+            align-md-center
+            nav-links
+          "
+        >
           <a class="nav-link" href="#hello">Hello</a>
           <a class="nav-link" href="#portfolio">Portfolio</a>
           <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#contact">Contact</a>
         </nav>
       </header>
-      <section id="hello" class="section hello">
-        <h1 class="title">Charlie Giorgania</h1>
-        <p class="subtitle">
-          Hello! I am a software developer! I can help you build a product,
-          feature or website. Taka a look of my works. If you like what you see
-          and have a project you need coded, don’t hesitate and contact me.
-        </p>
-        <div class="buttons">
-          <button type="button" class="btn btn-primary">
-            Start collaboration
-          </button>
-        </div>
+      <div id="hello" class="d-md-flex section about-me">
+        <section class="align-self-md-center ma-md-0 hello">
+          <h1 class="title">Charlie Giorgania</h1>
+          <p class="subtitle">
+            Hello! I am a software developer! I can help you build a product,
+            feature or website. Taka a look of my works. If you like what you
+            see and have a project you need coded, don’t hesitate and contact
+            me.
+          </p>
+          <div class="buttons">
+            <button type="button" class="btn btn-primary btn-md-lg">
+              Start collaboration
+            </button>
+          </div>
+        </section>
         <div class="divider"></div>
-      </section>
+      </div>
+
       <section id="portfolio" class="section projects">
-        <h2 class="title">Projects</h2>
+        <h2 class="d-md-flex align-md-center justify-md-center title">
+          Projects
+        </h2>
 
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_1.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_1.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_2.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_2.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_3.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_3.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_4.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_4.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_5.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_5.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
         <article class="project">
-          <h3 class="project-item project-content bg-primary project-title">
-            Project name goes here
-          </h3>
-          <div class="project-item project-image">
+          <div class="d-flex project-image">
             <img
-              class="project-item project-img"
+              class="project-img"
               src="assets/images/projects/Project_6.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_6.png"
             />
           </div>
-          <div class="project-item project-content bg-primary project-tags">
-            <div class="project-tag">HTML/CSS</div>
-            <div class="project-tag">Ruby On Rails</div>
-            <div class="project-tag">JavaScript</div>
-          </div>
-          <div class="project-item project-content bg-primary project-button">
-            <button class="btn btn-primary" type="button">
-              See This Project <span class="icon icon-arrow-right"></span>
-            </button>
+          <div class="d-flex flex-column pa-20 bg-primary project-content">
+            <h3 class="ma-0 title">Project name goes here</h3>
+            <div class="d-flex flex-wrap my-16 tags">
+              <div class="tag">HTML/CSS</div>
+              <div class="tag">Ruby On Rails</div>
+              <div class="tag">JavaScript</div>
+            </div>
+            <div class="project-button">
+              <button class="btn btn-primary btn-md-secondary" type="button">
+                See This Project <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
           </div>
         </article>
+        <div class="d-none d-md-block decorator decorator-2">
+          <div class="bg-image bg-image-2"></div>
+        </div>
+        <div class="d-none d-md-block decorator decorator-3">
+          <div class="bg-image bg-image-3"></div>
+        </div>
+        <div class="d-none d-md-block decorator decorator-4">
+          <div class="bg-image bg-image-4"></div>
+        </div>
+        <div class="d-none d-md-block decorator decorator-5">
+          <div class="bg-image bg-image-5"></div>
+        </div>
+        <div class="d-none d-md-block decorator decorator-0">
+          <div class="bg-image bg-image-0"></div>
+        </div>
       </section>
-      <section id="about" class="section about">
-        <h2 class="title">About</h2>
-        <p class="about-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ea eiusmod
-        </p>
-        <div class="buttons">
-          <button type="button" class="btn btn-primary">
-            Get my CV <span class="icon icon-download"></span>
-          </button>
+      <section
+        id="about"
+        class="d-flex flex-column flex-md-row-reverse section about"
+      >
+        <div class="content">
+          <h2 class="title">About</h2>
+          <p class="about-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ea eiusmod
+          </p>
+          <div class="buttons">
+            <button type="button" class="btn btn-primary btn-md-lg">
+              Get my CV <span class="icon icon-download"></span>
+            </button>
+          </div>
         </div>
         <div class="skills">
           <section class="skill bg-blue">
@@ -247,38 +285,59 @@
           </section>
         </div>
       </section>
-      <section id="contact" class="section contact">
-        <h2 class="title">Get started</h2>
-        <p class="subtitle">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna.
-        </p>
-        <form
-          class="form"
-          action="https://formspree.io/f/xdoyvbvr"
-          method="POST"
-        >
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required maxlength="30" />
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Enter your message here..."
-            required
-            maxlength="500"
-          ></textarea>
-          <button class="btn btn-primary" type="submit">
-            Start collaboration
-          </button>
-        </form>
+      <section id="contact" class="d-md-flex justify-md-center section contact">
+        <div class="d-md-flex flex-md-column content">
+          <h2 class="title">Get started</h2>
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna.
+          </p>
+          <form
+            class="form"
+            action="https://formspree.io/f/xdoyvbvr"
+            method="POST"
+          >
+            <div class="form-group name-input">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="30"
+              />
+            </div>
+            <div class="form-group email-input">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group message-input">
+              <label class="d-none d-md-flex" for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Enter your message here..."
+                required
+                maxlength="500"
+              ></textarea>
+            </div>
+            <div
+              class="d-md-flex justify-md-center align-md-center button-input"
+            >
+              <button class="btn btn-primary btn-md-lg" type="submit">
+                Start collaboration
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
-      <footer class="bg-primary px-16 py-32 footer">
-        <a href="#" class="d-flex align-center mb-32 text-cyan footer-link">
+      <footer
+        class="bg-primary px-16 py-32 d-md-flex justify-md-space-between footer"
+      >
+        <a
+          href="#"
+          class="d-flex align-center mb-32 ma-md-0 text-cyan footer-link"
+        >
           Get my Resume
           <span class="icon icon-link-teal mx-16"></span>
         </a>
