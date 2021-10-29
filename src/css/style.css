@@ -1021,11 +1021,13 @@ a:active {
   }
 
   .skill {
-    transition: margin 0.3s;
+    transform: rotate(0deg);
+    transition: margin 0.3s, transform 1.5s;
   }
 
   .skill:hover {
     margin: -30px;
+    transform: rotate(360deg);
     z-index: 2;
   }
 
