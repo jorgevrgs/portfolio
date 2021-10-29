@@ -1126,11 +1126,17 @@ a:active {
   }
 
   .skill {
-    transition: margin 0.3s;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    transition: margin 0.3s, -webkit-transform 1s;
+    transition: margin 0.3s, transform 1s;
+    transition: margin 0.3s, transform 1s, -webkit-transform 1s;
   }
 
   .skill:hover {
     margin: -30px;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
     z-index: 2;
   }
 
