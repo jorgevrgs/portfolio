@@ -968,6 +968,7 @@ a:active {
   .projects .project {
     position: relative;
     margin-inline: 0;
+    overflow: hidden;
   }
 
   .projects > .title {
@@ -977,19 +978,25 @@ a:active {
     position: relative;
   }
 
-  .project > .project-content {
-    display: none;
+  .project-content {
     position: absolute;
+    padding: 30px;
+    bottom: 0;
     width: 100%;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    transition: -webkit-transform 0.75s ease-in-out;
+    transition: transform 0.75s ease-in-out;
+    transition: transform 0.75s ease-in-out, -webkit-transform 0.75s ease-in-out;
   }
 
-  .projects .project:hover > .project-content {
+  .project:hover .project-content {
     display: -ms-flexbox;
     display: flex;
-    bottom: 0;
     -ms-flex: 1;
         flex: 1;
-    padding: 30px;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   .projects .project:hover > .project-tags {
