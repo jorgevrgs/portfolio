@@ -327,6 +327,7 @@ a:active {
   -ms-flex-align: center;
       align-items: center;
   font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn-lg {
@@ -884,6 +885,7 @@ a:active {
             margin-block-end: 210px;
     -ms-flex-align: stretch;
         align-items: stretch;
+    overflow: hidden;
   }
 
   .about-me .hello {
@@ -893,6 +895,10 @@ a:active {
             padding-inline-end: 94px;
     -ms-flex: 3;
         flex: 3;
+    -webkit-animation-name: fromTop;
+            animation-name: fromTop;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
   }
 
   .about-me .divider {
@@ -906,6 +912,26 @@ a:active {
     background-position: center center;
     -ms-flex: 2;
         flex: 2;
+  }
+
+  @-webkit-keyframes fromTop {
+    from {
+      margin-top: -1000px;
+    }
+
+    to {
+      margin-top: 0;
+    }
+  }
+
+  @keyframes fromTop {
+    from {
+      margin-top: -1000px;
+    }
+
+    to {
+      margin-top: 0;
+    }
   }
 
   .about-me .divider::before {
@@ -1097,6 +1123,15 @@ a:active {
     background-image: url(../images/desktop/image_dots_with_teal.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
+  }
+
+  .skill {
+    transition: margin 0.3s;
+  }
+
+  .skill:hover {
+    margin: -30px;
+    z-index: 2;
   }
 
   .contact {
