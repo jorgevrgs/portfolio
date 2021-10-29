@@ -9,7 +9,7 @@
     "lint:css": "npx stylelint '**/*.{css,scss}'",
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:html": "npx hint .",
-    "test": "npm run lint:css && npm run lint:html && echo '\u001b[36m' && echo '✅ All test approved!' && echo '\u001b[0m'"
+    "test": "npm run lint:css && npm run lint:html && echo '\u001b[32m' && echo '✅ All test approved!' && echo '\u001b[0m'"
   },
   "keywords": [
     "html",
