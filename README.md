@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/badge/Microverse-blueviolet) [![Linters](https://github.com/jorgevrgs/portfolio/actions/workflows/linters.yml/badge.svg)](https://github.com/jorgevrgs/portfolio/actions/workflows/linters.yml)
 
 # Portfolio
 
@@ -16,7 +16,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://jorgevrgs.github.io/portfolio)
+[Live Demo Link](https://jorgevrgs.github.io/portfolio) 🔗
 
 ## Getting Started
 
