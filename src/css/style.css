@@ -1030,7 +1030,6 @@ a:active {
 
   .skill:hover {
     margin: -30px;
-    transform: rotate(360deg);
     z-index: 2;
   }
 
