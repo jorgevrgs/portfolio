@@ -296,6 +296,7 @@ a:active {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn-lg {
@@ -804,12 +805,15 @@ a:active {
   .about-me {
     margin-block-end: 210px;
     align-items: stretch;
+    overflow: hidden;
   }
 
   .about-me .hello {
     padding-inline-start: 160px;
     padding-inline-end: 94px;
     flex: 3;
+    animation-name: fromTop;
+    animation-duration: 2s;
   }
 
   .about-me .divider {
@@ -822,6 +826,16 @@ a:active {
     background-size: contain;
     background-position: center center;
     flex: 2;
+  }
+
+  @keyframes fromTop {
+    from {
+      margin-top: -1000px;
+    }
+
+    to {
+      margin-top: 0;
+    }
   }
 
   .about-me .divider::before {
@@ -858,6 +872,7 @@ a:active {
   .projects .project {
     position: relative;
     margin-inline: 0;
+    overflow: hidden;
   }
 
   .projects > .title {
@@ -866,17 +881,19 @@ a:active {
     position: relative;
   }
 
-  .project > .project-content {
-    display: none;
+  .project-content {
     position: absolute;
+    padding: 30px;
+    bottom: 0;
     width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.75s ease-in-out;
   }
 
-  .projects .project:hover > .project-content {
+  .project:hover .project-content {
     display: flex;
-    bottom: 0;
     flex: 1;
-    padding: 30px;
+    transform: translateY(0);
   }
 
   .projects .project:hover > .project-tags {
@@ -1004,6 +1021,16 @@ a:active {
     background-image: url(../images/desktop/image_dots_with_teal.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
+  }
+
+  .skill {
+    transform: rotate(0deg);
+    transition: margin 0.3s, transform 1s;
+  }
+
+  .skill:hover {
+    margin: -30px;
+    z-index: 2;
   }
 
   .contact {

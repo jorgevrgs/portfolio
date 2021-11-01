@@ -327,6 +327,7 @@ a:active {
   -ms-flex-align: center;
       align-items: center;
   font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn-lg {
@@ -884,6 +885,7 @@ a:active {
             margin-block-end: 210px;
     -ms-flex-align: stretch;
         align-items: stretch;
+    overflow: hidden;
   }
 
   .about-me .hello {
@@ -893,6 +895,10 @@ a:active {
             padding-inline-end: 94px;
     -ms-flex: 3;
         flex: 3;
+    -webkit-animation-name: fromTop;
+            animation-name: fromTop;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
   }
 
   .about-me .divider {
@@ -906,6 +912,26 @@ a:active {
     background-position: center center;
     -ms-flex: 2;
         flex: 2;
+  }
+
+  @-webkit-keyframes fromTop {
+    from {
+      margin-top: -1000px;
+    }
+
+    to {
+      margin-top: 0;
+    }
+  }
+
+  @keyframes fromTop {
+    from {
+      margin-top: -1000px;
+    }
+
+    to {
+      margin-top: 0;
+    }
   }
 
   .about-me .divider::before {
@@ -942,6 +968,7 @@ a:active {
   .projects .project {
     position: relative;
     margin-inline: 0;
+    overflow: hidden;
   }
 
   .projects > .title {
@@ -951,19 +978,25 @@ a:active {
     position: relative;
   }
 
-  .project > .project-content {
-    display: none;
+  .project-content {
     position: absolute;
+    padding: 30px;
+    bottom: 0;
     width: 100%;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    transition: -webkit-transform 0.75s ease-in-out;
+    transition: transform 0.75s ease-in-out;
+    transition: transform 0.75s ease-in-out, -webkit-transform 0.75s ease-in-out;
   }
 
-  .projects .project:hover > .project-content {
+  .project:hover .project-content {
     display: -ms-flexbox;
     display: flex;
-    bottom: 0;
     -ms-flex: 1;
         flex: 1;
-    padding: 30px;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   .projects .project:hover > .project-tags {
@@ -1097,6 +1130,19 @@ a:active {
     background-image: url(../images/desktop/image_dots_with_teal.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
+  }
+
+  .skill {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    transition: margin 0.3s, -webkit-transform 1s;
+    transition: margin 0.3s, transform 1s;
+    transition: margin 0.3s, transform 1s, -webkit-transform 1s;
+  }
+
+  .skill:hover {
+    margin: -30px;
+    z-index: 2;
   }
 
   .contact {
