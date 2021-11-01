@@ -4,8 +4,8 @@
   "description": "Web development portfolio",
   "main": "script.js",
   "scripts": {
-    "build:css": "gulp styles",
-    "watch:css": "gulp watch",
+    "build:css": "gulp buildSass",
+    "watch:css": "gulp watchSass",
     "lint:css": "npx stylelint '**/*.{css,scss}'",
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:html": "npx hint .",
@@ -24,8 +24,10 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.0.0",
     "gulp-uglifycss": "^1.1.0",
     "hint": "^6.1.4",
+    "sass": "^1.43.4",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
