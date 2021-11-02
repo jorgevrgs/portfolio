@@ -1,14 +1,14 @@
 :root {
-  --color-primary: $color-primary;
-  --color-secondary: $color-secondary;
-  --color-white: $color-white;
-  --color-cyan: $color-cyan;
-  --color-blue: $color-blue;
-  --color-red: $color-red;
-  --color-yellow: $color-yellow;
-  --color-grey: $color-grey;
-  --color-darker-grey: $color-darker-grey;
-  --color-alt-grey: $color-alt-grey;
-  --font-primary: $font-primary;
-  --font-secondary: $font-secondary;
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-white: #{$color-white};
+  --color-cyan: #{$color-cyan};
+  --color-blue: #{$color-blue};
+  --color-red: #{$color-red};
+  --color-yellow: #{$color-yellow};
+  --color-grey: #{$color-grey};
+  --color-darker-grey: #{$color-darker-grey};
+  --color-alt-grey: #{$color-alt-grey};
+  --font-primary: #{$font-primary};
+  --font-secondary: #{$font-secondary};
 }
