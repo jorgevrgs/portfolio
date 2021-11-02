@@ -1,0 +1,18 @@
+.footer {
+  /* Footer */
+  .social-icons {
+    list-style: none;
+
+    .footer-link {
+      font-size: 1rem;
+    }
+  }
+
+  /* End Footer */
+}
+
+@media screen and (min-width: 992px) {
+  .footer {
+    padding-inline: 160px;
+  }
+}

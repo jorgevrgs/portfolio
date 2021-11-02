@@ -1,0 +1,29 @@
+@media screen and (min-width: 992px) {
+  .header {
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 0.5px 0 #dddfe6;
+
+    .nav-links {
+      gap: 50px;
+
+      .nav-link {
+        position: relative;
+        font-size: 1rem;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .nav-link:visited::after,
+  .nav-link:active::after,
+  .header .nav-link:hover::after {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 2px;
+    background-color: $color-primary;
+    bottom: 0;
+    left: 0;
+  }
+}

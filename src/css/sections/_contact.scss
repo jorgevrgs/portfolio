@@ -1,0 +1,134 @@
+/* Contact Form Section */
+.contact {
+  background-color: $color-grey;
+  background-image: url(../images/image_geometry_1.svg);
+  background-repeat: no-repeat;
+  margin-block-start: 50px;
+  padding-inline: 18px;
+  padding-block-start: 106px;
+  padding-block-end: 74px;
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    margin-block-end: 32px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    border-radius: 4px;
+    padding: 4px 16px 8px 16px;
+    margin-block-end: 8px;
+    border: 1px solid $color-darker-grey;
+
+    > label {
+      font-size: 10px;
+      margin-block-end: 4px;
+      color: $color-alt-grey;
+    }
+
+    & > input,
+    & > textarea {
+      border: none;
+      font-size: 1rem;
+      font-family: $font-primary;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 112px;
+      resize: none;
+      border-radius: 4px;
+      margin: 0;
+      padding-block: 15px;
+    }
+
+    & > input:focus,
+    & > textarea:focus {
+      outline: none;
+    }
+  }
+
+  .btn {
+    margin-block-start: 20px;
+  }
+}
+
+/* End Contact Form Section */
+
+@media screen and (min-width: 992px) {
+  .contact {
+    background-image: url(../images/desktop/image-geometry_6.svg);
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+      height: 350px;
+      width: 350px;
+      position: absolute;
+      background-image: url(../images/desktop/image-geometry_7.svg);
+      z-index: 1;
+      right: 0;
+      bottom: 0;
+    }
+
+    & > .content {
+      width: 548px;
+
+      .form {
+        z-index: 2;
+        display: grid;
+        gap: 0 35px;
+        grid-template-areas:
+          "name    email"
+          "message message"
+          "button  button";
+
+        .form-group {
+          background: none;
+          border: none;
+          padding: 0;
+
+          label {
+            margin-block-start: 20px;
+            font-size: 14px;
+          }
+
+          &.name-input {
+            grid-area: name;
+          }
+
+          &.email-input {
+            grid-area: email;
+          }
+
+          &.message-input {
+            grid-area: message;
+          }
+
+          input,
+          textarea {
+            padding: 18px;
+            border: 1px solid $color-darker-grey;
+            border-radius: 4px;
+          }
+
+          textarea {
+            height: 140px;
+          }
+        }
+
+        &.button-input {
+          grid-area: button;
+
+          .btn {
+            margin-block-start: 40px;
+          }
+        }
+      }
+    }
+  }
+}

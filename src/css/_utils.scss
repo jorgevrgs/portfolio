@@ -1,0 +1,329 @@
+/* Utils */
+
+.w-100 {
+  width: 100%;
+}
+
+.bg-primary {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.bg-blue {
+  background-color: $color-blue;
+  color: $color-white;
+}
+
+.bg-red {
+  background-color: $color-red;
+  color: $color-white;
+}
+
+.bg-yellow {
+  background-color: $color-yellow;
+  color: $color-white;
+}
+
+.d-none {
+  display: none;
+}
+
+/* Flex */
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.order-0 {
+  order: 0;
+}
+
+.order-1 {
+  order: 1;
+}
+
+/* Spacing */
+.pa-0 {
+  padding: 0;
+  padding-inline: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-block: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+}
+
+.ma-0 {
+  margin: 0;
+  margin-inline: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.mx-16 {
+  margin-inline: 16px;
+}
+
+.my-16 {
+  margin-block: 16px;
+}
+
+.mx-32 {
+  margin-inline: 32px;
+}
+
+.my-32 {
+  margin-block: 32px;
+}
+
+.mb-16 {
+  margin-block-end: 16px;
+}
+
+.mt-16 {
+  margin-block-start: 16px;
+}
+
+.mb-32 {
+  margin-block-end: 32px;
+}
+
+.mt-32 {
+  margin-block-start: 32px;
+}
+
+.px-16 {
+  padding-inline: 16px;
+}
+
+.py-16 {
+  padding-block: 16px;
+}
+
+.pa-16 {
+  padding: 16px;
+}
+
+.pa-20 {
+  padding: 20px;
+}
+
+.pa-32 {
+  padding: 32px;
+}
+
+.px-32 {
+  padding-inline: 32px;
+}
+
+.py-32 {
+  padding-block: 32px;
+}
+
+/* Text */
+.text-primary {
+  color: $color-primary;
+}
+
+.text-secondary {
+  color: $color-secondary;
+}
+
+.text-cyan {
+  color: $color-cyan;
+}
+
+/* End Utils */
+
+@media screen and (min-width: 992px) {
+  .w-md-100 {
+    width: 100%;
+  }
+
+  .d-md-block {
+    display: block;
+  }
+
+  .d-md-none {
+    display: none;
+  }
+
+  .btn-md-lg {
+    width: 254px;
+    height: 70px;
+  }
+
+  /* Flex */
+
+  .d-md-flex {
+    display: flex;
+  }
+
+  .flex-md-row {
+    flex-direction: row;
+  }
+
+  .flex-md-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .flex-md-column {
+    flex-direction: column;
+  }
+
+  .justify-md-space-between {
+    justify-content: space-between;
+  }
+
+  .justify-md-space-around {
+    justify-content: space-around;
+  }
+
+  .justify-md-start {
+    justify-content: flex-start;
+  }
+
+  .justify-md-end {
+    justify-content: flex-end;
+  }
+
+  .justify-md-center {
+    justify-content: center;
+  }
+
+  .align-md-start {
+    align-items: flex-start;
+  }
+
+  .align-md-end {
+    align-items: flex-end;
+  }
+
+  .align-md-center {
+    align-items: center;
+  }
+
+  .align-self-md-center {
+    align-self: center;
+  }
+
+  .order-md-0 {
+    order: 0;
+  }
+
+  .order-md-1 {
+    order: 1;
+  }
+
+  /* Spacing */
+  .pa-md-0 {
+    padding: 0;
+  }
+
+  .ma-md-0 {
+    margin: 0;
+  }
+
+  .mx-md-16 {
+    margin-inline: 16px;
+  }
+
+  .my-md-16 {
+    margin-block: 16px;
+  }
+
+  .mx-md-32 {
+    margin-inline: 32px;
+  }
+
+  .my-md-32 {
+    margin-block: 32px;
+  }
+
+  .mb-md-16 {
+    margin-block-end: 16px;
+  }
+
+  .mt-md-16 {
+    margin-block-start: 16px;
+  }
+
+  .mb-md-32 {
+    margin-block-end: 32px;
+  }
+
+  .mt-md-32 {
+    margin-block-start: 32px;
+  }
+
+  .px-md-16 {
+    padding-inline: 16px;
+  }
+
+  .py-md-16 {
+    padding-block: 16px;
+  }
+
+  .px-md-32 {
+    padding-inline: 32px;
+  }
+
+  .py-md-32 {
+    padding-block: 32px;
+  }
+}
