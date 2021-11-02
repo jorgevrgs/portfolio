@@ -1,0 +1,89 @@
+/* About Secion */
+
+.about {
+  .title {
+    margin-block-start: 56px;
+    margin-block-end: 20px;
+  }
+
+  .buttons {
+    margin-block-start: 32px;
+
+    .icon {
+      margin-inline-start: 20px;
+    }
+  }
+
+  .skills {
+    display: grid;
+    gap: 10px;
+    margin-block-start: 40px;
+
+    .skill {
+      padding: 50px;
+      font-size: 18px;
+
+      .skill-title {
+        margin-block-end: 21px;
+        font-size: 20px;
+      }
+
+      .skill-items {
+        list-style-position: inside;
+      }
+
+      &:first-child {
+        background-image: url(../images/ic_languages_mob.svg);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+      }
+
+      &:nth-child(2) {
+        background-image: url(../images/ic_framework.svg);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+      }
+
+      &:last-child {
+        background-image: url(../images/ic_skills.svg);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+      }
+    }
+  }
+}
+
+/* End About Secion */
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .about {
+    padding-inline: 160px;
+    gap: 96px;
+    margin-block-start: 216px;
+    margin-block-end: 158px;
+
+    & > * {
+      flex: 1;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+      background-image: url(../images/desktop/image_dots_with_teal.svg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+
+      .skill {
+        transform: rotate(0deg);
+        transition: margin 0.3s, transform 1s;
+
+        &:hover {
+          margin: -30px;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}

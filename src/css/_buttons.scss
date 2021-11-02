@@ -1,0 +1,109 @@
+/* Buttons */
+.btn {
+  border: none;
+  cursor: pointer;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-lg {
+  width: 254px;
+  height: 70px;
+}
+
+.btn:focus {
+  border-width: 2px;
+}
+
+.btn-primary {
+  height: 50px;
+  background-color: $color-primary;
+  color: $color-secondary;
+  width: 100%;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: $color-secondary;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+}
+
+.btn-secondary {
+  height: 50px;
+  background-color: $color-secondary;
+  color: $color-primary;
+  width: 100%;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: $color-primary;
+  color: $color-primary;
+  border: 1px solid $color-secondary;
+}
+
+.btn:hover .icon {
+  filter: invert(1);
+}
+
+/* Specific Buttons */
+
+.btn-menu {
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/ic_menu.svg);
+  background-repeat: no-repeat;
+  margin-block-start: 19px;
+  margin-inline-end: 16px;
+}
+
+/* End Buttons */
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .btn-primary {
+    height: 50px;
+    background-color: $color-primary;
+    color: $color-secondary;
+    width: 100%;
+  }
+
+  .btn-md-primary:hover,
+  .btn-md-primary:focus {
+    background-color: $color-secondary;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+  }
+
+  .btn-md-secondary {
+    height: 50px;
+    background-color: $color-secondary;
+    color: $color-primary;
+    width: 100%;
+  }
+
+  .btn-md-secondary .icon {
+    filter: invert(1);
+  }
+
+  .btn-md-secondary:hover,
+  .btn-md-secondary:focus {
+    background-color: $color-primary;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+
+  .btn-md-secondary:hover .icon,
+  .btn-md-secondary:focus .icon {
+    filter: invert(0);
+  }
+
+  .btn-md-lg {
+    width: 254px;
+    height: 70px;
+  }
+}
