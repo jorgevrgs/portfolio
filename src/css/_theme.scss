@@ -26,7 +26,7 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .title {
     font-size: 110px;
   }

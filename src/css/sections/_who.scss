@@ -30,7 +30,7 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .about-me {
     margin-block-end: 210px;
     align-items: stretch;

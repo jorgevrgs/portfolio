@@ -58,7 +58,7 @@
 
 /* End Contact Form Section */
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .contact {
     background-image: url(../images/desktop/image-geometry_6.svg);
     position: relative;

@@ -64,7 +64,7 @@
 
 /* End Buttons */
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .btn-primary {
     height: 50px;
     background-color: $color-primary;

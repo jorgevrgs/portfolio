@@ -190,7 +190,7 @@
 
 /* End Utils */
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .w-md-100 {
     width: 100%;
   }

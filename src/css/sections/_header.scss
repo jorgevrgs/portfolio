@@ -1,4 +1,4 @@
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $desktop-breakpoint) {
   .header {
     width: 100%;
     height: 100px;
