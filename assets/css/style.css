@@ -1,4 +1,5 @@
-*,*::after,*::before{box-sizing:border-box;margin:0;padding:0}html{font-family:"Poppins",sans-serif;font-size:16px;font-style:normal;font-weight:normal}
+@-webkit-keyframes fromTop{from{margin-top:-1000px}to{margin-top:0}}@keyframes fromTop{from{margin-top:-1000px}
+to{margin-top:0}}*,*::after,*::before{box-sizing:border-box;margin:0;padding:0}html{font-family:"Poppins",sans-serif;font-size:16px;font-style:normal;font-weight:normal}
 a{color:#1a2236}a:link{text-decoration:none}a:visited{text-decoration:none}a:hover{text-decoration:none}
 a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#fff;--color-white:#fff;--color-cyan:#98dede;--color-blue:#1c528a;--color-red:#e2505c;--color-yellow:#febf52;--color-grey:#f9f9fa;--color-darker-grey:#dfdfe0;--color-alt-grey:#7d7c84;--font-primary:Poppins,sans-serif;--font-secondary:Playfair Display,serif}
 .icon{width:32px;height:32px;display:block;background-repeat:no-repeat;background-position:center}
