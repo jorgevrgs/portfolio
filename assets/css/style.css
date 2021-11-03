@@ -20,7 +20,7 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .btn-md-lg{width:254px;height:70px}}.main{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;width:100vw;min-height:calc(100vh - 100px);color:#1a2236}
 .header{background-image:url(../images/image_geometry_1.svg);background-repeat:no-repeat;height:74px}
 .title{font-size:50px;line-height:100%}.section{padding-inline:16px}.section>.title>.title,.section>.content>.title{line-height:100%;font-family:"Playfair Display",serif;margin-block:40px 32px}
-@media screen and (min-width:992px){.title{font-size:110px}.header{background-image:none}
+@media screen and (min-width:992px){.title{font-size:110px;font-weight:400}.header{background-image:none}
 .section{padding-inline:0}}.screen-reader-only{position:absolute;width:1px;height:1px;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap}
 .w-100{width:100%}.bg-primary{background-color:#1a2236;color:#fff}.bg-blue{background-color:#1c528a;color:#fff}
 .bg-red{background-color:#e2505c;color:#fff}.bg-yellow{background-color:#febf52;color:#fff}
@@ -87,7 +87,7 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 }.about .title{-webkit-margin-before:56px;margin-block-start:56px;-webkit-margin-after:20px;margin-block-end:20px}
 .about .buttons{-webkit-margin-before:32px;margin-block-start:32px}.about .buttons .icon{-webkit-margin-start:20px;margin-inline-start:20px}
 .about .skills{display:grid;gap:10px;-webkit-margin-before:40px;margin-block-start:40px}
-.about .skills .skill{padding:50px;font-size:18px}.about .skills .skill .skill-title{-webkit-margin-after:21px;margin-block-end:21px;font-size:20px}
+.about .skills .skill{padding:50px;font-size:18px}.about .skills .skill .skill-title{-webkit-margin-after:21px;margin-block-end:21px;font-size:20px;font-weight:800;line-height:30px;color:#fff}
 .about .skills .skill .skill-items{list-style-position:inside}.about .skills .skill:first-child{background-image:url(../images/ic_languages_mob.svg);background-repeat:no-repeat;background-position:right bottom}
 .about .skills .skill:nth-child(2){background-image:url(../images/ic_framework.svg);background-repeat:no-repeat;background-position:right bottom}
 .about .skills .skill:last-child{background-image:url(../images/ic_skills.svg);background-repeat:no-repeat;background-position:right bottom}
@@ -103,7 +103,7 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .contact .form-group>input:focus,.contact .form-group>textarea:focus{outline:0}.contact .btn{-webkit-margin-before:20px;margin-block-start:20px}
 @media screen and (min-width:992px){.contact{background-image:url(../images/desktop/image-geometry_6.svg);position:relative}
 .contact::after{display:block;content:"";height:350px;width:350px;position:absolute;background-image:url(../images/desktop/image-geometry_7.svg);z-index:1;right:0;bottom:0}
-.contact>.content{width:548px}.contact>.content .form{z-index:2;display:grid;gap:0 35px;grid-template-areas:"name    email" "message message" "button  button"}
+.contact>.content{width:550px}.contact>.content .form{z-index:2;display:grid;gap:0 35px;grid-template-areas:"name    email" "message message" "button  button"}
 .contact>.content .form .form-group{background:0;border:0;padding:0}.contact>.content .form .form-group label{-webkit-margin-before:20px;margin-block-start:20px;font-size:14px}
 .contact>.content .form .form-group.name-input{grid-area:name}.contact>.content .form .form-group.email-input{grid-area:email}
 .contact>.content .form .form-group.message-input{grid-area:message}.contact>.content .form .form-group input,.contact>.content .form .form-group textarea{padding:18px;border:1px solid #dfdfe0;border-radius:4px}
