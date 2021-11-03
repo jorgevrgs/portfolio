@@ -77,16 +77,6 @@
       background-image: url(../images/desktop/image_dots_with_teal.svg);
       background-repeat: no-repeat;
       background-position: bottom right;
-
-      .skill {
-        transform: rotate(0deg);
-        transition: margin 0.3s, transform 1s;
-
-        &:hover {
-          margin: -30px;
-          z-index: 2;
-        }
-      }
     }
   }
 }

@@ -93,8 +93,7 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .about .skills .skill:last-child{background-image:url(../images/ic_skills.svg);background-repeat:no-repeat;background-position:right bottom}
 @media screen and (min-width:992px){.about{padding-inline:160px;gap:96px;-webkit-margin-before:216px;margin-block-start:216px;-webkit-margin-after:158px;margin-block-end:158px}
 .about>*{-ms-flex:1;flex:1}.about .skills{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;background-image:url(../images/desktop/image_dots_with_teal.svg);background-repeat:no-repeat;background-position:bottom right}
-.about .skills .skill{-webkit-transform:rotate(0);transform:rotate(0);transition:margin .3s,-webkit-transform 1s;transition:margin .3s,transform 1s;transition:margin .3s,transform 1s,-webkit-transform 1s}
-.about .skills .skill:hover{margin:-30px;z-index:2}}.contact{background-color:#f9f9fa;background-image:url(../images/image_geometry_1.svg);background-repeat:no-repeat;-webkit-margin-before:50px;margin-block-start:50px;padding-inline:18px;-webkit-padding-before:106px;padding-block-start:106px;-webkit-padding-after:74px;padding-block-end:74px}
+}.contact{background-color:#f9f9fa;background-image:url(../images/image_geometry_1.svg);background-repeat:no-repeat;-webkit-margin-before:50px;margin-block-start:50px;padding-inline:18px;-webkit-padding-before:106px;padding-block-start:106px;-webkit-padding-after:74px;padding-block-end:74px}
 .contact .subtitle{font-size:14px;line-height:21px;-webkit-margin-after:32px;margin-block-end:32px}
 .contact .form-group{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;background-color:#fff;border-radius:4px;padding:4px 16px 8px 16px;-webkit-margin-after:8px;margin-block-end:8px;border:1px solid #dfdfe0}
 .contact .form-group>label{font-size:10px;-webkit-margin-after:4px;margin-block-end:4px;color:#4b4b4f}
