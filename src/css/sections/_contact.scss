@@ -116,6 +116,10 @@
             border-radius: 4px;
           }
 
+          textarea {
+            height: 140px;
+          }
+
           input:valid,
           textarea:valid {
             border-color: $color-success;
@@ -124,10 +128,6 @@
           input:invalid,
           textarea:invalid {
             border-color: $color-danger;
-          }
-
-          textarea {
-            height: 140px;
           }
         }
 
