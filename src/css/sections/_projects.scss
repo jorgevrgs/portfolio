@@ -93,7 +93,11 @@
 
         & > .title {
           font-size: 40px;
-          line-height: 80%;
+          line-height: 150%;
+          font-size: 40px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
       }
 
@@ -102,14 +106,6 @@
           display: flex;
           flex: 1;
           transform: translateY(0);
-        }
-
-        & > .project-title {
-          padding-inline: 30px;
-          font-size: 40px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
         }
       }
 
