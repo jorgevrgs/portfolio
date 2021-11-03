@@ -13,16 +13,10 @@
     flex-direction: column;
     margin-inline: -16px;
 
-    & > .title {
-      font-size: 20px;
-      line-height: 80%;
-      font-weight: 300;
-    }
-
-    .project-image {
+    .project-media {
       margin-block: -2px;
 
-      .project-img {
+      .project-image {
         width: 100%;
         height: auto;
         display: block;
@@ -31,6 +25,12 @@
     }
 
     .project-content {
+      & > .title {
+        font-size: 20px;
+        line-height: 80%;
+        font-weight: 300;
+      }
+
       .tags {
         gap: 10px;
 
