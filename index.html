@@ -51,29 +51,30 @@
     </script>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="d-flex justify-end header">
-        <button
-          type="button"
-          class="btn btn-menu d-md-none justify-md-space-around"
-        ></button>
-        <nav
-          class="
-            d-none
-            w-md-100
-            d-md-flex
-            justify-md-center
-            align-md-center
-            nav-links
-          "
-        >
-          <a class="nav-link" href="#hello">Hello</a>
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#contact">Contact</a>
-        </nav>
-      </header>
-      <main id="hello" class="d-md-flex section about-me">
+    <header class="d-flex justify-end header">
+      <button
+        type="button"
+        class="btn btn-menu d-md-none justify-md-space-around"
+        aria-label="Menu icon"
+      ></button>
+      <nav
+        class="
+          d-none
+          w-md-100
+          d-md-flex
+          justify-md-center
+          align-md-center
+          nav-links
+        "
+      >
+        <a class="nav-link" href="#hello">Hello</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main class="main">
+      <div id="hello" class="d-md-flex section about-me">
         <section class="align-self-md-center ma-md-0 hello">
           <h1 class="title">Jorge Enrique Vargas</h1>
           <p class="subtitle">
@@ -88,8 +89,8 @@
             </button>
           </div>
         </section>
-        <div class="divider"></div>
-      </main>
+        <div class="divider" role="presentation"></div>
+      </div>
 
       <section id="portfolio" class="section projects">
         <h2 class="d-md-flex align-md-center justify-md-center title">
@@ -234,19 +235,34 @@
             </div>
           </div>
         </article>
-        <div class="d-none d-md-block decorator decorator-2">
+        <div
+          class="d-none d-md-block decorator decorator-2"
+          role="presentation"
+        >
           <div class="bg-image bg-image-2"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-3">
+        <div
+          class="d-none d-md-block decorator decorator-3"
+          role="presentation"
+        >
           <div class="bg-image bg-image-3"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-4">
+        <div
+          class="d-none d-md-block decorator decorator-4"
+          role="presentation"
+        >
           <div class="bg-image bg-image-4"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-5">
+        <div
+          class="d-none d-md-block decorator decorator-5"
+          role="presentation"
+        >
           <div class="bg-image bg-image-5"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-0">
+        <div
+          class="d-none d-md-block decorator decorator-0"
+          role="presentation"
+        >
           <div class="bg-image bg-image-0"></div>
         </div>
       </section>
@@ -313,7 +329,9 @@
             method="POST"
           >
             <div class="form-group name-input">
-              <label for="name">Your Name</label>
+              <label for="name"
+                >Your Name <em aria-hidden="true">(required)</em></label
+              >
               <input
                 type="text"
                 id="name"
@@ -321,26 +339,33 @@
                 required
                 maxlength="30"
                 placeholder="e.g. John Doe"
+                aria-required="true"
               />
             </div>
             <div class="form-group email-input">
-              <label for="email">Your Email</label>
+              <label for="email"
+                >Your Email <em aria-hidden="true">(required)</em></label
+              >
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
                 placeholder="e.g. user@example.com"
+                aria-required="true"
               />
             </div>
             <div class="form-group message-input">
-              <label class="d-none d-md-flex" for="message">Message</label>
+              <label class="d-none d-md-flex" for="message"
+                >Message <em aria-hidden="true">(required)</em></label
+              >
               <textarea
                 id="message"
                 name="message"
                 placeholder="Enter your message here..."
                 required
                 maxlength="500"
+                aria-required="true"
               ></textarea>
             </div>
             <div
@@ -369,51 +394,73 @@
               href="https://stackoverflow.com/users/6222600/jorge-vargas"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-stackoverflow"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-stackoverflow" aria-hidden="true"></span>
+              <em class="screen-reader-only">stackoverflow</em>
+            </a>
           </li>
           <li>
             <a
               href="https://github.com/jorgevrgs"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-github"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-github" aria-hidden="true"></span>
+              <em class="screen-reader-only">github</em>
+            </a>
           </li>
           <li>
             <a
               href="https://twitter.com/jorgevrgs1"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-twitter"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-twitter" aria-hidden="true"></span>
+              <em class="screen-reader-only">twitter</em>
+            </a>
           </li>
           <li>
             <a
               href="https://www.linkedin.com/in/jevargaslarrota/"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-linkedin"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-linkedin" aria-hidden="true"></span>
+              <em class="screen-reader-only">linkedin</em>
+            </a>
           </li>
           <li>
             <a
               href="https://medium.com/@jorgevargasla"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-medium"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-medium" aria-hidden="true"></span>
+              <em class="screen-reader-only">medium</em>
+            </a>
           </li>
           <li>
             <a
               href="https://angel.co/u/jorgevrgs"
               target="_blank"
               rel="noopener noreferrer"
-              ><span class="icon icon-angellist"></span
-            ></a>
+              aria-describedby="opens-in-a-new-window"
+            >
+              <span class="icon icon-angellist" aria-hidden="true"></span>
+              <em class="screen-reader-only">angellist</em>
+            </a>
           </li>
         </ul>
+
+        <span id="opens-in-a-new-window" class="screen-reader-only"
+          >(opens in a new tab)</span
+        >
       </footer>
-    </div>
+    </main>
   </body>
 </html>

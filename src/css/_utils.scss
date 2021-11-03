@@ -1,4 +1,12 @@
 /* Utils */
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .w-100 {
   width: 100%;

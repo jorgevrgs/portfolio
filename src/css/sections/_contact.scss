@@ -26,7 +26,7 @@
     > label {
       font-size: 10px;
       margin-block-end: 4px;
-      color: $color-alt-grey;
+      color: darken($color-alt-grey, 20%);
     }
 
     & > input,
