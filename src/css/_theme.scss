@@ -1,11 +1,15 @@
-.wrapper {
+.main {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
+  color: $color-primary;
+}
+
+.header {
   background-image: url(../images/image_geometry_1.svg);
   background-repeat: no-repeat;
-  color: $color-primary;
+  height: 74px;
 }
 
 .title {
@@ -29,6 +33,11 @@
 @media screen and (min-width: $desktop-breakpoint) {
   .title {
     font-size: 110px;
+    font-weight: 400;
+  }
+
+  .header {
+    background-image: none;
   }
 
   .section {

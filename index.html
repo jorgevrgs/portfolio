@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Portfolio | Web Developer</title>
+    <title>Jorge Vargas Portfolio | Web Developer</title>
 
     <link
       rel="apple-touch-icon"
@@ -51,28 +51,29 @@
     </script>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="d-flex justify-end header">
-        <button
-          type="button"
-          class="btn btn-menu d-md-none justify-md-space-around"
-        ></button>
-        <nav
-          class="
-            d-none
-            w-md-100
-            d-md-flex
-            justify-md-center
-            align-md-center
-            nav-links
-          "
-        >
-          <a class="nav-link" href="#hello">Hello</a>
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#contact">Contact</a>
-        </nav>
-      </header>
+    <header class="d-flex justify-end header">
+      <button
+        type="button"
+        class="btn btn-menu d-md-none justify-md-space-around"
+        aria-label="Menu icon"
+      ></button>
+      <nav
+        class="
+          d-none
+          w-md-100
+          d-md-flex
+          justify-md-center
+          align-md-center
+          nav-links
+        "
+      >
+        <a class="nav-link" href="#hello">Hello</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main class="main">
       <div id="hello" class="d-md-flex section about-me">
         <section class="align-self-md-center ma-md-0 hello">
           <h1 class="title">Jorge Enrique Vargas</h1>
@@ -88,7 +89,7 @@
             </button>
           </div>
         </section>
-        <div class="divider"></div>
+        <div class="divider" role="presentation"></div>
       </div>
 
       <section id="portfolio" class="section projects">
@@ -97,9 +98,9 @@
         </h2>
 
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_1.png"
               alt="Project 1"
               srcset="assets/images/projects/Project_1.png"
@@ -120,11 +121,11 @@
           </div>
         </article>
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_2.png"
-              alt="Project 1"
+              alt="Project 2"
               srcset="assets/images/projects/Project_2.png"
             />
           </div>
@@ -143,11 +144,11 @@
           </div>
         </article>
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_3.png"
-              alt="Project 1"
+              alt="Project 3"
               srcset="assets/images/projects/Project_3.png"
             />
           </div>
@@ -166,11 +167,11 @@
           </div>
         </article>
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_4.png"
-              alt="Project 1"
+              alt="Project 4"
               srcset="assets/images/projects/Project_4.png"
             />
           </div>
@@ -189,11 +190,11 @@
           </div>
         </article>
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_5.png"
-              alt="Project 1"
+              alt="Project 5"
               srcset="assets/images/projects/Project_5.png"
             />
           </div>
@@ -212,11 +213,11 @@
           </div>
         </article>
         <article class="project">
-          <div class="d-flex project-image">
+          <div class="d-flex project-media">
             <img
-              class="project-img"
+              class="project-image"
               src="assets/images/projects/Project_6.png"
-              alt="Project 1"
+              alt="Project 6"
               srcset="assets/images/projects/Project_6.png"
             />
           </div>
@@ -234,19 +235,34 @@
             </div>
           </div>
         </article>
-        <div class="d-none d-md-block decorator decorator-2">
+        <div
+          class="d-none d-md-block decorator decorator-2"
+          role="presentation"
+        >
           <div class="bg-image bg-image-2"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-3">
+        <div
+          class="d-none d-md-block decorator decorator-3"
+          role="presentation"
+        >
           <div class="bg-image bg-image-3"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-4">
+        <div
+          class="d-none d-md-block decorator decorator-4"
+          role="presentation"
+        >
           <div class="bg-image bg-image-4"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-5">
+        <div
+          class="d-none d-md-block decorator decorator-5"
+          role="presentation"
+        >
           <div class="bg-image bg-image-5"></div>
         </div>
-        <div class="d-none d-md-block decorator decorator-0">
+        <div
+          class="d-none d-md-block decorator decorator-0"
+          role="presentation"
+        >
           <div class="bg-image bg-image-0"></div>
         </div>
       </section>
@@ -313,27 +329,45 @@
             method="POST"
           >
             <div class="form-group name-input">
-              <label for="name">Your Name</label>
+              <label for="name"
+                >Your Name <em aria-hidden="true">(required)</em></label
+              >
               <input
                 type="text"
                 id="name"
                 name="name"
                 required
                 maxlength="30"
+                placeholder="e.g. John Doe"
+                aria-required="true"
+                autocomplete="name"
               />
             </div>
             <div class="form-group email-input">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" required />
+              <label for="email"
+                >Your Email <em aria-hidden="true">(required)</em></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="e.g. user@example.com"
+                aria-required="true"
+                autocomplete="email"
+              />
             </div>
             <div class="form-group message-input">
-              <label class="d-none d-md-flex" for="message">Message</label>
+              <label class="d-none d-md-flex" for="message"
+                >Message <em aria-hidden="true">(required)</em></label
+              >
               <textarea
                 id="message"
                 name="message"
                 placeholder="Enter your message here..."
                 required
                 maxlength="500"
+                aria-required="true"
               ></textarea>
             </div>
             <div
@@ -346,67 +380,89 @@
           </form>
         </div>
       </section>
-      <footer
-        class="bg-primary px-16 py-32 d-md-flex justify-md-space-between footer"
+    </main>
+    <footer
+      class="bg-primary px-16 py-32 d-md-flex justify-md-space-between footer"
+    >
+      <a
+        href="#"
+        class="d-flex align-center mb-32 ma-md-0 text-cyan footer-link"
       >
-        <a
-          href="#"
-          class="d-flex align-center mb-32 ma-md-0 text-cyan footer-link"
-        >
-          Get my Resume
-          <span class="icon icon-link-teal mx-16"></span>
-        </a>
-        <ul class="d-flex justify-space-between social-icons">
-          <li>
-            <a
-              href="https://stackoverflow.com/users/6222600/jorge-vargas"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-stackoverflow"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/jorgevrgs"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-github"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/jorgevrgs1"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-twitter"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/jevargaslarrota/"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-linkedin"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://medium.com/@jorgevargasla"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-medium"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://angel.co/u/jorgevrgs"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><span class="icon icon-angellist"></span
-            ></a>
-          </li>
-        </ul>
-      </footer>
-    </div>
+        Get my Resume
+        <span class="icon icon-link-teal mx-16"></span>
+      </a>
+      <ul class="d-flex justify-space-between social-icons">
+        <li>
+          <a
+            href="https://stackoverflow.com/users/6222600/jorge-vargas"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-stackoverflow" aria-hidden="true"></span>
+            <em class="screen-reader-only">stackoverflow</em>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/jorgevrgs"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-github" aria-hidden="true"></span>
+            <em class="screen-reader-only">github</em>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://twitter.com/jorgevrgs1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-twitter" aria-hidden="true"></span>
+            <em class="screen-reader-only">twitter</em>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/jevargaslarrota/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-linkedin" aria-hidden="true"></span>
+            <em class="screen-reader-only">linkedin</em>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://medium.com/@jorgevargasla"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-medium" aria-hidden="true"></span>
+            <em class="screen-reader-only">medium</em>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://angel.co/u/jorgevrgs"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="opens-in-a-new-window"
+          >
+            <span class="icon icon-angellist" aria-hidden="true"></span>
+            <em class="screen-reader-only">angellist</em>
+          </a>
+        </li>
+      </ul>
+
+      <span id="opens-in-a-new-window" class="screen-reader-only">
+        (opens in a new tab)
+      </span>
+    </footer>
   </body>
 </html>
