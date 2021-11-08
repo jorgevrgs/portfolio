@@ -6,6 +6,10 @@ const toggleMenu = () =>{
   header.classList.toggle('header-mobile');
 }
 
+function removeClass() {
+  header.classList.remove('header-mobile');
+}
+
 menuButton.addEventListener('click', toggleMenu);
 
 menuLinks.forEach(menuLink => {
@@ -14,6 +18,6 @@ menuLinks.forEach(menuLink => {
 
 window.addEventListener('resize', () => {
   if (window.innerWidth>992){
-    header.classList.remove('header-mobile');
+    removeClass();
   }
 })
