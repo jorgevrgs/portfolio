@@ -70,3 +70,50 @@ main();
  * Event listener if the screen is resized
  */
 window.addEventListener('resize', main);
+
+// PROJECTS
+const processProjects = async () => {
+  const projectsElement = document.querySelector('.projects');
+  const projectTemplate = document.querySelector('.project-template');
+  const modalTemplate = document.querySelector('.modal-template');
+
+  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
+
+  const renderModal = (project) => {
+    const clone = modalTemplate.content.cloneNode(true);
+
+    // Render image
+    const imageElement = clone.querySelector('.cover-image');
+    imageElement.src = project.image;
+
+    // Click events
+    const closeButtonElement = clone.querySelector('.btn-close');
+    closeButtonElement.addEventListener('click', () => {
+      projectsElement.querySelector('.modal-projects').remove();
+    });
+
+    projectsElement.appendChild(clone);
+  };
+
+  projects.forEach((project) => {
+    const clone = projectTemplate.content.cloneNode(true);
+
+    const projectElement = clone.querySelector('.project');
+    projectElement.classList.add(`project-${project.id}`);
+
+    // Render image
+    const imageElement = clone.querySelector('.project-image');
+    imageElement.src = project.image;
+    imageElement.srcset = project.image;
+
+    // Click events
+    const buttonElement = clone.querySelector('.btn');
+    buttonElement.addEventListener('click', () => {
+      renderModal(project);
+    });
+
+    projectsElement.appendChild(clone);
+  });
+};
+
+processProjects();
