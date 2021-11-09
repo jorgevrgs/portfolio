@@ -97,7 +97,7 @@
 
         .icon {
           position: absolute;
-          top: middle;
+          top: 25%;
           right: 12px;
         }
       }
@@ -116,6 +116,8 @@
 
       .modal-title {
         margin-block-start: 70px;
+        font-size: 60px;
+        font-weight: 400;
       }
 
       .modal-description {

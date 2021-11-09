@@ -127,9 +127,9 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .modal-projects .modal-container .modal-description{margin-inline:-10px;-webkit-margin-after:24px;margin-block-end:24px;white-space:pre-line}
 .modal-projects .modal-container .modal-buttons{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;gap:29px}
 .modal-projects .modal-container .modal-buttons .btn{border:1px solid #1a2236;font-size:18px;font-weight:500;position:relative}
-.modal-projects .modal-container .modal-buttons .btn:hover{color:#fff}.modal-projects .modal-container .modal-buttons .btn .icon{position:absolute;top:middle;right:12px}
+.modal-projects .modal-container .modal-buttons .btn:hover{color:#fff}.modal-projects .modal-container .modal-buttons .btn .icon{position:absolute;top:25%;right:12px}
 @media screen and (min-width:992px){.modal-projects{padding:70px}.modal-projects .modal-container{width:90%;max-width:1300px;padding:60px}
-.modal-projects .modal-container .modal-title{-webkit-margin-before:70px;margin-block-start:70px}
+.modal-projects .modal-container .modal-title{-webkit-margin-before:70px;margin-block-start:70px;font-size:60px;font-weight:400}
 .modal-projects .modal-container .modal-description{margin:auto;max-width:75%}.modal-projects .modal-container .modal-buttons{-ms-flex-direction:row;flex-direction:row;margin:auto;max-width:75%;-webkit-margin-before:52px;margin-block-start:52px}
 .modal-projects .modal-container .modal-footer{-webkit-margin-before:120px;margin-block-start:120px}
 .modal-projects .modal-container .modal-footer .icon-arrow-left-dark{-webkit-margin-end:18px;margin-inline-end:18px}

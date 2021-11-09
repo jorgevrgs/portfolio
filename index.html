@@ -128,84 +128,93 @@
           </article>
         </template>
 
-        <div class="modal-projects">
-          <div class="modal-container">
-            <button type="button" class="btn btn-close">
-              <span class="icon icon-close"></span>
-            </button>
-            <h4 class="title modal-title">Project name goes here</h4>
-            <ul class="technologies">
-              <li class="technology">HTML/CSS</li>
-              <li class="technology">Ruby on Rails</li>
-              <li class="technology">JavaScript</li>
-            </ul>
-            <div class="media">
-              <img
-                class="cover-image"
-                src="assets/images/projects/Project_1.png"
-                alt=""
-              />
-              <ul class="miniatures">
-                <li class="miniature">
-                  <img
-                    class="miniature-img"
-                    src="assets/images/projects/Project_1.png"
-                    alt=""
-                  />
-                </li>
-                <li class="miniature">
-                  <img
-                    class="miniature-img"
-                    src="assets/images/projects/Project_1.png"
-                    alt=""
-                  />
-                </li>
-                <li class="miniature">
-                  <img
-                    class="miniature-img"
-                    src="assets/images/projects/Project_1.png"
-                    alt=""
-                  />
-                </li>
-                <li class="miniature">
-                  <img
-                    class="miniature-img"
-                    src="assets/images/projects/Project_1.png"
-                    alt=""
-                  />
-                </li>
+        <template class="modal-template">
+          <div class="modal-projects">
+            <div class="modal-container">
+              <button type="button" class="btn btn-close modal-close">
+                <span class="icon icon-close"></span>
+              </button>
+              <h4 class="title modal-title">Project name goes here</h4>
+              <ul class="technologies">
+                <li class="technology">HTML/CSS</li>
+                <li class="technology">Ruby on Rails</li>
+                <li class="technology">JavaScript</li>
               </ul>
-            </div>
-            <p class="modal-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi Ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi.
-            </p>
-            <div class="d-md-flex flex-md-row modal-buttons">
-              <button type="button" class="btn btn-secondary btn-lg">
-                See live <span class="icon icon-link"></span>
-              </button>
-              <button type="button" class="btn btn-secondary btn-lg">
-                See source <span class="icon icon-github-white"></span>
-              </button>
-            </div>
+              <div class="media">
+                <img
+                  class="cover-image"
+                  src="assets/images/projects/Project_1.png"
+                  alt=""
+                />
+                <ul class="miniatures">
+                  <li class="miniature">
+                    <img
+                      class="miniature-img"
+                      src="assets/images/projects/Project_1.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="miniature">
+                    <img
+                      class="miniature-img"
+                      src="assets/images/projects/Project_1.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="miniature">
+                    <img
+                      class="miniature-img"
+                      src="assets/images/projects/Project_1.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="miniature">
+                    <img
+                      class="miniature-img"
+                      src="assets/images/projects/Project_1.png"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </div>
+              <p class="modal-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi Ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi.
+              </p>
+              <div class="d-md-flex flex-md-row modal-buttons">
+                <button type="button" class="btn btn-secondary btn-lg">
+                  See live <span class="icon icon-link"></span>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg">
+                  See source <span class="icon icon-github-white"></span>
+                </button>
+              </div>
 
-            <div
-              class="w-md-100 d-md-flex justify-md-space-around modal-footer"
-            >
-              <button type="button" class="btn">
-                <span class="icon icon-arrow-left-dark"></span> Previous project
-              </button>
-              <button type="button" class="btn">
-                Next project <span class="icon icon-arrow-right-dark"></span>
-              </button>
+              <div
+                class="
+                  d-none
+                  w-md-100
+                  d-md-flex
+                  justify-md-space-around
+                  modal-footer
+                "
+              >
+                <button type="button" class="btn">
+                  <span class="icon icon-arrow-left-dark"></span> Previous
+                  project
+                </button>
+                <button type="button" class="btn">
+                  Next project <span class="icon icon-arrow-right-dark"></span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </template>
 
         <div
           class="d-none d-md-block decorator decorator-2"
