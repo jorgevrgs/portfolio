@@ -113,4 +113,9 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .contact>.content .form .form-group input:invalid,.contact>.content .form .form-group textarea:invalid{border-color:#bd0404}
 .contact>.content .form .button-input{grid-area:button}.contact>.content .form .button-input .btn{-webkit-margin-before:40px;margin-block-start:40px}
 }.footer .social-icons{list-style:none}.footer .social-icons .footer-link{font-size:1rem}
-@media screen and (min-width:992px){.footer{padding-inline:160px}}
+@media screen and (min-width:992px){.footer{padding-inline:160px}}.modal-projects{position:fixed;height:100vh;width:100vw;top:0;left:0;background-color:#1a2236;z-index:3;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}
+.modal-projects .modal-container{background-color:#fff;height:100%;width:100%;padding:20px;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center}
+.modal-projects .modal-container .btn-close{position:absolute;top:20px;right:18px}
+.modal-projects .modal-container .modal-title{font-size:20px;line-height:80%;font-weight:700}
+.modal-projects .modal-container .technologies{display:-ms-flexbox;display:flex;list-style:none;margin-top:23px;gap:10px}
+.modal-projects .modal-container .technology{padding:6px 10px;border:1px solid #1a2236;font-size:12px;line-height:80%;font-weight:300}

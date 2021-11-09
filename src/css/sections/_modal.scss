@@ -1,0 +1,51 @@
+.modal-projects {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: $color-primary;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  .modal-container {
+    background-color: $color-white;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .btn-close {
+      position: absolute;
+      top: 20px;
+      right: 18px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      line-height: 80%;
+      font-weight: 700;
+    }
+
+    .technologies {
+      display: flex;
+      list-style: none;
+      margin-top: 23px;
+      gap: 10px;
+    }
+
+    .technology {
+      padding: 6px 10px;
+      border: 1px solid $color-primary;
+      font-size: 12px;
+      line-height: 80%;
+      font-weight: 300;
+    }
+  }
+}
