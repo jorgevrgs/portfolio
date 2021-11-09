@@ -72,105 +72,48 @@ main();
 window.addEventListener('resize', main);
 
 // PROJECTS
-const projectsElement = document.querySelector('.projects');
-const projectTemplate = document.querySelector('.project-template');
-const modalTemplate = document.querySelector('.modal-template');
+const processProjects = async () => {
+  const projectsElement = document.querySelector('.projects');
+  const projectTemplate = document.querySelector('.project-template');
+  const modalTemplate = document.querySelector('.modal-template');
 
-const projects = [
-  {
-    id: 1,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_1.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-  {
-    id: 2,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_2.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-  {
-    id: 3,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_3.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-  {
-    id: 4,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_4.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-  {
-    id: 5,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_5.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-  {
-    id: 6,
-    title: 'Project name goes here',
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi id qui porro cumque soluta ex itaque animi facere molestiae ullam dicta reprehenderit excepturi, laudantium, ducimus magni sint nam ad consequuntur!
-    Porro, vitae earum eius ipsa velit dolores iure sit totam. Quos voluptates aliquam earum labore nobis? Voluptatum alias debitis adipisci libero dolores obcaecati architecto illum ut dolorum? Harum, tempora veniam?`,
-    image: 'assets/images/projects/Project_6.png',
-    technologies: ['HTML/CSS', 'Ruby On Rails', 'JavaScript'],
-    linkToLive: '#',
-    linkToSource: '#',
-  },
-];
+  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
 
-const renderModal = (project) => {
-  const clone = modalTemplate.content.cloneNode(true);
+  const renderModal = (project) => {
+    const clone = modalTemplate.content.cloneNode(true);
 
-  // Render image
-  const imageElement = clone.querySelector('.cover-image');
-  imageElement.src = project.image;
+    // Render image
+    const imageElement = clone.querySelector('.cover-image');
+    imageElement.src = project.image;
 
-  // Click events
-  const closeButtonElement = clone.querySelector('.btn-close');
-  closeButtonElement.addEventListener('click', () => {
-    projectsElement.querySelector('.modal-projects').remove();
+    // Click events
+    const closeButtonElement = clone.querySelector('.btn-close');
+    closeButtonElement.addEventListener('click', () => {
+      projectsElement.querySelector('.modal-projects').remove();
+    });
+
+    projectsElement.appendChild(clone);
+  };
+
+  projects.forEach((project) => {
+    const clone = projectTemplate.content.cloneNode(true);
+
+    const projectElement = clone.querySelector('.project');
+    projectElement.classList.add(`project-${project.id}`);
+
+    // Render image
+    const imageElement = clone.querySelector('.project-image');
+    imageElement.src = project.image;
+    imageElement.srcset = project.image;
+
+    // Click events
+    const buttonElement = clone.querySelector('.btn');
+    buttonElement.addEventListener('click', () => {
+      renderModal(project);
+    });
+
+    projectsElement.appendChild(clone);
   });
-
-  projectsElement.appendChild(clone);
 };
 
-projects.forEach((project) => {
-  const clone = projectTemplate.content.cloneNode(true);
-
-  const projectElement = clone.querySelector('.project');
-  projectElement.classList.add(`project-${project.id}`);
-
-  // Render image
-  const imageElement = clone.querySelector('.project-image');
-  imageElement.src = project.image;
-  imageElement.srcset = project.image;
-
-  // Click events
-  const buttonElement = clone.querySelector('.btn');
-  buttonElement.addEventListener('click', () => {
-    renderModal(project);
-  });
-
-  projectsElement.appendChild(clone);
-});
+processProjects();
