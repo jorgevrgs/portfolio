@@ -52,7 +52,9 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .mb-md-16{-webkit-margin-after:16px;margin-block-end:16px}.mt-md-16{-webkit-margin-before:16px;margin-block-start:16px}
 .mb-md-32{-webkit-margin-after:32px;margin-block-end:32px}.mt-md-32{-webkit-margin-before:32px;margin-block-start:32px}
 .px-md-16{padding-inline:16px}.py-md-16{padding-block:16px}.px-md-32{padding-inline:32px}
-.py-md-32{padding-block:32px}}@media screen and (min-width:992px){.header{width:100%;height:100px;box-shadow:0 .5px 0 #dddfe6}
+.py-md-32{padding-block:32px}}.header-mobile{overflow:hidden}.header-mobile .btn-menu{position:fixed;z-index:2;background-image:url(../images/ic_close.svg)}
+.header-mobile .mobile-menu{position:fixed;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font-size:1rem;height:100vh;width:100vw;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;background-color:#fff;background-image:url(../images/mobile/image_geometry_menu_1.svg),url(../images/mobile/image_geometry_menu_2.svg);background-repeat:no-repeat;background-position:top left,bottom left;background-size:75%,contain}
+.header-mobile .mobile-menu .nav-link{line-height:300%}@media screen and (min-width:992px){.header{width:100%;height:100px;box-shadow:0 .5px 0 #dddfe6}
 .header .nav-links{gap:50px}.header .nav-links .nav-link{position:relative;font-size:1rem;line-height:24px}
 .nav-link:visited::after,.nav-link:active::after,.header .nav-link:hover::after{position:absolute;content:"";width:26px;height:2px;background-color:#1a2236;bottom:0;left:0}
 }.about-me .hello{-webkit-margin-before:104px;margin-block-start:104px}.about-me .hello>.title{font-family:"Playfair Display",serif;margin-block:30px 20px}
