@@ -72,45 +72,110 @@ main();
 window.addEventListener('resize', main);
 
 // PROJECTS
-const processProjects = async () => {
-  const projectsElement = document.querySelector('.projects');
-  const projectTemplate = document.querySelector('.project-template');
-  const modalTemplate = document.querySelector('.modal-template');
+const projectsElement = document.querySelector('.projects');
 
-  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
+/**
+ *
+ * @param {string} template Template selector
+ * @returns {object} Node element
+ *
+ * @example template = '.modal-template'
+ */
+const getTemplate = (template) => document.querySelector(template).content.cloneNode(true);
 
-  const renderModal = (project) => {
-    const clone = modalTemplate.content.cloneNode(true);
+const handleCloseModal = (clone) => {
+  const closeButtonElement = clone.querySelector('.btn-close');
+  closeButtonElement.addEventListener('click', () => {
+    projectsElement.querySelector('.modal-projects').remove();
+  });
+};
 
-    // Render image
-    const imageElement = clone.querySelector('.cover-image');
-    imageElement.src = project.image;
+/**
+ *
+ * @param {object} clone Node element
+ * @param {object} project Project
+ */
+const updateModalContent = (clone, project) => {
+  // Render image
+  const imageElement = clone.querySelector('.cover-image');
+  imageElement.src = project.image;
 
-    // Click events
-    const closeButtonElement = clone.querySelector('.btn-close');
-    closeButtonElement.addEventListener('click', () => {
-      projectsElement.querySelector('.modal-projects').remove();
-    });
+  // @TODO: Update content
+};
+
+/**
+ * Render the content of the modal
+ *
+ * @param {object} clone Node element
+ */
+const renderModal = (project) => {
+  const clone = getTemplate('.modal-template');
+
+  // Update content
+  updateModalContent(clone, project);
+
+  // Click events
+  handleCloseModal(clone);
+
+  return clone;
+};
+
+/**
+ *
+ * @param {object} clone Node element
+ * @param {object} project Project
+ */
+const updateArticleContent = (clone, project) => {
+  // Render image
+  const imageElement = clone.querySelector('.project-image');
+  imageElement.src = project.image;
+  imageElement.srcset = project.image;
+
+  // @TODO: Update content
+};
+
+/**
+ *
+ * @param {object} clone Node element
+ * @param {object} project Project
+ */
+const setArticleButtonEvent = (clone, project) => {
+  const buttonElement = clone.querySelector('.btn');
+  buttonElement.addEventListener('click', () => {
+    const clone = renderModal(project);
 
     projectsElement.appendChild(clone);
-  };
+  });
+};
+
+/**
+ *
+ * @param {object} project Project element
+ * @returns {object} Node element
+ */
+const renderArticle = (project) => {
+  const clone = getTemplate('.project-template');
+
+  const projectElement = clone.querySelector('.project');
+  projectElement.classList.add(`project-${project.id}`);
+
+  // Update content
+  updateArticleContent(clone, project);
+
+  // Click events
+  setArticleButtonEvent(clone, project);
+
+  return clone;
+};
+
+/**
+ * Process the projects in order to get data and render templates
+ */
+const processProjects = async () => {
+  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
 
   projects.forEach((project) => {
-    const clone = projectTemplate.content.cloneNode(true);
-
-    const projectElement = clone.querySelector('.project');
-    projectElement.classList.add(`project-${project.id}`);
-
-    // Render image
-    const imageElement = clone.querySelector('.project-image');
-    imageElement.src = project.image;
-    imageElement.srcset = project.image;
-
-    // Click events
-    const buttonElement = clone.querySelector('.btn');
-    buttonElement.addEventListener('click', () => {
-      renderModal(project);
-    });
+    const clone = renderArticle(project);
 
     projectsElement.appendChild(clone);
   });
