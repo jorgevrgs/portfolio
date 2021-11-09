@@ -8,7 +8,6 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   
   .modal-container {
@@ -18,8 +17,9 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    position: relative;
 
     .btn-close {
       position: absolute;
@@ -31,6 +31,7 @@
       font-size: 20px;
       line-height: 80%;
       font-weight: 700;
+      margin-block-start: 37px;
     }
 
     .technologies {
@@ -38,14 +39,73 @@
       list-style: none;
       margin-top: 23px;
       gap: 10px;
-    }
-
-    .technology {
+      
+      .technology {
       padding: 6px 10px;
       border: 1px solid $color-primary;
       font-size: 12px;
       line-height: 80%;
       font-weight: 300;
+      }
+    }
+
+    .media {
+      .cover-image {
+        width: 100%;
+        height: auto;
+        margin-block-start: 18px;
+        margin-block-end: -7px;
+      }
+
+      .miniatures {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        margin-block-end: 30px;
+
+        .miniature {
+
+          .miniature-img {
+            width: 100%;
+            height: auto;
+
+          }
+        }
+      }
+    }
+
+    .modal-description {
+      margin-inline: -10px;
+      margin-block-end: 24px;
+      white-space: pre-line;
+    }
+
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+
+      .btn {
+        border: 1px solid $color-primary;
+        font-size: 18px;
+        font-weight: 500;
+        position: relative;
+
+
+        &:hover {
+          color: $color-white
+        }
+
+        &.icon-github {
+          filter: invert(1);
+        }
+
+        .icon {
+          position: absolute;
+          top: middle;
+          right: 12px;
+        }
+      }
     }
   }
 }
