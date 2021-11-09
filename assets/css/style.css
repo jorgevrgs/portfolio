@@ -5,8 +5,9 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .icon{width:32px;height:32px;display:block;background-repeat:no-repeat;background-position:center}
 .icon-arrow-right{background-image:url(../images/ic_arrow_right.svg)}.icon-close{background-image:url(../images/ic_close.svg)}
 .icon-download{background-image:url(../images/ic_download.svg)}.icon-menu{background-image:url(../images/ic_menu.svg)}
-.icon-link-teal{background-image:url(../images/ic_link_teal.svg)}.icon-angellist{background-image:url(../images/ic_angellist.svg)}
-.icon-github{background-image:url(../images/ic_github.svg)}.icon-linkedin{background-image:url(../images/ic_linkedin.svg)}
+.icon-link-teal{background-image:url(../images/ic_link_teal.svg)}.icon-link{background-image:url(../images/ic_link.svg)}
+.icon-angellist{background-image:url(../images/ic_angellist.svg)}.icon-github{background-image:url(../images/ic_github.svg)}
+.icon-github-white{background-image:url(../images/ic_github_white.svg)}.icon-linkedin{background-image:url(../images/ic_linkedin.svg)}
 .icon-medium{background-image:url(../images/ic_medium.svg)}.icon-stackoverflow{background-image:url(../images/ic_stackoverflow.svg)}
 .icon-twitter{background-image:url(../images/ic_twitter.svg)}.btn{border:0;cursor:pointer;background:0;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:1rem;transition:background-color .3s ease-in-out}
 .btn-lg{min-width:254px;min-height:70px}.btn:focus{border-width:2px}.btn-primary{height:50px;background-color:#1a2236;color:#fff;width:100%}
@@ -125,5 +126,4 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .modal-projects .modal-container .modal-description{margin-inline:-10px;-webkit-margin-after:24px;margin-block-end:24px;white-space:pre-line}
 .modal-projects .modal-container .modal-buttons{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;gap:29px}
 .modal-projects .modal-container .modal-buttons .btn{border:1px solid #1a2236;font-size:18px;font-weight:500;position:relative}
-.modal-projects .modal-container .modal-buttons .btn:hover{color:#fff}.modal-projects .modal-container .modal-buttons .btn.icon-github{-webkit-filter:invert(1);filter:invert(1)}
-.modal-projects .modal-container .modal-buttons .btn .icon{position:absolute;top:middle;right:12px}
+.modal-projects .modal-container .modal-buttons .btn:hover{color:#fff}.modal-projects .modal-container .modal-buttons .btn .icon{position:absolute;top:middle;right:12px}
