@@ -115,34 +115,38 @@
         bottom: 90px !important;
       }
 
-      &:nth-child(2) {
+      &.project-1 {
         grid-area: first; /* 1 */
+
+        > .project-title {
+          font-size: 40px;
+        }
       }
 
-      &:nth-child(2) .project-title {
-        font-size: 40px;
-      }
 
-      &:nth-child(3) {
+      &.project-2 {
         grid-area: second; /* 2 */
       }
 
-      &:nth-child(4) {
+      &.project-3 {
         grid-area: third; /* 3 */
       }
 
-      &:nth-child(5) {
+      &.project-4 {
         grid-area: forth; /* 4 */
       }
 
-      &:nth-child(6) {
+      &.project-5 {
         grid-area: fifth; /* 5 */
       }
 
-      &:nth-child(7) {
+      &.project-6 {
         grid-area: last; /* 6 */
       }
     }
+
+    // .project .project-1
+    // .project.project-1
 
     .decorator {
       display: block;
