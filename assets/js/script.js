@@ -1,88 +1,49 @@
+"use strict";
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 /**
  * script.js
  *
  * @license MIT
  *
  */
+var headerElement = document.querySelector('.header');
+var menuButtonElement = document.querySelector('.btn-menu');
+var menuLinkElements = document.querySelectorAll('.nav-link');
 
-// ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
-// ████╗░████║██╔════╝████╗░██║██║░░░██║
-// ██╔████╔██║█████╗░░██╔██╗██║██║░░░██║
-// ██║╚██╔╝██║██╔══╝░░██║╚████║██║░░░██║
-// ██║░╚═╝░██║███████╗██║░╚███║╚██████╔╝
-// ╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░
+var isMobile = () => window.innerWidth < 992;
 
-// ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
-// ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
-// ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
-
-const headerElement = document.querySelector('.header');
-const menuButtonElement = document.querySelector('.btn-menu');
-const menuLinkElements = document.querySelectorAll('.nav-link');
-
-// ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
-// ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
-// ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
-
-/**
- * Determine if it's mobile based on the screen width
- *
- * @returns {boolean}
- */
-const isMobile = () => window.innerWidth < 992;
-
-/**
- * Add or remove 'header-mobile' class
- */
-const toggleMenu = () => {
+var toggleMenu = () => {
   headerElement.classList.toggle('header-mobile');
 };
 
-/**
- * Remove 'header-mobile' class
- */
-const removeClass = () => {
+var removeClass = () => {
   headerElement.classList.remove('header-mobile');
 };
 
-/**
- * Handle function if the screen width is desktop
- */
-const handleDesktop = () => {
+var handleDesktop = () => {
   removeClass();
-
   menuButtonElement.removeEventListener('click', toggleMenu);
-  menuLinkElements.forEach((menuLink) => {
+  menuLinkElements.forEach(menuLink => {
     menuLink.removeEventListener('click', toggleMenu);
   });
 };
 
-/**
- * Create the listeners for each 'nak-link'
- */
-const handleLinks = () => {
-  menuLinkElements.forEach((menuLink) => {
+var handleLinks = () => {
+  menuLinkElements.forEach(menuLink => {
     menuLink.addEventListener('click', toggleMenu);
   });
 };
 
-/**
- * Handle function if the screen width is mobile
- */
-const handleMobile = () => {
+var handleMobile = () => {
   menuButtonElement.addEventListener('click', toggleMenu);
-
   handleLinks();
 };
 
-// ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄
-// ░█░█░█ █▄▄█ ▀█▀ █──█
-// ░█──░█ ▀──▀ ▀▀▀ ▀──▀
-
-/**
- * Main function
- */
-const main = () => {
+var main = () => {
   if (isMobile()) {
     handleMobile();
   } else {
@@ -91,139 +52,65 @@ const main = () => {
 };
 
 main();
-
-/**
- * Event listener if the screen is resized
- */
 window.addEventListener('resize', main);
+var projectsElement = document.querySelector('.projects');
 
-// ██████╗░██████╗░░█████╗░░░░░░██╗███████╗░█████╗░████████╗░██████╗
-// ██╔══██╗██╔══██╗██╔══██╗░░░░░██║██╔════╝██╔══██╗╚══██╔══╝██╔════╝
-// ██████╔╝██████╔╝██║░░██║░░░░░██║█████╗░░██║░░╚═╝░░░██║░░░╚█████╗░
-// ██╔═══╝░██╔══██╗██║░░██║██╗░░██║██╔══╝░░██║░░██╗░░░██║░░░░╚═══██╗
-// ██║░░░░░██║░░██║╚█████╔╝╚█████╔╝███████╗╚█████╔╝░░░██║░░░██████╔╝
-// ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░╚════╝░╚══════╝░╚════╝░░░░╚═╝░░░╚═════╝░
+var getTemplate = template => document.querySelector(template).content.cloneNode(true);
 
-// ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
-// ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
-// ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
-
-// PROJECTS
-const projectsElement = document.querySelector('.projects');
-
-// ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
-// ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
-// ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
-
-/**
- *
- * @param {string} template Template selector
- * @returns {object} Node element
- *
- * @example template = '.modal-template'
- */
-const getTemplate = (template) => document.querySelector(template).content.cloneNode(true);
-
-const handleCloseModal = (clone) => {
-  const closeButtonElement = clone.querySelector('.btn-close');
+var handleCloseModal = clone => {
+  var closeButtonElement = clone.querySelector('.btn-close');
   closeButtonElement.addEventListener('click', () => {
     projectsElement.querySelector('.modal-projects').remove();
   });
 };
 
-/**
- *
- * @param {object} clone Node element
- * @param {object} project Project
- */
-const updateModalContent = (clone, project) => {
-  // Render image
-  const imageElement = clone.querySelector('.cover-image');
+var updateModalContent = (clone, project) => {
+  var imageElement = clone.querySelector('.cover-image');
   imageElement.src = project.image;
-
-  // @TODO: Update content
 };
 
-/**
- * Render the content of the modal
- *
- * @param {object} project Project
- */
-const renderModal = (project) => {
-  const clone = getTemplate('.modal-template');
-
-  // Update content
+var renderModal = project => {
+  var clone = getTemplate('.modal-template');
   updateModalContent(clone, project);
-
-  // Click events
   handleCloseModal(clone);
-
   return clone;
 };
 
-/**
- *
- * @param {object} clone Node element
- * @param {object} project Project
- */
-const updateArticleContent = (clone, project) => {
-  // Render image
-  const imageElement = clone.querySelector('.project-image');
+var updateArticleContent = (clone, project) => {
+  var imageElement = clone.querySelector('.project-image');
   imageElement.src = project.image;
   imageElement.srcset = project.image;
-
-  // @TODO: Update content
 };
 
-/**
- *
- * @param {object} clone Node element
- * @param {object} project Project
- */
-const setArticleButtonEvent = (clone, project) => {
-  const buttonElement = clone.querySelector('.btn');
+var setArticleButtonEvent = (clone, project) => {
+  var buttonElement = clone.querySelector('.btn');
   buttonElement.addEventListener('click', () => {
-    const clone = renderModal(project);
-
+    var clone = renderModal(project);
     projectsElement.appendChild(clone);
   });
 };
 
-/**
- *
- * @param {object} project Project element
- * @returns {object} Node element
- */
-const renderArticle = (project) => {
-  const clone = getTemplate('.project-template');
-
-  const projectElement = clone.querySelector('.project');
-  projectElement.classList.add(`project-${project.id}`);
-
-  // Update content
+var renderArticle = project => {
+  var clone = getTemplate('.project-template');
+  var projectElement = clone.querySelector('.project');
+  projectElement.classList.add("project-".concat(project.id));
   updateArticleContent(clone, project);
-
-  // Click events
   setArticleButtonEvent(clone, project);
-
   return clone;
 };
 
-// ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄
-// ░█░█░█ █▄▄█ ▀█▀ █──█
-// ░█──░█ ▀──▀ ▀▀▀ ▀──▀
-
-/**
- * Process the projects in order to get data and render templates
- */
-const processProjects = async () => {
-  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
-
-  projects.forEach((project) => {
-    const clone = renderArticle(project);
-
-    projectsElement.appendChild(clone);
+var processProjects = function () {
+  var _ref = _asyncToGenerator(function* () {
+    var projects = yield fetch('assets/json/projects.json').then(r => r.json());
+    projects.forEach(project => {
+      var clone = renderArticle(project);
+      projectsElement.appendChild(clone);
+    });
   });
-};
+
+  return function processProjects() {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 processProjects();
