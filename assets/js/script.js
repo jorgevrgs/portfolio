@@ -114,3 +114,52 @@ var processProjects = function () {
 }();
 
 processProjects();
+var formElement = document.querySelector('.form');
+var nameInputElement = document.querySelector('#name');
+var emailInputElement = document.querySelector('#email');
+var messageInputElement = document.querySelector('#message');
+var errors = [];
+var validations = {
+  isNotEmpty: val => val.trim() !== '',
+  isLowerCase: val => val.toLowerCase() === val,
+  isValidEmail: val => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
+  isLengthLowerThan: function isLengthLowerThan(val) {
+    var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
+    return val.length < length;
+  },
+  isLengthGreaterThan: function isLengthGreaterThan(val) {
+    var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    return val.length > length;
+  }
+};
+var rules = {
+  name: {
+    isNotEmpty: true,
+    isLengthLowerThan: 30
+  },
+  email: {
+    isNotEmpty: true,
+    isLowerCase: true,
+    isValidEmail: true
+  },
+  message: {
+    isRequired: true,
+    isLengthLowerThan: 300
+  }
+};
+var values = {
+  name: nameInputElement.value,
+  email: emailInputElement.value,
+  message: messageInputElement.value
+};
+formElement.addEventListener('submit', e => {
+  e.preventDefault();
+  Object.keys(rules).forEach(rule => {
+    Object.keys(rule).forEach(key => {
+      if (!validations[key](values[rule])) {
+        errors.push(key);
+      }
+    });
+  });
+  console.log(errors);
+});

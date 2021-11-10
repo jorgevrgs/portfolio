@@ -227,3 +227,60 @@ const processProjects = async () => {
 };
 
 processProjects();
+
+// ███████╗░█████╗░██████╗░███╗░░░███╗
+// ██╔════╝██╔══██╗██╔══██╗████╗░████║
+// █████╗░░██║░░██║██████╔╝██╔████╔██║
+// ██╔══╝░░██║░░██║██╔══██╗██║╚██╔╝██║
+// ██║░░░░░╚█████╔╝██║░░██║██║░╚═╝░██║
+// ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
+
+/** @type {HTMLFormElement} */
+const formElement = document.querySelector('.form');
+
+/** @type {HTMLInputElement} */
+const nameInputElement = document.querySelector('#name');
+
+/** @type {HTMLInputElement} */
+const emailInputElement = document.querySelector('#email');
+
+/** @type {HTMLTextAreaElement} */
+const messageInputElement = document.querySelector('#message');
+
+const errors = [];
+
+const validations = {
+  isNotEmpty: (val) => val.trim() !== '',
+  isLowerCase: (val) => val.toLowerCase() === val,
+  /** @copyright https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
+  isValidEmail: (val) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
+  isLengthLowerThan: (val, length = 30) => val.length < length,
+  isLengthGreaterThan: (val, length = 0) => val.length > length,
+};
+
+const rules = {
+  name: { isNotEmpty: true, isLengthLowerThan: 30 },
+  email: { isNotEmpty: true, isLowerCase: true, isValidEmail: true },
+  message: { isRequired: true, isLengthLowerThan: 300 },
+};
+
+const values = {
+  name: nameInputElement.value,
+  email: emailInputElement.value,
+  message: messageInputElement.value,
+};
+
+formElement.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  Object.keys(rules).forEach((rule) => {
+    Object.keys(rule).forEach((key) => {
+      if (!validations[key](values[rule])) {
+        errors.push(key);
+      }
+    });
+  });
+
+  // eslint-disable-next-line no-console
+  console.log(errors);
+});
