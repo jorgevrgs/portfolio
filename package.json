@@ -4,8 +4,11 @@
   "description": "Web development portfolio",
   "main": "script.js",
   "scripts": {
+    "build": "npm run build:css && npm run build:js",
     "build:css": "gulp buildSass",
+    "build:js": "babel src -d assets",
     "watch:css": "gulp watchSass",
+    "watch:js": "babel src -d assets -w",
     "lint:css": "npx stylelint '**/*.{css,scss}'",
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:js:fix": "npm run lint:js -- --fix",
@@ -24,6 +27,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
