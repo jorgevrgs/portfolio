@@ -1,6 +1,28 @@
-const header = document.querySelector('.header');
-const menuButton = document.querySelector('.btn-menu');
-const menuLinks = document.querySelectorAll('.nav-link');
+/**
+ * script.js
+ *
+ * @license MIT
+ *
+ */
+
+// ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
+// ████╗░████║██╔════╝████╗░██║██║░░░██║
+// ██╔████╔██║█████╗░░██╔██╗██║██║░░░██║
+// ██║╚██╔╝██║██╔══╝░░██║╚████║██║░░░██║
+// ██║░╚═╝░██║███████╗██║░╚███║╚██████╔╝
+// ╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░
+
+// ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
+// ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
+// ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
+
+const headerElement = document.querySelector('.header');
+const menuButtonElement = document.querySelector('.btn-menu');
+const menuLinkElements = document.querySelectorAll('.nav-link');
+
+// ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
+// ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
+// ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
 
 /**
  * Determine if it's mobile based on the screen width
@@ -13,14 +35,14 @@ const isMobile = () => window.innerWidth < 992;
  * Add or remove 'header-mobile' class
  */
 const toggleMenu = () => {
-  header.classList.toggle('header-mobile');
+  headerElement.classList.toggle('header-mobile');
 };
 
 /**
  * Remove 'header-mobile' class
  */
 const removeClass = () => {
-  header.classList.remove('header-mobile');
+  headerElement.classList.remove('header-mobile');
 };
 
 /**
@@ -29,8 +51,8 @@ const removeClass = () => {
 const handleDesktop = () => {
   removeClass();
 
-  menuButton.removeEventListener('click', toggleMenu);
-  menuLinks.forEach((menuLink) => {
+  menuButtonElement.removeEventListener('click', toggleMenu);
+  menuLinkElements.forEach((menuLink) => {
     menuLink.removeEventListener('click', toggleMenu);
   });
 };
@@ -39,7 +61,7 @@ const handleDesktop = () => {
  * Create the listeners for each 'nak-link'
  */
 const handleLinks = () => {
-  menuLinks.forEach((menuLink) => {
+  menuLinkElements.forEach((menuLink) => {
     menuLink.addEventListener('click', toggleMenu);
   });
 };
@@ -48,10 +70,14 @@ const handleLinks = () => {
  * Handle function if the screen width is mobile
  */
 const handleMobile = () => {
-  menuButton.addEventListener('click', toggleMenu);
+  menuButtonElement.addEventListener('click', toggleMenu);
 
   handleLinks();
 };
+
+// ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄
+// ░█░█░█ █▄▄█ ▀█▀ █──█
+// ░█──░█ ▀──▀ ▀▀▀ ▀──▀
 
 /**
  * Main function
@@ -71,8 +97,20 @@ main();
  */
 window.addEventListener('resize', main);
 
+// ▒█▀▀█ █▀▀█ █▀▀█ ░░▀ █▀▀ █▀▀ ▀▀█▀▀ █▀▀
+// ▒█▄▄█ █▄▄▀ █░░█ ░░█ █▀▀ █░░ ░░█░░ ▀▀█
+// ▒█░░░ ▀░▀▀ ▀▀▀▀ █▄█ ▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀
+
+// ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
+// ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
+// ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
+
 // PROJECTS
 const projectsElement = document.querySelector('.projects');
+
+// ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
+// ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
+// ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
 
 /**
  *
@@ -106,7 +144,7 @@ const updateModalContent = (clone, project) => {
 /**
  * Render the content of the modal
  *
- * @param {object} clone Node element
+ * @param {object} project Project
  */
 const renderModal = (project) => {
   const clone = getTemplate('.modal-template');
@@ -167,6 +205,10 @@ const renderArticle = (project) => {
 
   return clone;
 };
+
+// ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄
+// ░█░█░█ █▄▄█ ▀█▀ █──█
+// ░█──░█ ▀──▀ ▀▀▀ ▀──▀
 
 /**
  * Process the projects in order to get data and render templates
