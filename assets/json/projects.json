@@ -6,7 +6,8 @@
     "image": "assets/images/projects/Project_1.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "next": 2
   },
   {
     "id": 2,
@@ -15,7 +16,9 @@
     "image": "assets/images/projects/Project_2.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "previous": 1,
+    "next": 3
   },
   {
     "id": 3,
@@ -24,7 +27,9 @@
     "image": "assets/images/projects/Project_3.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "previous": 2,
+    "next": 4
   },
   {
     "id": 4,
@@ -33,7 +38,9 @@
     "image": "assets/images/projects/Project_4.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "previous": 3,
+    "next": 5
   },
   {
     "id": 5,
@@ -42,7 +49,9 @@
     "image": "assets/images/projects/Project_5.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "previous": 4,
+    "next": 6
   },
   {
     "id": 6,
@@ -51,6 +60,7 @@
     "image": "assets/images/projects/Project_6.png",
     "technologies": ["HTML/CSS", "Ruby On Rails", "JavaScript"],
     "linkToLive": "#",
-    "linkToSource": "#"
+    "linkToSource": "#",
+    "previous": 5
   }
 ]

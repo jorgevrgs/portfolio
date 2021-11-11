@@ -5,6 +5,8 @@
  *
  */
 
+import { projectTemplate, modalTemplate, buildTemplate } from './templates.js';
+
 // ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
 // ████╗░████║██╔════╝████╗░██║██║░░░██║
 // ██╔████╔██║█████╗░░██╔██╗██║██║░░░██║
@@ -106,110 +108,79 @@ function menu() {
 // ██║░░░░░██║░░██║╚█████╔╝╚█████╔╝███████╗╚█████╔╝░░░██║░░░██████╔╝
 // ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░╚════╝░╚══════╝░╚════╝░░░░╚═╝░░░╚═════╝░
 
-function projects() {
+async function projects() {
   // ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
   // ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
   // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
 
   // PROJECTS
+  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
   const projectsElement = document.querySelector('.projects');
 
   // ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
   // ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
   // ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
 
-  /**
-   *
-   * @param {string} template Template selector
-   * @returns {object} Node element
-   *
-   * @example template = '.modal-template'
-   */
-  const getTemplate = (template) => document.querySelector(template).content.cloneNode(true);
+  const handleCloseModalButton = (modalElement) => {
+    const element = modalElement.querySelector('.modal-close');
 
-  const handleCloseModal = (clone) => {
-    const closeButtonElement = clone.querySelector('.btn-close');
-    closeButtonElement.addEventListener('click', () => {
-      projectsElement.querySelector('.modal-projects').remove();
+    element.addEventListener('click', () => modalElement.remove());
+  };
+
+  const handleNextModalButton = (modalElement, project) => {
+    const element = modalElement.querySelector('.btn-next');
+
+    element.addEventListener('click', () => {
+      const findIndex = projects.findIndex((p) => p.id === project.id);
+      const lastIndex = projects.lastIndex();
+
+      if (findIndex === lastIndex) {
+        // not next
+      }
     });
   };
 
-  /**
-   *
-   * @param {object} clone Node element
-   * @param {object} project Project
-   */
-  const updateModalContent = (clone, project) => {
-    // Render image
-    const imageElement = clone.querySelector('.cover-image');
-    imageElement.src = project.image;
+  const handlePreviousModalButton = (modalElement, project) => {
+    const element = modalElement.querySelector('.btn-prev');
 
-    // @TODO: Update content
-  };
+    element.addEventListener('click', () => {
+      const findIndex = projects.findIndex((p) => p.id === project.id);
+      const firstIndex = projects.firstIndex();
 
-  /**
-   * Render the content of the modal
-   *
-   * @param {object} project Project
-   */
-  const renderModal = (project) => {
-    const clone = getTemplate('.modal-template');
-
-    // Update content
-    updateModalContent(clone, project);
-
-    // Click events
-    handleCloseModal(clone);
-
-    return clone;
-  };
-
-  /**
-   *
-   * @param {object} clone Node element
-   * @param {object} project Project
-   */
-  const updateArticleContent = (clone, project) => {
-    // Render image
-    const imageElement = clone.querySelector('.project-image');
-    imageElement.src = project.image;
-    imageElement.srcset = project.image;
-
-    // @TODO: Update content
-  };
-
-  /**
-   *
-   * @param {object} clone Node element
-   * @param {object} project Project
-   */
-  const setArticleButtonEvent = (clone, project) => {
-    const buttonElement = clone.querySelector('.btn');
-    buttonElement.addEventListener('click', () => {
-      const clone = renderModal(project);
-
-      projectsElement.appendChild(clone);
+      if (findIndex === firstIndex) {
+        // not previous
+      }
     });
   };
 
-  /**
-   *
-   * @param {object} project Project element
-   * @returns {object} Node element
-   */
-  const renderArticle = (project) => {
-    const clone = getTemplate('.project-template');
+  const handleSeeProjectButton = (projectTemplateElement, project) => {
+    // Add event listener to open modal
+    const element = projectTemplateElement.querySelector('.see-project');
 
-    const projectElement = clone.querySelector('.project');
-    projectElement.classList.add(`project-${project.id}`);
+    element.addEventListener('click', () => {
+      const object = modalTemplate(project);
+      const template = buildTemplate(object);
 
-    // Update content
-    updateArticleContent(clone, project);
+      projectsElement.appendChild(template);
 
-    // Click events
-    setArticleButtonEvent(clone, project);
+      handleCloseModalButton(template);
+      handleNextModalButton(template, project);
+      handlePreviousModalButton(template, project);
+    });
+  };
 
-    return clone;
+  const createProjectTemplate = (project) => {
+    const object = projectTemplate(project);
+    const template = buildTemplate(object);
+
+    // Add a project id class
+    template.classList.add(`project-${project.id}`);
+
+    // Insert into the container
+    projectsElement.appendChild(template);
+
+    // Add event listener for the click on see project
+    handleSeeProjectButton(template, project);
   };
 
   // ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄
@@ -219,13 +190,10 @@ function projects() {
   /**
    * Process the projects in order to get data and render templates
    */
-  const main = async () => {
-    const projects = await fetch('assets/json/projects.json').then((r) => r.json());
-
+  const main = () => {
     projects.forEach((project) => {
-      const clone = renderArticle(project);
-
-      projectsElement.appendChild(clone);
+      // Create project template
+      createProjectTemplate(project);
     });
   };
 
@@ -309,11 +277,12 @@ function form() {
   /**
    * Validate and return the errors array
    *
+   * @param {object} inputs Collection of input elements
    * @param {object} rules Rules object
    * @param {object} validations Validation object
    * @returns {array}
    */
-  const getFormErrors = (rules, validations) => {
+  const getFormErrors = (inputs, rules, validations) => {
     const errors = [];
 
     Object.keys(rules).forEach((field) => {
@@ -332,7 +301,7 @@ function form() {
 
     // Reset errors
     errorMessagesElement.textContent = '';
-    const errors = getFormErrors(rules, validations);
+    const errors = getFormErrors(inputs, rules, validations);
     Object.keys(inputs).forEach((key) => {
       inputs[key].classList.remove('error');
     });

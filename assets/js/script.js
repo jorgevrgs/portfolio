@@ -1,5 +1,3 @@
-"use strict";
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -10,6 +8,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  * @license MIT
  *
  */
+import { projectTemplate, modalTemplate, buildTemplate } from './templates.js';
+
 function menu() {
   var headerElement = document.querySelector('.header');
   var menuButtonElement = document.querySelector('.btn-menu');
@@ -57,67 +57,68 @@ function menu() {
 }
 
 function projects() {
-  var projectsElement = document.querySelector('.projects');
+  return _projects.apply(this, arguments);
+}
 
-  var getTemplate = template => document.querySelector(template).content.cloneNode(true);
+function _projects() {
+  _projects = _asyncToGenerator(function* () {
+    var projects = yield fetch('assets/json/projects.json').then(r => r.json());
+    var projectsElement = document.querySelector('.projects');
 
-  var handleCloseModal = clone => {
-    var closeButtonElement = clone.querySelector('.btn-close');
-    closeButtonElement.addEventListener('click', () => {
-      projectsElement.querySelector('.modal-projects').remove();
-    });
-  };
-
-  var updateModalContent = (clone, project) => {
-    var imageElement = clone.querySelector('.cover-image');
-    imageElement.src = project.image;
-  };
-
-  var renderModal = project => {
-    var clone = getTemplate('.modal-template');
-    updateModalContent(clone, project);
-    handleCloseModal(clone);
-    return clone;
-  };
-
-  var updateArticleContent = (clone, project) => {
-    var imageElement = clone.querySelector('.project-image');
-    imageElement.src = project.image;
-    imageElement.srcset = project.image;
-  };
-
-  var setArticleButtonEvent = (clone, project) => {
-    var buttonElement = clone.querySelector('.btn');
-    buttonElement.addEventListener('click', () => {
-      var clone = renderModal(project);
-      projectsElement.appendChild(clone);
-    });
-  };
-
-  var renderArticle = project => {
-    var clone = getTemplate('.project-template');
-    var projectElement = clone.querySelector('.project');
-    projectElement.classList.add("project-".concat(project.id));
-    updateArticleContent(clone, project);
-    setArticleButtonEvent(clone, project);
-    return clone;
-  };
-
-  var main = function () {
-    var _ref = _asyncToGenerator(function* () {
-      var projects = yield fetch('assets/json/projects.json').then(r => r.json());
-      projects.forEach(project => {
-        var clone = renderArticle(project);
-        projectsElement.appendChild(clone);
-      });
-    });
-
-    return function main() {
-      return _ref.apply(this, arguments);
+    var handleCloseModalButton = modalElement => {
+      var element = modalElement.querySelector('.modal-close');
+      element.addEventListener('click', () => modalElement.remove());
     };
-  }();
 
-  main();
+    var handleNextModalButton = (modalElement, project) => {
+      var element = modalElement.querySelector('.btn-next');
+      element.addEventListener('click', () => {
+        var findIndex = projects.findIndex(p => p.id === project.id);
+        var lastIndex = projects.lastIndex();
+
+        if (findIndex === lastIndex) {}
+      });
+    };
+
+    var handlePreviousModalButton = (modalElement, project) => {
+      var element = modalElement.querySelector('.btn-prev');
+      element.addEventListener('click', () => {
+        var findIndex = projects.findIndex(p => p.id === project.id);
+        var firstIndex = projects.firstIndex();
+
+        if (findIndex === firstIndex) {}
+      });
+    };
+
+    var handleSeeProjectButton = (projectTemplateElement, project) => {
+      var element = projectTemplateElement.querySelector('.see-project');
+      element.addEventListener('click', () => {
+        var object = modalTemplate(project);
+        var template = buildTemplate(object);
+        projectsElement.appendChild(template);
+        handleCloseModalButton(template);
+        handleNextModalButton(template, project);
+        handlePreviousModalButton(template, project);
+      });
+    };
+
+    var createProjectTemplate = project => {
+      var object = projectTemplate(project);
+      var template = buildTemplate(object);
+      template.classList.add("project-".concat(project.id));
+      projectsElement.appendChild(template);
+      handleSeeProjectButton(template, project);
+    };
+
+    var main = () => {
+      projects.forEach(project => {
+        createProjectTemplate(project);
+      });
+    };
+
+    main();
+  });
+  return _projects.apply(this, arguments);
 }
 
 function form() {
@@ -182,7 +183,7 @@ function form() {
     return div;
   };
 
-  var getFormErrors = (rules, validations) => {
+  var getFormErrors = (inputs, rules, validations) => {
     var errors = [];
     Object.keys(rules).forEach(field => {
       Object.keys(rules[field]).forEach(rule => {
@@ -200,17 +201,17 @@ function form() {
   formElement.addEventListener('submit', e => {
     e.preventDefault();
     errorMessagesElement.textContent = '';
-    var errors = getFormErrors(rules, validations);
+    var errors = getFormErrors(inputs, rules, validations);
     Object.keys(inputs).forEach(key => {
       inputs[key].classList.remove('error');
     });
 
     if (errors.length) {
-      errors.forEach(_ref2 => {
+      errors.forEach(_ref => {
         var {
           field,
           rule
-        } = _ref2;
+        } = _ref;
         var element = createErrorElement(errorMessages[field][rule]);
         inputs[field].classList.add('error');
         errorMessagesElement.appendChild(element);
