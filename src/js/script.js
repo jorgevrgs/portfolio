@@ -247,7 +247,24 @@ const emailInputElement = document.querySelector('#email');
 /** @type {HTMLTextAreaElement} */
 const messageInputElement = document.querySelector('#message');
 
-const errors = [];
+/** @type {HTMLElement} */
+const errorMessagesElement = document.querySelector('.error-messages');
+
+const errorMessages = {
+  email: {
+    isNotEmpty: 'The email address field is required',
+    isLowerCase: 'Please fill out the email address in lowercase',
+    isValidEmail: 'Please verify the email format, e.g. user@example.com',
+  },
+  name: {
+    isNotEmpty: 'The name field is required',
+    isLengthLowerThan: 'Please check the quantity of characters of this field',
+  },
+  message: {
+    isNotEmpty: 'The message field is required',
+    isLengthLowerThan: 'Please check the quantity of characters of this field',
+  },
+};
 
 const validations = {
   isNotEmpty: (val) => val.trim() !== '',
@@ -261,26 +278,69 @@ const validations = {
 const rules = {
   name: { isNotEmpty: true, isLengthLowerThan: 30 },
   email: { isNotEmpty: true, isLowerCase: true, isValidEmail: true },
-  message: { isRequired: true, isLengthLowerThan: 300 },
+  message: { isNotEmpty: true, isLengthLowerThan: 500 },
 };
 
-const values = {
-  name: nameInputElement.value,
-  email: emailInputElement.value,
-  message: messageInputElement.value,
+const inputs = {
+  name: nameInputElement,
+  email: emailInputElement,
+  message: messageInputElement,
+};
+
+/**
+ * Create an element with the error message
+ *
+ * @param {string} text Error message
+ * @returns Element
+ */
+const createErrorElement = (text) => {
+  const div = document.createElement('div');
+  div.classList.add('d-flex', 'align-center', 'pa-16', 'error-message');
+  div.innerHTML = `<span class="icon icon-exclamation-triangle"></span> ${text}`;
+
+  return div;
+};
+
+/**
+ * Validate and return the errors array
+ *
+ * @param {object} rules Rules object
+ * @param {object} validations Validation object
+ * @returns {array}
+ */
+const getFormErrors = (rules, validations) => {
+  const errors = [];
+
+  Object.keys(rules).forEach((field) => {
+    Object.keys(rules[field]).forEach((rule) => {
+      if (!validations[rule](inputs[field].value)) {
+        errors.push({ field, rule });
+      }
+    });
+  });
+
+  return errors;
 };
 
 formElement.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  Object.keys(rules).forEach((rule) => {
-    Object.keys(rule).forEach((key) => {
-      if (!validations[key](values[rule])) {
-        errors.push(key);
-      }
-    });
+  // Reset errors
+  errorMessagesElement.textContent = '';
+  const errors = getFormErrors(rules, validations);
+  Object.keys(inputs).forEach((key) => {
+    inputs[key].classList.remove('error');
   });
 
-  // eslint-disable-next-line no-console
-  console.log(errors);
+  if (errors.length) {
+    errors.forEach(({ field, rule }) => {
+      const element = createErrorElement(errorMessages[field][rule]);
+
+      inputs[field].classList.add('error');
+
+      errorMessagesElement.appendChild(element);
+    });
+  } else {
+    formElement.submit();
+  }
 });

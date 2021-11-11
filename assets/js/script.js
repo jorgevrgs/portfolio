@@ -118,7 +118,22 @@ var formElement = document.querySelector('.form');
 var nameInputElement = document.querySelector('#name');
 var emailInputElement = document.querySelector('#email');
 var messageInputElement = document.querySelector('#message');
-var errors = [];
+var errorMessagesElement = document.querySelector('.error-messages');
+var errorMessages = {
+  email: {
+    isNotEmpty: 'The email address field is required',
+    isLowerCase: 'Please fill out the email address in lowercase',
+    isValidEmail: 'Please verify the email format, e.g. user@example.com'
+  },
+  name: {
+    isNotEmpty: 'The name field is required',
+    isLengthLowerThan: 'Please check the quantity of characters of this field'
+  },
+  message: {
+    isNotEmpty: 'The message field is required',
+    isLengthLowerThan: 'Please check the quantity of characters of this field'
+  }
+};
 var validations = {
   isNotEmpty: val => val.trim() !== '',
   isLowerCase: val => val.toLowerCase() === val,
@@ -143,23 +158,57 @@ var rules = {
     isValidEmail: true
   },
   message: {
-    isRequired: true,
-    isLengthLowerThan: 300
+    isNotEmpty: true,
+    isLengthLowerThan: 500
   }
 };
-var values = {
-  name: nameInputElement.value,
-  email: emailInputElement.value,
-  message: messageInputElement.value
+var inputs = {
+  name: nameInputElement,
+  email: emailInputElement,
+  message: messageInputElement
 };
-formElement.addEventListener('submit', e => {
-  e.preventDefault();
-  Object.keys(rules).forEach(rule => {
-    Object.keys(rule).forEach(key => {
-      if (!validations[key](values[rule])) {
-        errors.push(key);
+
+var createErrorElement = text => {
+  var div = document.createElement('div');
+  div.classList.add('d-flex', 'align-center', 'pa-16', 'error-message');
+  div.innerHTML = "<span class=\"icon icon-exclamation-triangle\"></span> ".concat(text);
+  return div;
+};
+
+var getFormErrors = (rules, validations) => {
+  var errors = [];
+  Object.keys(rules).forEach(field => {
+    Object.keys(rules[field]).forEach(rule => {
+      if (!validations[rule](inputs[field].value)) {
+        errors.push({
+          field,
+          rule
+        });
       }
     });
   });
-  console.log(errors);
+  return errors;
+};
+
+formElement.addEventListener('submit', e => {
+  e.preventDefault();
+  errorMessagesElement.textContent = '';
+  var errors = getFormErrors(rules, validations);
+  Object.keys(inputs).forEach(key => {
+    inputs[key].classList.remove('error');
+  });
+
+  if (errors.length) {
+    errors.forEach(_ref2 => {
+      var {
+        field,
+        rule
+      } = _ref2;
+      var element = createErrorElement(errorMessages[field][rule]);
+      inputs[field].classList.add('error');
+      errorMessagesElement.appendChild(element);
+    });
+  } else {
+    formElement.submit();
+  }
 });

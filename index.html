@@ -317,8 +317,6 @@
                 type="text"
                 id="name"
                 name="name"
-                required
-                maxlength="30"
                 placeholder="e.g. John Doe"
                 aria-required="true"
                 autocomplete="name"
@@ -329,10 +327,9 @@
                 >Your Email <em aria-hidden="true">(required)</em></label
               >
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="email"
-                required
                 placeholder="e.g. user@example.com"
                 aria-required="true"
                 autocomplete="email"
@@ -346,11 +343,10 @@
                 id="message"
                 name="message"
                 placeholder="Enter your message here..."
-                required
-                maxlength="500"
                 aria-required="true"
               ></textarea>
             </div>
+
             <div
               class="d-md-flex justify-md-center align-md-center button-input"
             >
@@ -359,6 +355,8 @@
               </button>
             </div>
           </form>
+
+          <div class="d-flex flex-column mt-16 error-messages"></div>
         </div>
       </section>
     </main>
