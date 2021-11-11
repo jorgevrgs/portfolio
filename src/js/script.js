@@ -252,10 +252,9 @@ function form() {
 
   const currentFormData = getFormData(formData);
 
-  currentFormData.set('name', 'John Doe');
-
   const handleOnChange = (e) => {
-    formData[e.target.name] = e.target.value;
+    currentFormData.set(e.target.name, e.target.value);
+    localStorage.setItem('formData', JSON.stringify(currentFormData));
   };
 
   nameInputElement.addEventListener('change', handleOnChange);
