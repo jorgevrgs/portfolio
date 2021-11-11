@@ -127,6 +127,43 @@ function form() {
   var emailInputElement = document.querySelector('#email');
   var messageInputElement = document.querySelector('#message');
   var errorMessagesElement = document.querySelector('.error-messages');
+
+  class FormData {
+    constructor(formData) {
+      this.name = formData.name;
+      this.email = formData.email;
+      this.message = formData.message;
+    }
+
+    get(key) {
+      return this[key];
+    }
+
+    set(key, value) {
+      this[key] = value;
+      return this;
+    }
+
+  }
+
+  var formData = {
+    name: '',
+    email: '',
+    message: ''
+  };
+
+  var getFormData = formData => new FormData(formData);
+
+  var currentFormData = getFormData(formData);
+  currentFormData.set('name', 'John Doe');
+
+  var handleOnChange = e => {
+    formData[e.target.name] = e.target.value;
+  };
+
+  nameInputElement.addEventListener('change', handleOnChange);
+  emailInputElement.addEventListener('change', handleOnChange);
+  messageInputElement.addEventListener('change', handleOnChange);
   var errorMessages = {
     email: {
       isNotEmpty: 'The email address field is required',
