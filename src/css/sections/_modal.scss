@@ -1,104 +1,80 @@
-.modal-projects {
+.modal {
   position: fixed;
-  height: 100vh;
-  width: 100vw;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: $color-primary;
-  z-index: 3;
+  z-index: 1000;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  .modal-container {
+  .project {
     background-color: $color-white;
     height: 100%;
     width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 1rem;
+    margin-inline: 0;
     overflow-y: auto;
     position: relative;
 
     .btn-close {
       position: absolute;
-      top: 20px;
-      right: 18px;
+      right: 1rem;
+      top: 1rem;
     }
 
-    .modal-title {
+    .title {
+      color: $color-primary;
       font-size: 20px;
-      line-height: 80%;
       font-weight: 700;
-      margin-block-start: 37px;
-      align-self: flex-start;
+      margin-block-start: 40px;
+      margin-block-end: 23px;
     }
 
-    .technologies {
+    .description {
+      color: $color-primary;
+    }
+
+    .tags {
       display: flex;
-      list-style: none;
-      margin-top: 23px;
       gap: 10px;
-      align-self: flex-start;
+      margin-block-end: 24px;
 
-      .technology {
+      .tag {
         padding: 6px 10px;
+        background-color: $color-white;
         border: 1px solid $color-primary;
-        font-size: 12px;
-        line-height: 80%;
-        font-weight: 300;
       }
     }
 
-    .media {
-      .cover-image {
-        width: 100%;
-        height: auto;
-        margin-block-start: 18px;
-        margin-block-end: -7px;
-      }
+    .project-content {
+      background-color: $color-white;
+      transition: none;
+      transform: translate(0);
 
-      .miniatures {
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        margin-block-end: 30px;
+      .project-button {
+        .see-project {
+          display: none;
+        }
 
-        .miniature {
-          .miniature-img {
-            width: 100%;
-            height: auto;
+        .button-details {
+          display: flex;
+          gap: 29px;
+          margin-block-start: 29px;
+
+          .btn {
+            border: 1px solid $color-primary;
+
+            &:hover,
+            &:focus {
+              color: $color-secondary;
+            }
           }
         }
-      }
-    }
 
-    .modal-description {
-      margin-inline: -10px;
-      margin-block-end: 24px;
-      white-space: pre-line;
-    }
-
-    .modal-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 29px;
-
-      .btn {
-        border: 1px solid $color-primary;
-        font-size: 18px;
-        font-weight: 500;
-        position: relative;
-
-        &:hover {
-          color: $color-white;
-        }
-
-        .icon {
-          position: absolute;
-          top: 25%;
-          right: 12px;
+        .button-navigation {
+          margin-block-start: 120px;
         }
       }
     }
@@ -106,41 +82,54 @@
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
-  .modal-projects {
+  .modal {
     padding: 70px;
+    justify-content: center;
 
-    .modal-container {
-      width: 90%;
+    .project {
       max-width: 1300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 60px;
 
-      .modal-title {
-        margin-block-start: 70px;
+      .title,
+      .tags {
+        align-self: flex-start;
+      }
+
+      .title {
         font-size: 60px;
-        font-weight: 400;
+        font-weight: 700;
+        margin-block-end: 24px;
       }
 
-      .modal-description {
-        margin: auto;
-        max-width: 75%;
+      .tags {
+        margin-block-end: 34px;
       }
 
-      .modal-buttons {
-        flex-direction: row;
-        margin: auto;
-        max-width: 75%;
-        margin-block-start: 52px;
+      .project-media {
+        width: 100%;
+
+        .project-image {
+          width: 100%;
+          height: auto;
+        }
       }
 
-      .modal-footer {
-        margin-block-start: 120px;
+      .project-content {
+        position: relative;
+        max-width: 700px;
 
-        .icon-arrow-left-dark {
-          margin-inline-end: 18px;
+        .description {
+          margin-block-start: 68px;
+          margin-block-end: 40px;
         }
 
-        .icon-arrow-right-dark {
-          margin-inline-start: 18px;
+        .project-button {
+          .button-navigation {
+            display: flex;
+          }
         }
       }
     }
