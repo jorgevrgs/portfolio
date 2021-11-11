@@ -248,7 +248,19 @@ function form() {
     message: '',
   };
 
-  const getFormData = (formData) => new FormData(formData);
+  const getFormData = (formData) => {
+    const formFromLocalStorage = localStorage.getItem("formData");
+    let result
+    try {
+      result= JSON.parse(formFromLocalStorage);
+      if (!result){
+        result=formData;
+      }
+    } catch (error) {
+      result= formData;
+    }
+    return new FormData (result);
+  };
 
   const currentFormData = getFormData(formData);
 
@@ -256,6 +268,10 @@ function form() {
     currentFormData.set(e.target.name, e.target.value);
     localStorage.setItem('formData', JSON.stringify(currentFormData));
   };
+
+  nameInputElement.value = currentFormData.name || "";
+  emailInputElement.value = currentFormData.email || "";
+  messageInputElement.value = currentFormData.message || "";
 
   nameInputElement.addEventListener('change', handleOnChange);
   emailInputElement.addEventListener('change', handleOnChange);
