@@ -249,17 +249,18 @@ function form() {
   };
 
   const getFormData = (formData) => {
-    const formFromLocalStorage = localStorage.getItem("formData");
-    let result
+    const formFromLocalStorage = localStorage.getItem('formData');
+    let result;
     try {
-      result= JSON.parse(formFromLocalStorage);
-      if (!result){
-        result=formData;
+      result = JSON.parse(formFromLocalStorage);
+      if (!result) {
+        result = formData;
       }
     } catch (error) {
-      result= formData;
+      result = formData;
     }
-    return new FormData (result);
+
+    return new FormData(result);
   };
 
   const currentFormData = getFormData(formData);
@@ -269,9 +270,9 @@ function form() {
     localStorage.setItem('formData', JSON.stringify(currentFormData));
   };
 
-  nameInputElement.value = currentFormData.name || "";
-  emailInputElement.value = currentFormData.email || "";
-  messageInputElement.value = currentFormData.message || "";
+  nameInputElement.value = currentFormData.name || '';
+  emailInputElement.value = currentFormData.email || '';
+  messageInputElement.value = currentFormData.message || '';
 
   nameInputElement.addEventListener('change', handleOnChange);
   emailInputElement.addEventListener('change', handleOnChange);
@@ -369,6 +370,8 @@ function form() {
         errorMessagesElement.appendChild(element);
       });
     } else {
+      localStorage.removeItem('formData');
+
       formElement.submit();
     }
   });

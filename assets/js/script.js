@@ -153,7 +153,7 @@ function form() {
   };
 
   var getFormData = formData => {
-    var formFromLocalStorage = localStorage.getItem("formData");
+    var formFromLocalStorage = localStorage.getItem('formData');
     var result;
 
     try {
@@ -176,9 +176,9 @@ function form() {
     localStorage.setItem('formData', JSON.stringify(currentFormData));
   };
 
-  nameInputElement.value = currentFormData.name || "";
-  emailInputElement.value = currentFormData.email || "";
-  messageInputElement.value = currentFormData.message || "";
+  nameInputElement.value = currentFormData.name || '';
+  emailInputElement.value = currentFormData.email || '';
+  messageInputElement.value = currentFormData.message || '';
   nameInputElement.addEventListener('change', handleOnChange);
   emailInputElement.addEventListener('change', handleOnChange);
   messageInputElement.addEventListener('change', handleOnChange);
@@ -272,6 +272,7 @@ function form() {
         errorMessagesElement.appendChild(element);
       });
     } else {
+      localStorage.removeItem('formData');
       formElement.submit();
     }
   });
