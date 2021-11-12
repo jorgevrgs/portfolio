@@ -129,7 +129,21 @@ function form() {
   var errorMessagesElement = document.querySelector('.error-messages');
 
   class FormData {
-    constructor(formData) {
+    constructor() {
+      var formData = {
+        name: '',
+        email: '',
+        message: ''
+      };
+      var store = localStorage.getItem('formData');
+      var result;
+
+      try {
+        result = JSON.parse(store);
+      } finally {
+        Object.assign(formData, result);
+      }
+
       this.name = formData.name;
       this.email = formData.email;
       this.message = formData.message;
@@ -141,44 +155,21 @@ function form() {
 
     set(key, value) {
       this[key] = value;
+      localStorage.setItem('formData', JSON.stringify(this));
       return this;
     }
 
   }
 
-  var formData = {
-    name: '',
-    email: '',
-    message: ''
-  };
-
-  var getFormData = formData => {
-    var formFromLocalStorage = localStorage.getItem('formData');
-    var result;
-
-    try {
-      result = JSON.parse(formFromLocalStorage);
-
-      if (!result) {
-        result = formData;
-      }
-    } catch (error) {
-      result = formData;
-    }
-
-    return new FormData(result);
-  };
-
-  var currentFormData = getFormData(formData);
+  var currentFormData = new FormData();
 
   var handleOnChange = e => {
     currentFormData.set(e.target.name, e.target.value);
-    localStorage.setItem('formData', JSON.stringify(currentFormData));
   };
 
-  nameInputElement.value = currentFormData.name || '';
-  emailInputElement.value = currentFormData.email || '';
-  messageInputElement.value = currentFormData.message || '';
+  nameInputElement.value = currentFormData.get('name');
+  emailInputElement.value = currentFormData.get('email');
+  messageInputElement.value = currentFormData.get('message');
   nameInputElement.addEventListener('change', handleOnChange);
   emailInputElement.addEventListener('change', handleOnChange);
   messageInputElement.addEventListener('change', handleOnChange);
