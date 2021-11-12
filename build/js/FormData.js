@@ -133,11 +133,7 @@ export default class FormData {
 
   set(key, value) {
     _classPrivateFieldGet(this, _values)[key] = value;
-    localStorage.setItem(_classPrivateFieldGet(this, _storageKey), JSON.stringify({
-      name: _classPrivateFieldGet(this, _values).name,
-      email: _classPrivateFieldGet(this, _values).email,
-      message: _classPrivateFieldGet(this, _values).message
-    }));
+    localStorage.setItem(_classPrivateFieldGet(this, _storageKey), JSON.stringify(_classPrivateFieldGet(this, _values)));
     return this;
   }
 

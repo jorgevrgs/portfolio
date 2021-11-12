@@ -81,11 +81,7 @@ export default class FormData {
 
   set(key, value) {
     this.#values[key] = value;
-    localStorage.setItem(this.#storageKey, JSON.stringify({
-      name: this.#values.name,
-      email: this.#values.email,
-      message: this.#values.message,
-    }));
+    localStorage.setItem(this.#storageKey, JSON.stringify(this.#values));
 
     return this;
   }
