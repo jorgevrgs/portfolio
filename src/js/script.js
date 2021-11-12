@@ -280,11 +280,11 @@ function form() {
     },
     name: {
       isNotEmpty: 'The name field is required',
-      isLengthLowerThan: 'Please check the quantity of characters of this field',
+      isLengthLowerThan: 'The name field should have 30 characters or less',
     },
     message: {
       isNotEmpty: 'The message field is required',
-      isLengthLowerThan: 'Please check the quantity of characters of this field',
+      isLengthLowerThan: 'The message field should have 500 characters or less',
     },
   };
 
@@ -336,7 +336,11 @@ function form() {
 
     Object.keys(rules).forEach((field) => {
       Object.keys(rules[field]).forEach((rule) => {
-        if (!validations[rule](inputs[field].value)) {
+        if (['isLengthLowerThan', 'isLengthGreaterThan'].includes(rule)) {
+          if (!validations[rule](inputs[field].value, rules[field][rule])) {
+            errors.push({ field, rule });
+          }
+        } else if (!validations[rule](inputs[field].value)) {
           errors.push({ field, rule });
         }
       });
