@@ -131,6 +131,11 @@ export var modalTemplate = project => ({
     }]
   }]
 });
+export var errorTemplate = text => ({
+  tag: 'div',
+  className: ['d-flex', 'align-center', 'pa-16', 'error-message'],
+  innerHTML: "<span class=\"icon icon-exclamation-triangle\"></span> ".concat(text)
+});
 export var buildTemplate = _ref => {
   var {
     tag,

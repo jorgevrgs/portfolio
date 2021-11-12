@@ -5,7 +5,10 @@
  *
  */
 
-import { projectTemplate, modalTemplate, buildTemplate } from './templates.js';
+import {
+  projectTemplate, modalTemplate, errorTemplate, buildTemplate,
+} from './templates.js';
+import FormData from './FormData.js';
 
 // ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
 // ████╗░████║██╔════╝████╗░██║██║░░░██║
@@ -208,169 +211,43 @@ async function projects() {
 // ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
 
 function form() {
-  /** @type {HTMLFormElement} */
+  const formData = new FormData();
+
+  // ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
+  // ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
+  // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
+
+  const errorsElement = document.querySelector('.error-messages');
   const formElement = document.querySelector('.form');
 
-  /** @type {HTMLInputElement} */
-  const nameInputElement = document.querySelector('#name');
+  // ░█▀▀▀ ▀█─█▀ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
+  // ░█▀▀▀ ─█▄█─ █▀▀ █──█ ──█── ▀▀█
+  // ░█▄▄▄ ──▀── ▀▀▀ ▀──▀ ──▀── ▀▀▀
 
-  /** @type {HTMLInputElement} */
-  const emailInputElement = document.querySelector('#email');
+  formElement.addEventListener('reset', (e) => {
+    e.preventDefault();
 
-  /** @type {HTMLTextAreaElement} */
-  const messageInputElement = document.querySelector('#message');
-
-  /** @type {HTMLElement} */
-  const errorMessagesElement = document.querySelector('.error-messages');
-
-  // Check if the formData is at localStorage
-  class FormData {
-    constructor() {
-      const formData = {
-        name: '',
-        email: '',
-        message: '',
-      };
-
-      const store = localStorage.getItem('formData');
-      let result;
-
-      try {
-        result = JSON.parse(store);
-      } finally {
-        Object.assign(formData, result);
-      }
-
-      this.name = formData.name;
-      this.email = formData.email;
-      this.message = formData.message;
-    }
-
-    get(key) {
-      return this[key];
-    }
-
-    set(key, value) {
-      this[key] = value;
-      localStorage.setItem('formData', JSON.stringify(this));
-
-      return this;
-    }
-  }
-
-  const currentFormData = new FormData();
-
-  const handleOnChange = (e) => {
-    currentFormData.set(e.target.name, e.target.value);
-  };
-
-  nameInputElement.value = currentFormData.get('name');
-  emailInputElement.value = currentFormData.get('email');
-  messageInputElement.value = currentFormData.get('message');
-
-  nameInputElement.addEventListener('change', handleOnChange);
-  emailInputElement.addEventListener('change', handleOnChange);
-  messageInputElement.addEventListener('change', handleOnChange);
-
-  const errorMessages = {
-    email: {
-      isNotEmpty: 'The email address field is required',
-      isLowerCase: 'Please fill out the email address in lowercase',
-      isValidEmail: 'Please verify the email format, e.g. user@example.com',
-    },
-    name: {
-      isNotEmpty: 'The name field is required',
-      isLengthLowerThan: 'The name field should have 30 characters or less',
-    },
-    message: {
-      isNotEmpty: 'The message field is required',
-      isLengthLowerThan: 'The message field should have 500 characters or less',
-    },
-  };
-
-  const validations = {
-    isNotEmpty: (val) => val.trim() !== '',
-    isLowerCase: (val) => val.toLowerCase() === val,
-    /** @copyright https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
-    isValidEmail: (val) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
-    isLengthLowerThan: (val, length = 30) => val.length < length,
-    isLengthGreaterThan: (val, length = 0) => val.length > length,
-  };
-
-  const rules = {
-    name: { isNotEmpty: true, isLengthLowerThan: 30 },
-    email: { isNotEmpty: true, isLowerCase: true, isValidEmail: true },
-    message: { isNotEmpty: true, isLengthLowerThan: 500 },
-  };
-
-  const inputs = {
-    name: nameInputElement,
-    email: emailInputElement,
-    message: messageInputElement,
-  };
-
-  /**
-   * Create an element with the error message
-   *
-   * @param {string} text Error message
-   * @returns Element
-   */
-  const createErrorElement = (text) => {
-    const div = document.createElement('div');
-    div.classList.add('d-flex', 'align-center', 'pa-16', 'error-message');
-    div.innerHTML = `<span class="icon icon-exclamation-triangle"></span> ${text}`;
-
-    return div;
-  };
-
-  /**
-   * Validate and return the errors array
-   *
-   * @param {object} inputs Collection of input elements
-   * @param {object} rules Rules object
-   * @param {object} validations Validation object
-   * @returns {array}
-   */
-  const getFormErrors = (inputs, rules, validations) => {
-    const errors = [];
-
-    Object.keys(rules).forEach((field) => {
-      Object.keys(rules[field]).forEach((rule) => {
-        if (['isLengthLowerThan', 'isLengthGreaterThan'].includes(rule)) {
-          if (!validations[rule](inputs[field].value, rules[field][rule])) {
-            errors.push({ field, rule });
-          }
-        } else if (!validations[rule](inputs[field].value)) {
-          errors.push({ field, rule });
-        }
-      });
-    });
-
-    return errors;
-  };
+    errorsElement.textContent = '';
+    formData.clear();
+  });
 
   formElement.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // Reset errors
-    errorMessagesElement.textContent = '';
-    const errors = getFormErrors(inputs, rules, validations);
-    Object.keys(inputs).forEach((key) => {
-      inputs[key].classList.remove('error');
-    });
+    errorsElement.textContent = '';
+    formData.validate();
 
-    if (errors.length) {
-      errors.forEach(({ field, rule }) => {
-        const element = createErrorElement(errorMessages[field][rule]);
+    if (formData.hasErrors()) {
+      formData.errors.forEach(({ field, rule }) => {
+        const object = errorTemplate(formData.getErrorMessage(field, rule));
+        const element = buildTemplate(object);
 
-        inputs[field].classList.add('error');
-
-        errorMessagesElement.appendChild(element);
+        errorsElement.appendChild(element);
       });
     } else {
-      localStorage.removeItem('formData');
-
       formElement.submit();
+      formData.clear();
     }
   });
 }

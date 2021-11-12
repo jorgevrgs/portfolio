@@ -36,6 +36,7 @@
 .btn-secondary {
   height: 50px;
   background-color: $color-secondary;
+  border: 1px solid $color-primary;
   color: $color-primary;
   width: 100%;
 }
@@ -43,8 +44,8 @@
 .btn-secondary:hover,
 .btn-secondary:focus {
   background-color: $color-primary;
-  color: $color-primary;
-  border: 1px solid $color-secondary;
+  color: $color-secondary;
+  border: 1px solid $color-primary;
 }
 
 .btn:hover .icon {

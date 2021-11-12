@@ -167,6 +167,12 @@ export const modalTemplate = (project) => ({
   ],
 });
 
+export const errorTemplate = (text) => ({
+  tag: 'div',
+  className: ['d-flex', 'align-center', 'pa-16', 'error-message'],
+  innerHTML: `<span class="icon icon-exclamation-triangle"></span> ${text}`,
+});
+
 /**
  *
  * @copyright @jorgevrgs, @vechicin, and @williamrolando88, coding partners
