@@ -9,9 +9,12 @@ export default class FormData {
     message: '',
   };
 
+  /**
+   * @example [{field: 'name', rule: 'isNotEmpty'}]
+   */
   #errors = [];
 
-  /** @type {key: string => value: Element} */
+  /** @example {[name: string]: HTMLElement: Element} */
   #elements = {};
 
   // @FUTURE: interface
@@ -23,11 +26,43 @@ export default class FormData {
 
   // @FUTURE: interface
   #validations = {
+    /**
+     *
+     * @param {string} val Value of the input
+     * @returns {boolean}
+     */
     isNotEmpty: (val) => val.trim() !== '',
+
+    /**
+     *
+     * @param {string} val Value of the input
+     * @returns {boolean}
+     */
     isLowerCase: (val) => val.toLowerCase() === val,
-    /** @copyright https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
+
+    /**
+     *
+     * @param {string} val Value of the input
+     * @returns {boolean}
+     *
+     * @copyright https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+     */
     isValidEmail: (val) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
+
+    /**
+     *
+     * @param {string} val Value of the input
+     * @param {number} length Maximum
+     * @returns {boolean}
+     */
     isLengthLowerThan: (val, length = 30) => val.length < length,
+
+    /**
+     *
+     * @param {string} val Value of the input
+     * @param {number} length Minimum
+     * @returns {boolean}
+     */
     isLengthGreaterThan: (val, length = 0) => val.length > length,
   };
 
@@ -71,14 +106,30 @@ export default class FormData {
     });
   }
 
+  /**
+   * Get the value of a key
+   *
+   * @param {string} key Name of the input
+   * @returns {string}
+   */
   get(key) {
     return this.#values[key];
   }
 
+  /**
+   * Get the array of errors
+   */
   get errors() {
     return this.#errors;
   }
 
+  /**
+   * Store a key - value in the values and localStorage
+   *
+   * @param {string} key Name of the input
+   * @param {string} value Value of the input
+   * @returns {this}
+   */
   set(key, value) {
     this.#values[key] = value;
     localStorage.setItem(this.#storageKey, JSON.stringify(this.#values));
@@ -86,6 +137,11 @@ export default class FormData {
     return this;
   }
 
+  /**
+   * Update value inputs and clear localStorage
+   *
+   * @returns {this}
+   */
   clear() {
     Object.keys(this.#values).forEach((name) => {
       this.#elements[name].value = '';
@@ -97,14 +153,30 @@ export default class FormData {
     return this;
   }
 
+  /**
+   * Check if there are errors
+   *
+   * @returns {boolean}
+   */
   hasErrors() {
     return this.#errors.length > 0;
   }
 
+  /**
+   *
+   * @param {string} field Name of the input
+   * @param {string} rule Name of the rule
+   * @returns {boolean}
+   */
   getErrorMessage(field, rule) {
     return this.#errorMessages[field][rule];
   }
 
+  /**
+   * Use the rules to check the values according to validation functions
+   *
+   * @returns {this}
+   */
   validate() {
     // Reset errors
     this.#errors.splice(0);
