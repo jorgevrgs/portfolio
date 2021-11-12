@@ -6,9 +6,9 @@
   "scripts": {
     "build": "npm run build:css && npm run build:js",
     "build:css": "gulp buildSass",
-    "build:js": "babel src -d assets",
+    "build:js": "babel src -d build",
     "watch:css": "gulp watchSass",
-    "watch:js": "babel src -d assets -w",
+    "watch:js": "babel src -d build -w",
     "lint:css": "npx stylelint '**/*.{css,scss}'",
     "lint:css:fix": "npm run lint:css -- --fix",
     "lint:js:fix": "npm run lint:js -- --fix",

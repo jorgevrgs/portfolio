@@ -127,6 +127,61 @@ function form() {
   var emailInputElement = document.querySelector('#email');
   var messageInputElement = document.querySelector('#message');
   var errorMessagesElement = document.querySelector('.error-messages');
+
+  class FormData {
+    constructor(formData) {
+      this.name = formData.name;
+      this.email = formData.email;
+      this.message = formData.message;
+    }
+
+    get(key) {
+      return this[key];
+    }
+
+    set(key, value) {
+      this[key] = value;
+      return this;
+    }
+
+  }
+
+  var formData = {
+    name: '',
+    email: '',
+    message: ''
+  };
+
+  var getFormData = formData => {
+    var formFromLocalStorage = localStorage.getItem('formData');
+    var result;
+
+    try {
+      result = JSON.parse(formFromLocalStorage);
+
+      if (!result) {
+        result = formData;
+      }
+    } catch (error) {
+      result = formData;
+    }
+
+    return new FormData(result);
+  };
+
+  var currentFormData = getFormData(formData);
+
+  var handleOnChange = e => {
+    currentFormData.set(e.target.name, e.target.value);
+    localStorage.setItem('formData', JSON.stringify(currentFormData));
+  };
+
+  nameInputElement.value = currentFormData.name || '';
+  emailInputElement.value = currentFormData.email || '';
+  messageInputElement.value = currentFormData.message || '';
+  nameInputElement.addEventListener('change', handleOnChange);
+  emailInputElement.addEventListener('change', handleOnChange);
+  messageInputElement.addEventListener('change', handleOnChange);
   var errorMessages = {
     email: {
       isNotEmpty: 'The email address field is required',
@@ -217,6 +272,7 @@ function form() {
         errorMessagesElement.appendChild(element);
       });
     } else {
+      localStorage.removeItem('formData');
       formElement.submit();
     }
   });

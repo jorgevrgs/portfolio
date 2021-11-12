@@ -15,7 +15,7 @@ task('builSass', async () => {
         uglyComments: true,
       }),
     )
-    .pipe(dest('assets'));
+    .pipe(dest('build'));
 });
 
 task('watchSass', async () => {
