@@ -2,15 +2,27 @@
 
 # Portfolio
 
-> The portfolio is a project built with development best practices such as HTML semantic tags, CSS prefixes, Linters, and more.
+> The portfolio is a project built with development best practices such as HTML semantic tags, CSS prefixes, Linters, accessibility and more.
 
 ![screenshot](./assets/images/app_screenshot.png)
 
 ## Built With
 
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [Gulp](https://gulpjs.com/)
+### Technologies
+
+- [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+### Preprocessor
+
+- [![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)](https://sass-lang.com/)
+- [![Gulp](https://img.shields.io/badge/GULP-%23CF4647.svg?style=for-the-badge&logo=gulp&logoColor=white)](https://gulpjs.com/)
+- [![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)](https://babeljs.io/)
+
+### Linters
+
+- [![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)
 - [Webhint](https://webhint.io/docs/user-guide/)
 
@@ -65,7 +77,21 @@ Build:
 
 ```
 npm run build:css
+npm run build:js
+```
+
+Watch:
+
+```
 npm run watch:css
+npm run watch:js
+```
+
+Fix:
+
+```
+npm run lint:css:fix
+npm run lint:js:fix
 ```
 
 ### Run tests
