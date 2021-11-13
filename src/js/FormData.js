@@ -33,7 +33,7 @@ export default class FormData {
   /** @type {[key: string] = HTMLButtonElement} */
   #buttons = {}
 
-  // @FUTURE: interface
+  /** @type {{[inputName: string]: { [ruleName: string]: boolean | number }}} */
   #rules = {};
 
   /**
@@ -93,13 +93,13 @@ export default class FormData {
       throw new Error(`It was not possible to find a form element with class ${formName}`);
     }
 
-    const elements = Array.from(formElement.elements);
-
-    this.#form = formElement;
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+
+    this.#form = formElement;
+
+    const elements = Array.from(formElement.elements);
 
     elements.forEach((input) => {
       if (['INPUT', 'TEXTAREA'].includes(input.nodeName)) {
@@ -109,7 +109,9 @@ export default class FormData {
 
         input.addEventListener('change', this.handleChange);
       } else if (input.nodeName === 'BUTTON') {
-        this.#buttons[input.name] = input;
+        if (input.id) {
+          this.#buttons[input.id] = input;
+        }
 
         if (input.type === 'submit') {
           input.addEventListener('click', this.handleSubmit);
@@ -118,6 +120,10 @@ export default class FormData {
         }
       }
     });
+
+    if (!this.#keys.length) {
+      throw new Error('No inputs found, use "name" attribute in both input and textarea');
+    }
 
     this.#errorMessagesElement = document.querySelector('.error-messages');
   }
@@ -254,7 +260,7 @@ export default class FormData {
    * @returns {this}
    */
   clear() {
-    Object.keys(this.#values).forEach((name) => {
+    this.#keys.forEach((name) => {
       this.#elements[name].value = '';
       this.#elements[name].classList.remove('error');
     });

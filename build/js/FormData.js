@@ -119,13 +119,13 @@ export default class FormData {
       throw new Error("It was not possible to find a form element with class ".concat(formName));
     }
 
-    var elements = Array.from(formElement.elements);
-
-    _classPrivateFieldSet(this, _form, formElement);
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+
+    _classPrivateFieldSet(this, _form, formElement);
+
+    var elements = Array.from(formElement.elements);
     elements.forEach(input => {
       if (['INPUT', 'TEXTAREA'].includes(input.nodeName)) {
         _classPrivateFieldGet(this, _keys).push(input.name);
@@ -134,7 +134,9 @@ export default class FormData {
         _classPrivateFieldGet(this, _values)[input.name] = input.value;
         input.addEventListener('change', this.handleChange);
       } else if (input.nodeName === 'BUTTON') {
-        _classPrivateFieldGet(this, _buttons)[input.name] = input;
+        if (input.id) {
+          _classPrivateFieldGet(this, _buttons)[input.id] = input;
+        }
 
         if (input.type === 'submit') {
           input.addEventListener('click', this.handleSubmit);
@@ -143,6 +145,10 @@ export default class FormData {
         }
       }
     });
+
+    if (!_classPrivateFieldGet(this, _keys).length) {
+      throw new Error('No inputs found, use "name" attribute in both input and textarea');
+    }
 
     _classPrivateFieldSet(this, _errorMessagesElement, document.querySelector('.error-messages'));
   }
@@ -229,11 +235,12 @@ export default class FormData {
   }
 
   clear() {
-    Object.keys(_classPrivateFieldGet(this, _values)).forEach(name => {
+    _classPrivateFieldGet(this, _keys).forEach(name => {
       _classPrivateFieldGet(this, _elements)[name].value = '';
 
       _classPrivateFieldGet(this, _elements)[name].classList.remove('error');
     });
+
     localStorage.removeItem(_classPrivateFieldGet(this, _storageKey));
     return this;
   }
