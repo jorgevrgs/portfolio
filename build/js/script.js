@@ -8,7 +8,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  * @license MIT
  *
  */
-import { projectTemplate, modalTemplate, errorTemplate, buildTemplate } from './templates.js';
+import { projectTemplate, modalTemplate, buildTemplate } from './templates.js';
 import FormData from './FormData.js';
 
 function menu() {
@@ -123,34 +123,36 @@ function _projects() {
 }
 
 function form() {
-  var formData = new FormData();
-  var errorsElement = document.querySelector('.error-messages');
-  var formElement = document.querySelector('.form');
-  formElement.addEventListener('reset', e => {
-    e.preventDefault();
-    errorsElement.textContent = '';
-    formData.clear();
-  });
-  formElement.addEventListener('submit', e => {
-    e.preventDefault();
-    errorsElement.textContent = '';
-    formData.validate();
-
-    if (formData.hasErrors()) {
-      formData.errors.forEach(_ref => {
-        var {
-          field,
-          rule
-        } = _ref;
-        var object = errorTemplate(formData.getErrorMessage(field, rule));
-        var element = buildTemplate(object);
-        errorsElement.appendChild(element);
-      });
-    } else {
-      formElement.submit();
-      formData.clear();
+  var formData = new FormData('form');
+  formData.setErrorMessages({
+    email: {
+      isNotEmpty: 'The email address is required',
+      isLowerCase: 'Please enter your email in lowercase',
+      isValidEmail: 'Please verify the email format, e.g. user@example.com'
+    },
+    name: {
+      isNotEmpty: 'The name is required',
+      isLengthLowerThan: 'The name must be a maximum of 30 characters'
+    },
+    message: {
+      isNotEmpty: 'The message is required',
+      isLengthLowerThan: 'The name must be a maximum of 500 characters'
     }
-  });
+  }).setRules({
+    name: {
+      isNotEmpty: true,
+      isLengthLowerThan: 30
+    },
+    email: {
+      isNotEmpty: true,
+      isLowerCase: true,
+      isValidEmail: true
+    },
+    message: {
+      isNotEmpty: true,
+      isLengthLowerThan: 500
+    }
+  }).exec();
 }
 
 menu();

@@ -1,13 +1,18 @@
 /**
  * Use default value object to get elements, run validations and store data using localStorage
  */
+
+import { buildTemplate, errorTemplate } from './templates.js';
+
 export default class FormData {
-  // @FUTURE: interface
-  #values = {
-    name: '',
-    email: '',
-    message: '',
-  };
+  /** @type {HTMLFormElement | null} */
+  #form = null;
+
+  /** @type {[string]} */
+  #keys = [];
+
+  /** @type {{[key: string]: string}} */
+  #values = {};
 
   /**
    * @example [{field: 'name', rule: 'isNotEmpty'}]
@@ -17,14 +22,18 @@ export default class FormData {
   /** @example {[name: string]: HTMLElement: Element} */
   #elements = {};
 
-  // @FUTURE: interface
-  #rules = {
-    name: { isNotEmpty: true, isLengthLowerThan: 30 },
-    email: { isNotEmpty: true, isLowerCase: true, isValidEmail: true },
-    message: { isNotEmpty: true, isLengthLowerThan: 500 },
-  }
+  /** @type {HTMLElement | null} */
+  #errorMessagesElement = null;
+
+  /** @type {[key: string] = HTMLButtonElement} */
+  #buttons = {}
 
   // @FUTURE: interface
+  #rules = {};
+
+  /**
+   * Built in validations
+   */
   #validations = {
     /**
      *
@@ -66,26 +75,99 @@ export default class FormData {
     isLengthGreaterThan: (val, length = 0) => val.length > length,
   };
 
-  // @FUTURE: interface
-  #errorMessages = {
-    email: {
-      isNotEmpty: 'The email address is required',
-      isLowerCase: 'Please enter your email in lowercase',
-      isValidEmail: 'Please verify the email format, e.g. user@example.com',
-    },
-    name: {
-      isNotEmpty: 'The name is required',
-      isLengthLowerThan: 'The name must be a maximum of 30 characters',
-    },
-    message: {
-      isNotEmpty: 'The message is required',
-      isLengthLowerThan: 'The name must be a maximum of 500 characters',
-    },
-  };
+  /** @type {{[key: string]: { [key: string]: string }}} */
+  #errorMessages = {};
 
   #storageKey = 'formData';
 
-  constructor() {
+  constructor(formName) {
+    /** @type {HTMLFormElement} */
+    const formElement = document.querySelector(`.${formName}`);
+
+    if (!formElement) {
+      throw new Error(`It was not possible to find a form element with class ${formName}`);
+    }
+
+    const elements = Array.from(formElement.elements);
+
+    this.#form = formElement;
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+
+    elements.forEach((input) => {
+      if (['INPUT', 'TEXTAREA'].includes(input.nodeName)) {
+        this.#keys.push(input.name);
+        this.#elements[input.name] = input;
+        this.#values[input.name] = input.value;
+
+        input.addEventListener('change', this.handleChange);
+      } else if (input.nodeName === 'BUTTON') {
+        this.#buttons[input.name] = input;
+
+        if (input.type === 'submit') {
+          input.addEventListener('click', this.handleSubmit);
+        } else if (input.type === 'reset') {
+          input.addEventListener('click', this.handleReset);
+        }
+      }
+    });
+
+    this.#errorMessagesElement = document.querySelector('.error-messages');
+  }
+
+  // ░█▀▀▀ ▀█─█▀ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
+  // ░█▀▀▀ ─█▄█─ █▀▀ █──█ ──█── ▀▀█
+  // ░█▄▄▄ ──▀── ▀▀▀ ▀──▀ ──▀── ▀▀▀
+
+  /**
+   *
+   * @param {Event} e Change input event
+   */
+  handleChange(e) {
+    this.set(e.target.name, e.target.value);
+  }
+
+  /**
+   *
+   * @param {Event} e Click event
+   */
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.#errorMessagesElement.textContent = '';
+
+    this.validate();
+
+    if (this.hasErrors() && this.#errorMessagesElement) {
+      this.#errors.forEach(({ field, rule }) => {
+        const object = errorTemplate(this.#getErrorMessage(field, rule));
+        const element = buildTemplate(object);
+
+        this.#errorMessagesElement.appendChild(element);
+      });
+    } else {
+      this.#form.submit();
+      this.clear();
+    }
+  }
+
+  /**
+   *
+   * @param {Event} e Click event
+   */
+  handleReset(e) {
+    e.preventDefault();
+
+    if (this.#errorMessages) {
+      this.#errorMessagesElement.textContent = '';
+    }
+
+    this.clear();
+  }
+
+  exec() {
     const store = localStorage.getItem(this.#storageKey);
     let result;
 
@@ -95,14 +177,9 @@ export default class FormData {
       Object.assign(this.#values, result);
     }
 
-    const self = this;
-
-    Object.keys(this.#values).forEach((name) => {
-      self.#elements[name] = document.querySelector(`#${name}`);
-      self.#elements[name].value = this.#values[name];
-      self.#elements[name].addEventListener('change', (e) => {
-        self.set(name, e.target.value);
-      });
+    this.#keys.forEach((key) => {
+      this.set(key, this.get(key));
+      this.#elements[key].value = this.get(key);
     });
   }
 
@@ -117,13 +194,6 @@ export default class FormData {
   }
 
   /**
-   * Get the array of errors
-   */
-  get errors() {
-    return this.#errors;
-  }
-
-  /**
    * Store a key - value in the values and localStorage
    *
    * @param {string} key Name of the input
@@ -133,6 +203,40 @@ export default class FormData {
   set(key, value) {
     this.#values[key] = value;
     localStorage.setItem(this.#storageKey, JSON.stringify(this.#values));
+
+    return this;
+  }
+
+  /**
+   * @param {{[inputName: string]: { [ruleName: string]: string }}} object
+   *
+   * @returns {this}
+   */
+  setErrorMessages(object) {
+    Object.assign(this.#errorMessages, object);
+
+    return this;
+  }
+
+  /**
+   *
+   * @param {{[ruleName: string]: (val: string) => boolean}} object
+   *
+   *  @returns {this}
+   */
+  setValidations(object) {
+    Object.assign(this.#validations, object);
+
+    return this;
+  }
+
+  /**
+   *
+   * @param {{[inputName: string]: { [ruleName: string]: boolean | number }}} object
+   * @returns
+   */
+  setRules(object) {
+    Object.assign(this.#rules, object);
 
     return this;
   }
@@ -168,7 +272,7 @@ export default class FormData {
    * @param {string} rule Name of the rule
    * @returns {boolean}
    */
-  getErrorMessage(field, rule) {
+  #getErrorMessage(field, rule) {
     return this.#errorMessages[field][rule];
   }
 
@@ -197,5 +301,9 @@ export default class FormData {
     });
 
     return this;
+  }
+
+  toJSON() {
+    return this.#values;
   }
 }

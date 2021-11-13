@@ -109,7 +109,8 @@
         grid-template-areas:
           "name    email"
           "message message"
-          "button  button";
+          "button  button"
+          "errors  errors";
 
         .form-group {
           background: none;
@@ -161,6 +162,10 @@
           .btn {
             margin-block-start: 40px;
           }
+        }
+
+        .error-messages {
+          grid-area: errors;
         }
       }
     }

@@ -6,7 +6,7 @@
  */
 
 import {
-  projectTemplate, modalTemplate, errorTemplate, buildTemplate,
+  projectTemplate, modalTemplate, buildTemplate,
 } from './templates.js';
 import FormData from './FormData.js';
 
@@ -211,45 +211,30 @@ async function projects() {
 // ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
 
 function form() {
-  const formData = new FormData();
+  const formData = new FormData('form');
 
-  // ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
-  // ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
-  // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
-
-  const errorsElement = document.querySelector('.error-messages');
-  const formElement = document.querySelector('.form');
-
-  // ░█▀▀▀ ▀█─█▀ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
-  // ░█▀▀▀ ─█▄█─ █▀▀ █──█ ──█── ▀▀█
-  // ░█▄▄▄ ──▀── ▀▀▀ ▀──▀ ──▀── ▀▀▀
-
-  formElement.addEventListener('reset', (e) => {
-    e.preventDefault();
-
-    errorsElement.textContent = '';
-    formData.clear();
-  });
-
-  formElement.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Reset errors
-    errorsElement.textContent = '';
-    formData.validate();
-
-    if (formData.hasErrors()) {
-      formData.errors.forEach(({ field, rule }) => {
-        const object = errorTemplate(formData.getErrorMessage(field, rule));
-        const element = buildTemplate(object);
-
-        errorsElement.appendChild(element);
-      });
-    } else {
-      formElement.submit();
-      formData.clear();
-    }
-  });
+  formData
+    .setErrorMessages({
+      email: {
+        isNotEmpty: 'The email address is required',
+        isLowerCase: 'Please enter your email in lowercase',
+        isValidEmail: 'Please verify the email format, e.g. user@example.com',
+      },
+      name: {
+        isNotEmpty: 'The name is required',
+        isLengthLowerThan: 'The name must be a maximum of 30 characters',
+      },
+      message: {
+        isNotEmpty: 'The message is required',
+        isLengthLowerThan: 'The name must be a maximum of 500 characters',
+      },
+    })
+    .setRules({
+      name: { isNotEmpty: true, isLengthLowerThan: 30 },
+      email: { isNotEmpty: true, isLowerCase: true, isValidEmail: true },
+      message: { isNotEmpty: true, isLengthLowerThan: 500 },
+    })
+    .exec();
 }
 
 menu();
