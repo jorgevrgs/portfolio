@@ -156,16 +156,19 @@ export default class FormData {
     _classPrivateFieldGet(this, _errorMessagesElement).textContent = '';
     this.validate();
 
-    if (this.hasErrors() && _classPrivateFieldGet(this, _errorMessagesElement)) {
+    if (this.hasErrors()) {
       _classPrivateFieldGet(this, _errors).forEach(_ref => {
         var {
           field,
           rule
         } = _ref;
-        var object = errorTemplate(_classPrivateMethodGet(this, _getErrorMessage, _getErrorMessage2).call(this, field, rule));
-        var element = buildTemplate(object);
 
-        _classPrivateFieldGet(this, _errorMessagesElement).appendChild(element);
+        if (_classPrivateFieldGet(this, _errorMessagesElement)) {
+          var object = errorTemplate(_classPrivateMethodGet(this, _getErrorMessage, _getErrorMessage2).call(this, field, rule));
+          var element = buildTemplate(object);
+
+          _classPrivateFieldGet(this, _errorMessagesElement).appendChild(element);
+        }
       });
     } else {
       _classPrivateFieldGet(this, _form).submit();

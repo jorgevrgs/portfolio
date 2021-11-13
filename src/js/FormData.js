@@ -145,12 +145,14 @@ export default class FormData {
 
     this.validate();
 
-    if (this.hasErrors() && this.#errorMessagesElement) {
+    if (this.hasErrors()) {
       this.#errors.forEach(({ field, rule }) => {
-        const object = errorTemplate(this.#getErrorMessage(field, rule));
-        const element = buildTemplate(object);
+        if (this.#errorMessagesElement) {
+          const object = errorTemplate(this.#getErrorMessage(field, rule));
+          const element = buildTemplate(object);
 
-        this.#errorMessagesElement.appendChild(element);
+          this.#errorMessagesElement.appendChild(element);
+        }
       });
     } else {
       this.#form.submit();
