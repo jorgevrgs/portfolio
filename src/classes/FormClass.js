@@ -1,15 +1,15 @@
-import { buildTemplate, errorTemplate } from './templates.js';
+import { buildTemplate, errorTemplate } from '../helpers/templates.js';
 
 /**
  * Use default value object to get elements, run validations and store data using localStorage
  *
- * @example const form = new FormData('form');
+ * @example const form = new FormClass('form');
  *   form
  *     .setRules({name: 'isNotEmpty'})
  *     .setErrorMessages({name: {isEmpty: 'Name is required'}})
  *     .exec();
  */
-export default class FormData {
+export default class FormClass {
   /** @type {HTMLFormElement | null} */
   #form = null;
 
