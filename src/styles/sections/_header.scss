@@ -4,7 +4,7 @@
   .btn-menu {
     position: fixed;
     z-index: 2;
-    background-image: url(../../assets/images/ic_close.svg);
+    background-image: url(/images/ic_close.svg);
   }
 
   .mobile-menu {
@@ -17,9 +17,8 @@
     justify-content: center;
     align-items: center;
     background-color: $color-white;
-    background-image:
-      url(../../assets/images/mobile/image_geometry_menu_1.svg),
-      url(../../assets/images/mobile/image_geometry_menu_2.svg);
+    background-image: url(/images/mobile/image_geometry_menu_1.svg),
+      url(/images/mobile/image_geometry_menu_2.svg);
     background-repeat: no-repeat;
     background-position: top left, bottom left;
     background-size: 75%, contain;
@@ -51,7 +50,7 @@
   .nav-link:active::after,
   .header .nav-link:hover::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 26px;
     height: 2px;
     background-color: $color-primary;

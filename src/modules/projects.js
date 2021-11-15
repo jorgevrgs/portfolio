@@ -17,7 +17,7 @@ export default async function projects() {
   // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
 
   // PROJECTS
-  const projects = await fetch('assets/json/projects.json').then((r) => r.json());
+  const projects = await fetch('/json/projects.json').then((r) => r.json());
   const projectsElement = document.querySelector('.projects');
 
   // ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀

@@ -36,19 +36,19 @@
       }
 
       &:first-child {
-        background-image: url(../../assets/images/ic_languages_mob.svg);
+        background-image: url(/images/ic_languages_mob.svg);
         background-repeat: no-repeat;
         background-position: right bottom;
       }
 
       &:nth-child(2) {
-        background-image: url(../../assets/images/ic_framework.svg);
+        background-image: url(/images/ic_framework.svg);
         background-repeat: no-repeat;
         background-position: right bottom;
       }
 
       &:last-child {
-        background-image: url(../../assets/images/ic_skills.svg);
+        background-image: url(/images/ic_skills.svg);
         background-repeat: no-repeat;
         background-position: right bottom;
       }
@@ -74,7 +74,7 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 0;
-      background-image: url(../../assets/images/desktop/image_dots_with_teal.svg);
+      background-image: url(/images/desktop/image_dots_with_teal.svg);
       background-repeat: no-repeat;
       background-position: bottom right;
     }

@@ -4,7 +4,7 @@
 
 > The portfolio is a project built with development best practices such as HTML semantic tags, CSS prefixes, Linters, accessibility and more.
 
-![screenshot](./assets/images/app_screenshot.png)
+![screenshot](.//images/app_screenshot.png)
 
 ## Built With
 
