@@ -5,6 +5,8 @@
  *
  */
 
+import '../css/style.scss';
+
 import {
   projectTemplate, modalTemplate, buildTemplate,
 } from './templates.js';

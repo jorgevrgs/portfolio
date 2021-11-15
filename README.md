@@ -110,6 +110,18 @@ GitHub Pages:
 
 3. As a result your page will be published at `https://<USERNAME>.github.io/<REPOSITORY_NAME>`.
 
+4. Make sure your deploy script is executable:
+
+```
+chmod +x .deploy.sh
+```
+
+5. Run deploy script:
+
+```
+npm run deploy
+```
+
 ## Authors
 
 👤 **Jorge Vargas**
