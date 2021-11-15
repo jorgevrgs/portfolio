@@ -70,7 +70,13 @@ const getProjectButtons = () => ({
     },
     {
       tag: 'div',
-      className: ['d-none', 'flex-column', 'flex-md-row', 'justify-md-center', 'button-details'],
+      className: [
+        'd-none',
+        'flex-column',
+        'flex-md-row',
+        'justify-md-center',
+        'button-details',
+      ],
       children: [
         {
           tag: 'button',
@@ -100,7 +106,8 @@ const getProjectButtons = () => ({
           attributes: {
             type: 'button',
           },
-          innerHTML: '<span class="icon icon-arrow-left-dark"></span> Previous project',
+          innerHTML:
+            '<span class="icon icon-arrow-left-dark"></span> Previous project',
         },
         {
           tag: 'button',
@@ -108,7 +115,8 @@ const getProjectButtons = () => ({
           attributes: {
             type: 'button',
           },
-          innerHTML: 'Next project <span class="icon icon-arrow-right-dark"></span>',
+          innerHTML:
+            'Next project <span class="icon icon-arrow-right-dark"></span>',
         },
       ],
     },
@@ -126,7 +134,13 @@ export const projectTemplate = (project) => {
       getMedia(project),
       {
         tag: 'div',
-        className: ['d-flex', 'flex-column', 'pa-20', 'bg-primary', 'project-content'],
+        className: [
+          'd-flex',
+          'flex-column',
+          'pa-20',
+          'bg-primary',
+          'project-content',
+        ],
         children: [
           getTitle(project),
           getTags(project),
@@ -156,11 +170,14 @@ export const modalTemplate = (project) => ({
         getMedia(project),
         {
           tag: 'div',
-          className: ['d-flex', 'flex-column', 'pa-20', 'bg-primary', 'project-content'],
-          children: [
-            getDescription(project),
-            getProjectButtons(project),
+          className: [
+            'd-flex',
+            'flex-column',
+            'pa-20',
+            'bg-primary',
+            'project-content',
           ],
+          children: [getDescription(project), getProjectButtons(project)],
         },
       ],
     },

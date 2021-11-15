@@ -31,7 +31,7 @@ export default class FormClass {
   #errorMessagesElement = null;
 
   /** @type {[key: string] = HTMLButtonElement} */
-  #buttons = {}
+  #buttons = {};
 
   /** @type {{[inputName: string]: { [ruleName: string]: boolean | number }}} */
   #rules = {};
@@ -61,7 +61,9 @@ export default class FormClass {
      *
      * @copyright https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
      */
-    isValidEmail: (val) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
+    isValidEmail: (val) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      val,
+    ),
 
     /**
      *
@@ -90,7 +92,9 @@ export default class FormClass {
     const formElement = document.querySelector(`.${formName}`);
 
     if (!formElement) {
-      throw new Error(`It was not possible to find a form element with class ${formName}`);
+      throw new Error(
+        `It was not possible to find a form element with class ${formName}`,
+      );
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -122,7 +126,9 @@ export default class FormClass {
     });
 
     if (!this.#keys.length) {
-      throw new Error('No inputs found, use "name" attribute in both input and textarea');
+      throw new Error(
+        'No inputs found, use "name" attribute in both input and textarea',
+      );
     }
 
     this.#errorMessagesElement = document.querySelector('.error-messages');
@@ -302,7 +308,12 @@ export default class FormClass {
     Object.keys(this.#rules).forEach((field) => {
       Object.keys(this.#rules[field]).forEach((rule) => {
         if (['isLengthLowerThan', 'isLengthGreaterThan'].includes(rule)) {
-          if (!this.#validations[rule](this.#values[field], this.#rules[field][rule])) {
+          if (
+            !this.#validations[rule](
+              this.#values[field],
+              this.#rules[field][rule],
+            )
+          ) {
             this.#errors.push({ field, rule });
             this.#elements[field].classList.add('error');
           }

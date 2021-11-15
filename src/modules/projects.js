@@ -6,7 +6,9 @@
 // ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░╚════╝░╚══════╝░╚════╝░░░░╚═╝░░░╚═════╝░
 
 import {
-  projectTemplate, modalTemplate, buildTemplate,
+  projectTemplate,
+  modalTemplate,
+  buildTemplate,
 } from '../helpers/templates.js';
 
 export default async function projects() {
