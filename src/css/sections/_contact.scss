@@ -57,8 +57,12 @@
     }
   }
 
-  .btn {
-    margin-block-start: 20px;
+  .button-input {
+    gap: 2rem;
+
+    .btn {
+      margin-block-start: 20px;
+    }
   }
 
   .error-messages {
@@ -105,7 +109,8 @@
         grid-template-areas:
           "name    email"
           "message message"
-          "button  button";
+          "button  button"
+          "errors  errors";
 
         .form-group {
           background: none;
@@ -157,6 +162,10 @@
           .btn {
             margin-block-start: 40px;
           }
+        }
+
+        .error-messages {
+          grid-area: errors;
         }
       }
     }

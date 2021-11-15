@@ -9,6 +9,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  *
  */
 import { projectTemplate, modalTemplate, buildTemplate } from './templates.js';
+import FormData from './FormData.js';
 
 function menu() {
   var headerElement = document.querySelector('.header');
@@ -122,86 +123,22 @@ function _projects() {
 }
 
 function form() {
-  var formElement = document.querySelector('.form');
-  var nameInputElement = document.querySelector('#name');
-  var emailInputElement = document.querySelector('#email');
-  var messageInputElement = document.querySelector('#message');
-  var errorMessagesElement = document.querySelector('.error-messages');
-
-  class FormData {
-    constructor() {
-      var formData = {
-        name: '',
-        email: '',
-        message: ''
-      };
-      var store = localStorage.getItem('formData');
-      var result;
-
-      try {
-        result = JSON.parse(store);
-      } finally {
-        Object.assign(formData, result);
-      }
-
-      this.name = formData.name;
-      this.email = formData.email;
-      this.message = formData.message;
-    }
-
-    get(key) {
-      return this[key];
-    }
-
-    set(key, value) {
-      this[key] = value;
-      localStorage.setItem('formData', JSON.stringify(this));
-      return this;
-    }
-
-  }
-
-  var currentFormData = new FormData();
-
-  var handleOnChange = e => {
-    currentFormData.set(e.target.name, e.target.value);
-  };
-
-  nameInputElement.value = currentFormData.get('name');
-  emailInputElement.value = currentFormData.get('email');
-  messageInputElement.value = currentFormData.get('message');
-  nameInputElement.addEventListener('change', handleOnChange);
-  emailInputElement.addEventListener('change', handleOnChange);
-  messageInputElement.addEventListener('change', handleOnChange);
-  var errorMessages = {
+  var formData = new FormData('form');
+  formData.setErrorMessages({
     email: {
-      isNotEmpty: 'The email address field is required',
-      isLowerCase: 'Please fill out the email address in lowercase',
+      isNotEmpty: 'The email address is required',
+      isLowerCase: 'Please enter your email in lowercase',
       isValidEmail: 'Please verify the email format, e.g. user@example.com'
     },
     name: {
-      isNotEmpty: 'The name field is required',
-      isLengthLowerThan: 'The name field should have 30 characters or less'
+      isNotEmpty: 'The name is required',
+      isLengthLowerThan: 'The name must be a maximum of 30 characters'
     },
     message: {
-      isNotEmpty: 'The message field is required',
-      isLengthLowerThan: 'The message field should have 500 characters or less'
+      isNotEmpty: 'The message is required',
+      isLengthLowerThan: 'The name must be a maximum of 500 characters'
     }
-  };
-  var validations = {
-    isNotEmpty: val => val.trim() !== '',
-    isLowerCase: val => val.toLowerCase() === val,
-    isValidEmail: val => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val),
-    isLengthLowerThan: function isLengthLowerThan(val) {
-      var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
-      return val.length < length;
-    },
-    isLengthGreaterThan: function isLengthGreaterThan(val) {
-      var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-      return val.length > length;
-    }
-  };
-  var rules = {
+  }).setRules({
     name: {
       isNotEmpty: true,
       isLengthLowerThan: 30
@@ -215,65 +152,7 @@ function form() {
       isNotEmpty: true,
       isLengthLowerThan: 500
     }
-  };
-  var inputs = {
-    name: nameInputElement,
-    email: emailInputElement,
-    message: messageInputElement
-  };
-
-  var createErrorElement = text => {
-    var div = document.createElement('div');
-    div.classList.add('d-flex', 'align-center', 'pa-16', 'error-message');
-    div.innerHTML = "<span class=\"icon icon-exclamation-triangle\"></span> ".concat(text);
-    return div;
-  };
-
-  var getFormErrors = (inputs, rules, validations) => {
-    var errors = [];
-    Object.keys(rules).forEach(field => {
-      Object.keys(rules[field]).forEach(rule => {
-        if (['isLengthLowerThan', 'isLengthGreaterThan'].includes(rule)) {
-          if (!validations[rule](inputs[field].value, rules[field][rule])) {
-            errors.push({
-              field,
-              rule
-            });
-          }
-        } else if (!validations[rule](inputs[field].value)) {
-          errors.push({
-            field,
-            rule
-          });
-        }
-      });
-    });
-    return errors;
-  };
-
-  formElement.addEventListener('submit', e => {
-    e.preventDefault();
-    errorMessagesElement.textContent = '';
-    var errors = getFormErrors(inputs, rules, validations);
-    Object.keys(inputs).forEach(key => {
-      inputs[key].classList.remove('error');
-    });
-
-    if (errors.length) {
-      errors.forEach(_ref => {
-        var {
-          field,
-          rule
-        } = _ref;
-        var element = createErrorElement(errorMessages[field][rule]);
-        inputs[field].classList.add('error');
-        errorMessagesElement.appendChild(element);
-      });
-    } else {
-      localStorage.removeItem('formData');
-      formElement.submit();
-    }
-  });
+  }).exec();
 }
 
 menu();

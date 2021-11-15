@@ -14,7 +14,8 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .btn{border:0;cursor:pointer;background:0;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;font-size:1rem;transition:background-color .3s ease-in-out}
 .btn-lg{min-width:254px;min-height:70px}.btn:focus{border-width:2px}.btn-primary{height:50px;background-color:#1a2236;color:#fff;width:100%}
 .btn-primary:hover,.btn-primary:focus{background-color:#fff;color:#1a2236;border:1px solid #1a2236}
-.btn-secondary{height:50px;background-color:#fff;color:#1a2236;width:100%}.btn-secondary:hover,.btn-secondary:focus{background-color:#1a2236;color:#1a2236;border:1px solid #fff}
+.btn-secondary{height:50px;background-color:#fff;border:1px solid #1a2236;color:#1a2236;width:100%}
+.btn-secondary:hover,.btn-secondary:focus{background-color:#1a2236;color:#fff;border:1px solid #1a2236}
 .btn:hover .icon{-webkit-filter:invert(1);filter:invert(1)}.btn-menu{width:20px;height:20px;background-image:url(../../assets/images/ic_menu.svg);background-repeat:no-repeat;-webkit-margin-before:19px;margin-block-start:19px;-webkit-margin-end:16px;margin-inline-end:16px}
 @media screen and (min-width:992px){.btn-primary{height:50px;background-color:#1a2236;color:#fff;width:100%}
 .btn-md-primary:hover,.btn-md-primary:focus{background-color:#fff;color:#1a2236;border:1px solid #1a2236}
@@ -106,19 +107,21 @@ a:active{text-decoration:none}:root{--color-primary:#1a2236;--color-secondary:#f
 .contact .form-group>input,.contact .form-group>textarea{border:0;font-size:1rem;font-family:"Poppins",sans-serif}
 .contact .form-group textarea{width:100%;min-height:112px;resize:none;border-radius:4px;margin:0;padding-block:15px}
 .contact .form-group>input:focus,.contact .form-group>textarea:focus{outline:0}.contact .form-group .error{background-image:url(../../assets/images/exclamation-triangle.svg);background-repeat:no-repeat;background-position:center right 1rem}
-.contact .btn{-webkit-margin-before:20px;margin-block-start:20px}.contact .error-messages{gap:10px}
-.contact .error-messages .error-message{background-color:#bd0404;color:#fff}.contact .error-messages .error-message .icon{-webkit-filter:invert(1);filter:invert(1);-webkit-margin-end:1rem;margin-inline-end:1rem}
+.contact .button-input{gap:2rem}.contact .button-input .btn{-webkit-margin-before:20px;margin-block-start:20px}
+.contact .error-messages{gap:10px}.contact .error-messages .error-message{background-color:#bd0404;color:#fff}
+.contact .error-messages .error-message .icon{-webkit-filter:invert(1);filter:invert(1);-webkit-margin-end:1rem;margin-inline-end:1rem}
 @media screen and (min-width:992px){.contact{background-image:url(../../assets/images/desktop/image-geometry_6.svg);position:relative}
 .contact::after{display:block;content:"";height:350px;width:350px;position:absolute;background-image:url(../../assets/images/desktop/image-geometry_7.svg);z-index:1;right:0;bottom:0}
-.contact>.content{min-width:550px}.contact>.content .form{z-index:2;display:grid;gap:0 35px;grid-template-areas:"name    email" "message message" "button  button"}
+.contact>.content{min-width:550px}.contact>.content .form{z-index:2;display:grid;gap:0 35px;grid-template-areas:"name    email" "message message" "button  button" "errors  errors"}
 .contact>.content .form .form-group{background:0;border:0;padding:0}.contact>.content .form .form-group label{-webkit-margin-before:20px;margin-block-start:20px;font-size:14px}
 .contact>.content .form .form-group.name-input{grid-area:name}.contact>.content .form .form-group.email-input{grid-area:email}
 .contact>.content .form .form-group.message-input{grid-area:message}.contact>.content .form .form-group input,.contact>.content .form .form-group textarea{padding:18px;border:1px solid #dfdfe0;border-radius:4px}
 .contact>.content .form .form-group textarea{height:140px}.contact>.content .form .form-group input:valid,.contact>.content .form .form-group textarea:valid{border-color:#046434}
 .contact>.content .form .form-group input:invalid,.contact>.content .form .form-group textarea:invalid{border-color:#bd0404}
 .contact>.content .form .button-input{grid-area:button}.contact>.content .form .button-input .btn{-webkit-margin-before:40px;margin-block-start:40px}
-}.footer .social-icons{list-style:none}.footer .social-icons .footer-link{font-size:1rem}
-@media screen and (min-width:992px){.footer{padding-inline:160px}}.modal{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#1a2236;z-index:1000;overflow:hidden;display:-ms-flexbox;display:flex}
+.contact>.content .form .error-messages{grid-area:errors}}.footer .social-icons{list-style:none}
+.footer .social-icons .footer-link{font-size:1rem}@media screen and (min-width:992px){.footer{padding-inline:160px}
+}.modal{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#1a2236;z-index:1000;overflow:hidden;display:-ms-flexbox;display:flex}
 .modal .project{background-color:#fff;height:100%;width:100%;padding:1rem;margin-inline:0;overflow-y:auto;position:relative}
 .modal .project .btn-close{position:absolute;right:1rem;top:1rem}.modal .project .title{color:#1a2236;font-size:20px;font-weight:700;-webkit-margin-before:40px;margin-block-start:40px;-webkit-margin-after:23px;margin-block-end:23px}
 .modal .project .description{color:#1a2236}.modal .project .tags{display:-ms-flexbox;display:flex;gap:10px;-webkit-margin-after:24px;margin-block-end:24px}
