@@ -1,3 +1,5 @@
+import autoprefixer from 'autoprefixer';
+
 /**
  * @type {import('vite').UserConfig}
  */
@@ -6,6 +8,11 @@ const config = {
   resolve: {
     alias: {
       '@': './src',
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [autoprefixer],
     },
   },
 };
