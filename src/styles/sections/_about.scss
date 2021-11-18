@@ -58,7 +58,7 @@
 
 /* End About Secion */
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .about {
     padding-inline: 160px;
     gap: 96px;

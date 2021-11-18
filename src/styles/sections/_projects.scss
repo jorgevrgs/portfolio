@@ -53,7 +53,7 @@
 
 /* End Projects Secion */
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .projects {
     grid-template-columns: repeat(9, 1fr);
 

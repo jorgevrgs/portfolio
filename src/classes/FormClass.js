@@ -1,3 +1,5 @@
+// @ts-check
+
 import { buildTemplate, errorTemplate } from '../helpers/templates.js';
 
 /**
@@ -13,7 +15,7 @@ export default class FormClass {
   /** @type {HTMLFormElement | null} */
   #form = null;
 
-  /** @type {[string]} */
+  /** @type {[string] | []} */
   #keys = [];
 
   /** @type {{[key: string]: string}} */
@@ -27,13 +29,13 @@ export default class FormClass {
   /** @example {[name: string]: HTMLElement: Element} */
   #elements = {};
 
-  /** @type {HTMLElement | null} */
+  /** @type {?HTMLElement} */
   #errorMessagesElement = null;
 
-  /** @type {[key: string] = HTMLButtonElement} */
-  #buttons = {};
+  /** @type {Object.<string, HTMLButtonElement>} */
+  #buttons = null;
 
-  /** @type {{[inputName: string]: { [ruleName: string]: boolean | number }}} */
+  /** @type {Object.<string, Object<string, boolean | number>>} */
   #rules = {};
 
   /**

@@ -82,14 +82,14 @@
 
 /* End Contact Form Section */
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .contact {
     background-image: url(/images/desktop/image-geometry_6.svg);
     position: relative;
 
     &::after {
       display: block;
-      content: '';
+      content: "";
       height: 350px;
       width: 350px;
       position: absolute;
@@ -107,10 +107,10 @@
         display: grid;
         gap: 0 35px;
         grid-template-areas:
-          'name    email'
-          'message message'
-          'button  button'
-          'errors  errors';
+          "name    email"
+          "message message"
+          "button  button"
+          "errors  errors";
 
         .form-group {
           background: none;

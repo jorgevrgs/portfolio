@@ -11,7 +11,7 @@
   /* End Footer */
 }
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .footer {
     padding-inline: 160px;
   }

@@ -1,4 +1,6 @@
 .about-me {
+  min-height: calc(100vh - 74px);
+
   .hello {
     margin-block-start: 104px;
 
@@ -22,7 +24,7 @@
   .divider {
     background-image: url(/images/image_geometry_2.svg);
     background-size: cover;
-    height: 207px;
+    height: 225px;
     background-repeat: no-repeat;
     background-position-x: center;
     width: calc(100vw + 1px);
@@ -30,7 +32,7 @@
   }
 }
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .about-me {
     margin-block-end: 210px;
     align-items: stretch;
@@ -57,7 +59,7 @@
 
       &::before {
         display: block;
-        content: '';
+        content: "";
         height: 175px;
         width: 175px;
         position: absolute;

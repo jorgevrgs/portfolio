@@ -1,72 +1,58 @@
-// ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
-// ████╗░████║██╔════╝████╗░██║██║░░░██║
-// ██╔████╔██║█████╗░░██╔██╗██║██║░░░██║
-// ██║╚██╔╝██║██╔══╝░░██║╚████║██║░░░██║
-// ██║░╚═╝░██║███████╗██║░╚███║╚██████╔╝
-// ╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░
+// @ts-check
+
+import { isMobile, toggleClass, removeClass } from '../helpers/utils.js';
 
 export default function menu() {
-  // ░█▀▀▀ █── █▀▀ █▀▄▀█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀
-  // ░█▀▀▀ █── █▀▀ █─▀─█ █▀▀ █──█ ──█── ▀▀█
-  // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
+  // ELEMENTS
 
+  /** @type {HTMLElement} */
   const headerElement = document.querySelector('.header');
+
+  /** @type {HTMLButtonElement} */
   const menuButtonElement = document.querySelector('.btn-menu');
+
+  /** @type {NodeListOf<HTMLElement>} */
   const menuLinkElements = document.querySelectorAll('.nav-link');
 
-  // ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
-  // ░█▀▀▀ █──█ █──█ █── ──█── ▀█▀ █──█ █──█ ▀▀█
-  // ░█─── ─▀▀▀ ▀──▀ ▀▀▀ ──▀── ▀▀▀ ▀▀▀▀ ▀──▀ ▀▀▀
+  const handleToggle = () => {
+    if (headerElement) {
+      toggleClass(headerElement, 'header-mobile');
+    }
 
-  /**
-   * Determine if it's mobile based on the screen width
-   *
-   * @returns {boolean}
-   */
-  const isMobile = () => window.innerWidth < 992;
-
-  /**
-   * Add or remove 'header-mobile' class
-   */
-  const toggleMenu = () => {
-    headerElement.classList.toggle('header-mobile');
-  };
-
-  /**
-   * Remove 'header-mobile' class
-   */
-  const removeClass = () => {
-    headerElement.classList.remove('header-mobile');
+    toggleClass(document.body, 'overflow-y-hidden');
   };
 
   /**
    * Handle function if the screen width is desktop
    */
   const handleDesktop = () => {
-    removeClass();
+    removeClass(headerElement, 'header-mobile');
+    removeClass(document.body, 'overflow-y-hidden');
 
-    menuButtonElement.removeEventListener('click', toggleMenu);
-    menuLinkElements.forEach((menuLink) => {
-      menuLink.removeEventListener('click', toggleMenu);
-    });
-  };
+    if (menuButtonElement) {
+      menuButtonElement.removeEventListener('click', handleToggle);
+    }
 
-  /**
-   * Create the listeners for each 'nak-link'
-   */
-  const handleLinks = () => {
-    menuLinkElements.forEach((menuLink) => {
-      menuLink.addEventListener('click', toggleMenu);
-    });
+    if (menuButtonElement) {
+      menuLinkElements.forEach((menuLink) => {
+        menuLink.removeEventListener('click', handleToggle);
+      });
+    }
   };
 
   /**
    * Handle function if the screen width is mobile
    */
   const handleMobile = () => {
-    menuButtonElement.addEventListener('click', toggleMenu);
+    if (menuButtonElement) {
+      menuButtonElement.addEventListener('click', handleToggle);
+    }
 
-    handleLinks();
+    if (menuLinkElements) {
+      menuLinkElements.forEach((menuLink) => {
+        menuLink.addEventListener('click', handleToggle);
+      });
+    }
   };
 
   // ░█▀▄▀█ █▀▀█ ─▀─ █▀▀▄

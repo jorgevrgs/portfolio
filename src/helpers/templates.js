@@ -1,3 +1,84 @@
+// @ts-check
+
+/**
+ * @typedef {({
+ *  id: number,
+ *  title: string,
+ *  description: string,
+ *  image: string,
+ *  technologies: string[],
+ *  linkToLive: string,
+ *  linkToSource: string,
+ * })} ProjectDef
+ *
+ * @typedef {Object<string, string | number>} KeyValDef
+ *
+ * @typedef {({
+ *   tag: string,
+ *   className: (string | string[]),
+ *   attributes?: KeyValDef,
+ *   innerHTML?: string,
+ *   textContent?: string,
+ *   dataset?: KeyValDef,
+ *   children?: (TemplateObjectDef[])
+ * })} TemplateObjectDef
+ */
+
+/**
+ *
+ * @param {TemplateObjectDef} param0 Project element object
+ * @returns {HTMLElement}
+ */
+export const buildTemplate = ({
+  tag,
+  className,
+  attributes,
+  children,
+  innerHTML,
+  textContent,
+  dataset = undefined,
+}) => {
+  /** @type HTMLElement */
+  const element = document.createElement(tag);
+
+  if (Array.isArray(className)) {
+    element.classList.add(...className);
+  } else if (typeof className === 'string' && className.length) {
+    element.classList.add(className);
+  }
+
+  if (textContent) {
+    element.textContent = textContent;
+  } else if (innerHTML) {
+    element.innerHTML = innerHTML;
+  }
+
+  if (attributes) {
+    Object.keys(attributes).forEach((key) => {
+      element.setAttribute(key, String(attributes[key]));
+    });
+  }
+
+  if (dataset) {
+    Object.keys(dataset).forEach((key) => {
+      element.dataset[key] = String(dataset[key]);
+    });
+  }
+
+  if (children) {
+    children.forEach((child) => {
+      element.appendChild(buildTemplate(child));
+    });
+  }
+
+  return element;
+};
+
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef[]}
+ */
 const getTag = (project) => {
   const technologies = [];
   project.technologies.forEach((technology) => {
@@ -11,12 +92,21 @@ const getTag = (project) => {
   return technologies;
 };
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 const getTags = (project) => ({
   tag: 'div',
   className: ['d-flex', 'flex-wrap', 'my-16', 'tags'],
   children: getTag(project),
 });
 
+/**
+ *
+ * @returns {TemplateObjectDef}
+ */
 const getButtonClose = () => ({
   tag: 'button',
   className: ['btn', 'btn-close', 'modal-close'],
@@ -28,18 +118,33 @@ const getButtonClose = () => ({
   ],
 });
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 const getTitle = (project) => ({
   tag: 'h3',
-  className: ['ma-0', 'title'],
+  className: ['ma-0', 'color-secondary', 'title'],
   textContent: project.title,
 });
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 const getDescription = (project) => ({
   tag: 'p',
   className: 'description',
   textContent: project.description,
 });
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 const getMedia = (project) => ({
   tag: 'div',
   className: ['d-flex', 'project-media'],
@@ -56,6 +161,10 @@ const getMedia = (project) => ({
   ],
 });
 
+/**
+ *
+ * @returns {TemplateObjectDef}
+ */
 const getProjectButtons = () => ({
   tag: 'div',
   className: 'project-button',
@@ -123,6 +232,11 @@ const getProjectButtons = () => ({
   ],
 });
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 export const projectTemplate = (project) => {
   const result = {
     tag: 'article',
@@ -144,7 +258,7 @@ export const projectTemplate = (project) => {
         children: [
           getTitle(project),
           getTags(project),
-          getProjectButtons(project),
+          getProjectButtons(),
         ],
       },
     ],
@@ -153,6 +267,11 @@ export const projectTemplate = (project) => {
   return result;
 };
 
+/**
+ *
+ * @param {ProjectDef} project
+ * @returns {TemplateObjectDef}
+ */
 export const modalTemplate = (project) => ({
   tag: 'div',
   className: 'modal',
@@ -177,75 +296,20 @@ export const modalTemplate = (project) => ({
             'bg-primary',
             'project-content',
           ],
-          children: [getDescription(project), getProjectButtons(project)],
+          children: [getDescription(project), getProjectButtons()],
         },
       ],
     },
   ],
 });
 
+/**
+ *
+ * @param {string} text
+ * @returns {TemplateObjectDef}
+ */
 export const errorTemplate = (text) => ({
   tag: 'div',
   className: ['d-flex', 'align-center', 'pa-16', 'error-message'],
   innerHTML: `<span class="icon icon-exclamation-triangle"></span> ${text}`,
 });
-
-/**
- *
- * @copyright @jorgevrgs, @vechicin, and @williamrolando88, coding partners
- *
- * @param {object} param0 Project element object
- * @argument param0.tag {string}
- * @argument param0.className {string | array}
- * @argument param0.attributes {object}
- * @argument param0.children {array}
- * @argument param0.innerHTML {string}
- * @argument param0.textContent {string}
- * @argument param0.dataset {object}
- *
- * @returns Element
- */
-export const buildTemplate = ({
-  tag,
-  className,
-  attributes,
-  children,
-  innerHTML,
-  textContent,
-  dataset = undefined,
-}) => {
-  /** @type Element */
-  const element = document.createElement(tag);
-
-  if (Array.isArray(className)) {
-    element.classList.add(...className);
-  } else if (typeof className === 'string' && className.length) {
-    element.classList.add(className);
-  }
-
-  if (textContent) {
-    element.textContent = textContent;
-  } else if (innerHTML) {
-    element.innerHTML = innerHTML;
-  }
-
-  if (attributes) {
-    Object.keys(attributes).forEach((key) => {
-      element.setAttribute(key, attributes[key]);
-    });
-  }
-
-  if (dataset) {
-    Object.keys(dataset).forEach((key) => {
-      element.dataset[key] = dataset[key];
-    });
-  }
-
-  if (children) {
-    children.forEach((child) => {
-      element.appendChild(buildTemplate(child));
-    });
-  }
-
-  return element;
-};

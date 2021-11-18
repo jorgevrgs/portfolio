@@ -42,6 +42,8 @@
     "node": "*"
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^4.5.1",
+    "@fontsource/poppins": "^4.5.0",
     "autoprefixer": "^10.4.0"
   }
 }

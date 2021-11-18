@@ -1,15 +1,20 @@
+@import "fonts";
 @import "variables";
 @import "animations";
 @import "reset";
 @import "root";
-@import "icons";
+
+// UTILS
+@import "border";
 @import "buttons";
-@import "theme";
+@import "colors";
+@import "display";
+@import "flex";
+@import "icons";
+@import "spacing";
+@import "text";
 @import "utils";
-@import "./sections/header";
-@import "./sections/who";
-@import "./sections/projects";
-@import "./sections/about";
-@import "./sections/contact";
-@import "./sections/footer";
-@import "./sections/modal";
+
+// SECTIONS
+@import "theme";
+@import "sections";

@@ -81,7 +81,7 @@
   }
 }
 
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-md) {
   .modal {
     padding: 70px;
     justify-content: center;
