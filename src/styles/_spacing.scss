@@ -18,6 +18,14 @@
   height: 100vw;
 }
 
+.gap-0 {
+  gap: 0;
+}
+
+.gap-10px {
+  gap: 10px;
+}
+
 .gap-1 {
   gap: 1rem;
 }
@@ -177,6 +185,14 @@
 
   .w-md-100w {
     height: 100vw;
+  }
+
+  .gap-md-0 {
+    gap: 0;
+  }
+
+  .gap-md-10px {
+    gap: 10px;
   }
 
   .gap-md-1 {
