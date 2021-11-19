@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer';
  * @type {import('vite').UserConfig}
  */
 const config = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/portfolio' : '/',
+  base: '/portfolio/',
   resolve: {
     alias: {
       '@': './src',
