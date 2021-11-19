@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import autoprefixer from 'autoprefixer';
 
 /**
@@ -7,7 +8,8 @@ const config = {
   base: '/portfolio/',
   resolve: {
     alias: {
-      '@': './src',
+      '@': resolve(__dirname, 'src'),
+      '~': resolve(__dirname, 'node_modules'),
     },
   },
   css: {
