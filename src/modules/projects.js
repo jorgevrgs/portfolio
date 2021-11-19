@@ -1,5 +1,7 @@
 // @ts-check
 
+import ApiClass from '../classes/ApiClass.js';
+
 import {
   projectTemplate,
   modalTemplate,
@@ -12,7 +14,8 @@ export default async function projects() {
   // ░█▄▄▄ ▀▀▀ ▀▀▀ ▀───▀ ▀▀▀ ▀──▀ ──▀── ▀▀▀
 
   // PROJECTS
-  const projects = await fetch('/json/projects.json').then((r) => r.json());
+  const api = new ApiClass();
+  const projects = await api.get('projects');
   const projectsElement = document.querySelector('.projects');
 
   // ░█▀▀▀ █──█ █▀▀▄ █▀▀ ▀▀█▀▀ ─▀─ █▀▀█ █▀▀▄ █▀▀
