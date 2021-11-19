@@ -18,29 +18,25 @@ export default class FormClass {
   /** @type {[string] | []} */
   #keys = [];
 
-  /** @type {{[key: string]: string}} */
+  /** @type {Object.<string, string>} */
   #values = {};
 
-  /**
-   * @example [{field: 'name', rule: 'isNotEmpty'}]
-   */
+  /** @type {{ field: string, rule: string}[]} */
   #errors = [];
 
-  /** @example {[name: string]: HTMLElement: Element} */
+  /** @type {Object.<string, HTMLInputElement>} */
   #elements = {};
 
   /** @type {?HTMLElement} */
   #errorMessagesElement = null;
 
   /** @type {Object.<string, HTMLButtonElement>} */
-  #buttons = null;
+  #buttons = {};
 
   /** @type {Object.<string, Object<string, boolean | number>>} */
   #rules = {};
 
-  /**
-   * Built in validations
-   */
+  /** @type {Object.<string, function>} */
   #validations = {
     /**
      *
@@ -89,6 +85,9 @@ export default class FormClass {
 
   #storageKey = 'formData';
 
+  /**
+   * @params {string} formName
+   */
   constructor(formName) {
     /** @type {HTMLFormElement} */
     const formElement = document.querySelector(`.${formName}`);
@@ -105,25 +104,13 @@ export default class FormClass {
 
     this.#form = formElement;
 
-    const elements = Array.from(formElement.elements);
+    const { elements } = formElement;
 
-    elements.forEach((input) => {
+    Object.values(elements).forEach((input) => {
       if (['INPUT', 'TEXTAREA'].includes(input.nodeName)) {
-        this.#keys.push(input.name);
-        this.#elements[input.name] = input;
-        this.#values[input.name] = input.value;
-
-        input.addEventListener('change', this.handleChange);
+        this.handleInputElement(input);
       } else if (input.nodeName === 'BUTTON') {
-        if (input.id) {
-          this.#buttons[input.id] = input;
-        }
-
-        if (input.type === 'submit') {
-          input.addEventListener('click', this.handleSubmit);
-        } else if (input.type === 'reset') {
-          input.addEventListener('click', this.handleReset);
-        }
+        this.handleButtonElement(input /** @type {HTMLButtonElement} */);
       }
     });
 
@@ -142,7 +129,35 @@ export default class FormClass {
 
   /**
    *
-   * @param {Event} e Change input event
+   * @param {HTMLButtonElement} input
+   */
+  handleButtonElement(input) {
+    if (input.id) {
+      this.#buttons[input.id] = input;
+    }
+
+    if (input.type === 'submit') {
+      input.addEventListener('click', this.handleSubmit);
+    } else if (input.type === 'reset') {
+      input.addEventListener('click', this.handleReset);
+    }
+  }
+
+  /**
+   *
+   * @param {HTMLInputElement} input
+   */
+  handleInputElement(input) {
+    this.#keys.push(input.name);
+    this.#elements[input.name] = input;
+    this.#values[input.name] = input.value;
+
+    input.addEventListener('change', this.handleChange);
+  }
+
+  /**
+   *
+   * @param {Event & { target: HTMLInputElement }} e Change input event
    */
   handleChange(e) {
     this.set(e.target.name, e.target.value);
@@ -291,7 +306,7 @@ export default class FormClass {
    *
    * @param {string} field Name of the input
    * @param {string} rule Name of the rule
-   * @returns {boolean}
+   * @returns {string}
    */
   #getErrorMessage(field, rule) {
     return this.#errorMessages[field][rule];
@@ -307,8 +322,8 @@ export default class FormClass {
     this.#errors.splice(0);
 
     // Check the rules according to the validation and values
-    Object.keys(this.#rules).forEach((field) => {
-      Object.keys(this.#rules[field]).forEach((rule) => {
+    Object.keys(this.#rules).forEach((field /** @type {string} */) => {
+      Object.keys(this.#rules[field]).forEach((rule /** @type {string} */) => {
         if (['isLengthLowerThan', 'isLengthGreaterThan'].includes(rule)) {
           if (
             !this.#validations[rule](
