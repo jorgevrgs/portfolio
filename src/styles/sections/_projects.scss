@@ -39,11 +39,9 @@
 }
 
 /* End Projects Secion */
-
 @media screen and (min-width: $breakpoint-md) {
   .projects {
     grid-template-columns: repeat(9, 1fr);
-
     grid-template-areas:
       "title title   img0   first  first first first  first first"
       "title title   img0   first  first first first  first first"
@@ -57,7 +55,6 @@
       "third  third  third  third  third img3  img3   img3  img3"
       "img5   img5   .      .      img4  forth forth  forth ."
       "img5   img5   .      .      img4  forth forth  forth .";
-    gap: 0;
 
     > .title {
       grid-area: title;

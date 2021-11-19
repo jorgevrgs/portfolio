@@ -14,6 +14,10 @@
   background-color: $color-red;
 }
 
+.bg-danger {
+  background-color: $color-danger;
+}
+
 .bg-yellow {
   background-color: $color-yellow;
 }
@@ -57,7 +61,10 @@
 
   .bg-md-red {
     background-color: $color-red;
-    color: $color-white;
+  }
+
+  .bg-md-danger {
+    background-color: $color-danger;
   }
 
   .bg-md-yellow {

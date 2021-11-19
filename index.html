@@ -87,7 +87,7 @@
         <div class="divider" role="presentation"></div>
       </div>
 
-      <section id="portfolio" class="section d-grid projects">
+      <section id="portfolio" class="section d-grid gap-0 projects">
         <h2 class="d-md-flex align-md-center justify-md-center title">
           Projects
         </h2>
@@ -185,7 +185,16 @@
             action="https://formspree.io/f/xdoyvbvr"
             method="POST"
           >
-            <div class="form-group name-input">
+            <div
+              class="
+                d-flex
+                flex-column
+                bg-white
+                border-radius-4px
+                form-group
+                name-input
+              "
+            >
               <label for="name"
                 >Your Name <em aria-hidden="true">(required)</em></label
               >
@@ -198,7 +207,16 @@
                 autocomplete="name"
               />
             </div>
-            <div class="form-group email-input">
+            <div
+              class="
+                d-flex
+                flex-column
+                bg-white
+                border-radius-4px
+                form-group
+                email-input
+              "
+            >
               <label for="email"
                 >Your Email <em aria-hidden="true">(required)</em></label
               >
@@ -211,11 +229,21 @@
                 autocomplete="email"
               />
             </div>
-            <div class="form-group message-input">
+            <div
+              class="
+                d-flex
+                flex-column
+                bg-white
+                border-radius-4px
+                form-group
+                message-input
+              "
+            >
               <label class="d-none d-md-flex" for="message"
                 >Message <em aria-hidden="true">(required)</em></label
               >
               <textarea
+                class="w-100 border-radius-4px ma-0"
                 id="message"
                 name="message"
                 placeholder="Enter your message here..."
@@ -224,7 +252,13 @@
             </div>
 
             <div
-              class="d-md-flex justify-md-center align-md-center button-input"
+              class="
+                d-md-flex
+                justify-md-center
+                align-md-center
+                gap-2
+                button-input
+              "
             >
               <button
                 class="btn btn-secondary btn-md-lg btn-reset"
@@ -241,7 +275,7 @@
               </button>
             </div>
 
-            <div class="d-flex flex-column mt-16 error-messages"></div>
+            <div class="d-flex flex-column mt-16 gap-10px error-messages"></div>
           </form>
         </div>
       </section>
