@@ -99,7 +99,7 @@ const getTag = (project) => {
  */
 const getTags = (project) => ({
   tag: 'div',
-  className: ['d-flex', 'flex-wrap', 'my-16', 'tags'],
+  className: ['d-flex', 'flex-wrap', 'my-16', 'flex-md-wrap', 'tags'],
   children: getTag(project),
 });
 
@@ -125,7 +125,7 @@ const getButtonClose = () => ({
  */
 const getTitle = (project) => ({
   tag: 'h3',
-  className: ['ma-0', 'color-secondary', 'title'],
+  className: ['ma-0', 'color-secondary', 'font-weight-light', 'text-md-truncate', 'title'],
   textContent: project.title,
 });
 
@@ -151,7 +151,7 @@ const getMedia = (project) => ({
   children: [
     {
       tag: 'img',
-      className: 'project-image',
+      className: ['d-block', 'w-100', 'overflow-hidden', 'h-auto', 'project-image'],
       attributes: {
         src: project.image,
         alt: project.title,
@@ -240,7 +240,7 @@ const getProjectButtons = () => ({
 export const projectTemplate = (project) => {
   const result = {
     tag: 'article',
-    className: 'project',
+    className: ['d-flex', 'flex-column', 'mx-n16', 'overflow-md-hidden', 'mx-md-0', 'project'],
     dataset: {
       id: project.id,
     },
@@ -253,6 +253,7 @@ export const projectTemplate = (project) => {
           'flex-column',
           'pa-20',
           'bg-primary',
+          'w-md-100',
           'project-content',
         ],
         children: [
@@ -294,6 +295,7 @@ export const modalTemplate = (project) => ({
             'flex-column',
             'pa-20',
             'bg-primary',
+            'w-md-100',
             'project-content',
           ],
           children: [getDescription(project), getProjectButtons()],

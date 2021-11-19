@@ -2,12 +2,20 @@
   display: none;
 }
 
+.d-block {
+  display: block;
+}
+
 .d-flex {
   display: flex;
 }
 
 .d-grid {
   display: grid;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-y-hidden {
@@ -19,12 +27,20 @@
     display: none;
   }
 
+  .d-md-block {
+    display: block;
+  }
+
   .d-md-flex {
     display: flex;
   }
 
   .d-md-grid {
     display: grid;
+  }
+
+  .overflow-md-hidden {
+    overflow: hidden;
   }
 
   .overflow-y-md-hidden {
