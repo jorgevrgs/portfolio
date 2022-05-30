@@ -8,7 +8,7 @@ export default class MockProvider {
    */
   static get(service) {
     return new Promise((resolve, reject) => {
-      fetch(`/portfolio/json/${service}.json`)
+      fetch(`/json/${service}.json`)
         .then((res) => res.json())
         .then(resolve)
         .catch(reject);

@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer';
  * @type {import('vite').UserConfig}
  */
 const config = {
-  base: '/portfolio/',
+  base: '/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
