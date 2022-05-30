@@ -1,0 +1,205 @@
+.font-primary {
+  font-family: $font-primary;
+}
+
+.font-secondary {
+  font-family: $font-secondary;
+}
+
+.font-size-base {
+  font-size: $font-size-base;
+}
+
+.font-size-sm {
+  font-size: $font-size-sm;
+}
+
+.font-size-lg {
+  font-size: $font-size-lg;
+}
+
+.font-size-h1 {
+  font-size: $h1-font-size;
+}
+
+.font-size-h2 {
+  font-size: $h2-font-size;
+}
+
+.font-size-h3 {
+  font-size: $h3-font-size;
+}
+
+.font-size-h4 {
+  font-size: $h4-font-size;
+}
+
+.font-size-h5 {
+  font-size: $h5-font-size;
+}
+
+.font-size-h6 {
+  font-size: $h6-font-size;
+}
+
+.font-weight-black {
+  font-weight: 900;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.font-weight-regular {
+  font-weight: 400;
+}
+
+.font-weight-light {
+  font-weight: 300;
+}
+
+.font-weight-thin {
+  font-weight: 100;
+}
+
+.font-style-italic {
+  font-style: italic;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .font-md-primary {
+    font-family: $font-primary;
+  }
+
+  .font-md-secondary {
+    font-family: $font-secondary;
+  }
+
+  .font-size-md-base {
+    font-size: $font-size-base;
+  }
+
+  .font-size-md-sm {
+    font-size: $font-size-sm;
+  }
+
+  .font-size-md-lg {
+    font-size: $font-size-lg;
+  }
+
+  .font-size-md-h1 {
+    font-size: $h1-font-size;
+  }
+
+  .font-size-md-h2 {
+    font-size: $h2-font-size;
+  }
+
+  .font-size-md-h3 {
+    font-size: $h3-font-size;
+  }
+
+  .font-size-md-h4 {
+    font-size: $h4-font-size;
+  }
+
+  .font-size-md-h5 {
+    font-size: $h5-font-size;
+  }
+
+  .font-size-md-h6 {
+    font-size: $h6-font-size;
+  }
+
+  .font-md-weight-black {
+    font-weight: 900;
+  }
+
+  .font-md-weight-bold {
+    font-weight: 700;
+  }
+
+  .font-md-weight-medium {
+    font-weight: 500;
+  }
+
+  .font-md-weight-regular {
+    font-weight: 400;
+  }
+
+  .font-md-weight-light {
+    font-weight: 300;
+  }
+
+  .font-md-weight-thin {
+    font-weight: 100;
+  }
+
+  .font-md-style-italic {
+    font-style: italic;
+  }
+
+  .text-md-lowercase {
+    text-transform: lowercase;
+  }
+
+  .text-md-uppercase {
+    text-transform: uppercase;
+  }
+
+  .text-md-capitalize {
+    text-transform: capitalize;
+  }
+
+  .text-md-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .text-md-left {
+    text-align: left;
+  }
+
+  .text-md-center {
+    text-align: center;
+  }
+
+  .text-md-right {
+    text-align: right;
+  }
+}

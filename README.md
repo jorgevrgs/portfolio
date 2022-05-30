@@ -4,7 +4,7 @@
 
 > The portfolio is a project built with development best practices such as HTML semantic tags, CSS prefixes, Linters, accessibility and more.
 
-![screenshot](./assets/images/app_screenshot.png)
+![screenshot](./public/images/app_screenshot.png)
 
 ## Built With
 
@@ -109,6 +109,18 @@ GitHub Pages:
 2. Find the `Source` section and select the Branch, default is `main` and click on `Save` button.
 
 3. As a result your page will be published at `https://<USERNAME>.github.io/<REPOSITORY_NAME>`.
+
+4. Make sure your deploy script is executable:
+
+```
+chmod +x .deploy.sh
+```
+
+5. Run deploy script:
+
+```
+npm run deploy
+```
 
 ## Authors
 

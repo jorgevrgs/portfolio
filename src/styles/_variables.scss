@@ -1,0 +1,34 @@
+// Colors
+$color-primary: #1a2236;
+$color-secondary: #fff;
+$color-white: #fff;
+$color-cyan: #98dede;
+$color-blue: #1c528a;
+$color-red: #e2505c;
+$color-yellow: #febf52;
+$color-grey: #f9f9fa;
+$color-success: #046434;
+$color-danger: #bd0404;
+$color-darker-grey: #dfdfe0;
+$color-alt-grey: #7d7c84;
+
+// Fonts
+$font-primary: "Poppins", sans-serif;
+$font-secondary: "Playfair Display", serif;
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.875;
+$font-size-lg: $font-size-base * 1.25;
+
+$line-height-base: 1.5;
+$line-height-sm: 1.25;
+$line-height-lg: 2;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+// Breakpoints
+$breakpoint-md: 992px;

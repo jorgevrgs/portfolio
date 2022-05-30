@@ -1,0 +1,72 @@
+.about-me {
+  min-height: calc(100vh - 74px);
+
+  .hello {
+    margin-block-start: 104px;
+
+    & > .title {
+      font-family: $font-secondary;
+      margin-block: 30px 20px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: -0.01em;
+      margin-block-end: 40px;
+    }
+
+    .buttons {
+      margin-block-end: 32px;
+    }
+  }
+
+  .divider {
+    background-image: url(/images/image_geometry_2.svg);
+    background-size: cover;
+    height: 225px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: calc(100vw + 1px);
+    margin-inline: -16px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .about-me {
+    margin-block-end: 210px;
+    align-items: stretch;
+    overflow: hidden;
+
+    .hello {
+      padding-inline-start: 160px;
+      padding-inline-end: 94px;
+      flex: 3;
+      animation-name: fromTop;
+      animation-duration: 2s;
+    }
+
+    .divider {
+      height: calc(100vh - 100px);
+      width: 100%;
+      max-width: calc(50vw);
+      position: relative;
+      background-image: url(/images/desktop/image-geometry_1.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      flex: 2;
+
+      &::before {
+        display: block;
+        content: "";
+        height: 175px;
+        width: 175px;
+        position: absolute;
+        background-image: url(/images/desktop/image_dots.svg);
+        bottom: 0;
+        left: -175px;
+      }
+    }
+  }
+}
